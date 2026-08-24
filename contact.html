@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Les Éditions du Mécène</title>
+<meta name="description" content="Contactez Les Éditions du Mécène — 1 rue du Docteur Thoral, 89390 Ravières. Sur rendez-vous.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Newsreader:ital,wght@0,300;0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="spine" id="siteHeader">
+  <div class="nav-inner">
+    <a href="index.html" class="logo-mark"><img src="assets/logo-mecene-ink.png" alt="Les Éditions du Mécène"></a>
+    <nav class="links">
+      <a href="catalogue.html">Catalogue</a>
+      <a href="editions-privees.html">Éditions d'entreprise</a>
+      <a href="vin.html">Histoire Amoureuse du Vin</a>
+      <a href="fondateur.html">Le fondateur</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Nous écrire</a>
+  </div>
+</header>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Contact</div>
+      <div class="eyebrow reveal in">Correspondance</div>
+      <h1>Parlons de votre maison.</h1>
+      <p class="lead">Chaque projet commence par une conversation, pas par un devis.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-wrap">
+      <div class="reveal">
+        <div class="eyebrow">Nous joindre</div>
+        <h2>Sur rendez-vous, à Ravières.</h2>
+        <p class="lead">Écrivez-nous ce que vous avez en tête — nous reviendrons vers vous personnellement.</p>
+        <div class="contact-info">
+          <a href="tel:+33681277860">06 81 27 78 60 (mobile)</a>
+          <a href="tel:+33386553059">03 86 55 30 59 (fixe)</a>
+          <span>1 rue du Docteur Thoral — 89390 Ravières</span>
+        </div>
+        <div class="contact-block">
+          <div class="clabel">Horaires</div>
+          <div class="hours-row"><span>Lundi</span><span>Sur rendez-vous uniquement</span></div>
+          <div class="hours-row"><span>Mardi – Dimanche</span><span>9h00 – 20h00</span></div>
+        </div>
+        <div class="contact-block">
+          <div class="clabel">La maison</div>
+          <p style="color:var(--ink-soft); font-size:0.95rem;">Membre du SNEI — Syndicat National de l'Édition Indépendante. Plus de 150 livres publiés depuis 1987.</p>
+        </div>
+      </div>
+      <form class="reponse reveal" id="contactForm" onsubmit="return envoyerParEmail(event);">
+        <div><label for="nom">Votre nom</label><input type="text" id="nom" name="nom" required></div>
+        <div><label for="maison">Votre maison</label><input type="text" id="maison" name="maison"></div>
+        <div><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+        <div>
+          <label for="projet">Type de projet</label>
+          <select id="projet" name="projet">
+            <option>Édition d'entreprise</option>
+            <option>Histoire Amoureuse du Vin</option>
+            <option>Achat d'un ouvrage du catalogue</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div><label for="message">Votre projet</label><textarea id="message" name="message" rows="4"></textarea></div>
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="colophon">
+  <div class="wrap colophon-inner">
+    <div>
+      <img src="assets/logo-mecene-ink.png" alt="Les Éditions du Mécène">
+      <p class="colophon-text">
+        <span class="cap">Les Éditions du Mécène</span> — fondées en 1987 par Patrice de Moncan.<br>
+        Plus de 150 livres publiés. Composé en Fraunces et Newsreader.<br>
+        © <span id="yr"></span> — Tous droits réservés.
+      </p>
+    </div>
+    <div class="colophon-cols">
+      <div class="colophon-col">
+        <div class="ctitle">Le site</div>
+        <a href="index.html">Accueil</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="editions-privees.html">Éditions d'entreprise</a>
+        <a href="vin.html">Histoire Amoureuse du Vin</a>
+        <a href="fondateur.html">Le fondateur</a>
+      </div>
+      <div class="colophon-col">
+        <div class="ctitle">Correspondance</div>
+        <a href="tel:+33681277860">06 81 27 78 60</a>
+        <a href="contact.html">1 rue du Docteur Thoral<br>89390 Ravières</a>
+        <a href="contact.html">Nous écrire</a>
+      </div>
+    </div>
+  </div>
+  <div class="colophon-bottom">Membre du SNEI — Syndicat National de l'Édition Indépendante.</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 20));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function envoyerParEmail(e) {
+    e.preventDefault();
+    const nom = document.getElementById('nom').value;
+    const maison = document.getElementById('maison').value;
+    const email = document.getElementById('email').value;
+    const projet = document.getElementById('projet').value;
+    const message = document.getElementById('message').value;
+    const sujet = encodeURIComponent(`Contact site — ${projet} — ${nom}`);
+    const corps = encodeURIComponent(
+      `Nom : ${nom}\nMaison : ${maison}\nEmail : ${email}\nType de projet : ${projet}\n\nMessage :\n${message}`
+    );
+    window.location.href = `mailto:VOTRE-EMAIL@editionsdumecene.fr?subject=${sujet}&body=${corps}`;
+    return false;
+  }
+</script>
+</body>
+</html>
