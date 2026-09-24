@@ -30,9 +30,10 @@ et **ne simule jamais un succès**.
 
 ## 2. Portrait de Patrice de Moncan
 
-- La photo précédente était **hotlinkée** depuis `journaldunet.com` (basse résolution,
-  hébergement tiers non maîtrisé) → **retirée de la production**.
-- Un **placeholder élégant** (`assets/portrait-placeholder.svg`) est affiché en attendant.
+- Sur demande du client, la photo **hotlinkée** depuis `journaldunet.com` est **conservée**
+  à titre provisoire (basse résolution ~450 px, hébergement tiers non maîtrisé — risque de
+  rupture si le fichier distant disparaît). `referrerpolicy="no-referrer"` ajouté pour
+  limiter les blocages de hotlink.
 - **À fournir :** un portrait **HD**, libre de droits pour usage web, officiellement
   validé par le client (format portrait ~4:5, min. 800×1000 px).
   Emplacements à remplacer : `index.html` (Chapitre V) et `patrice-de-moncan.html`
