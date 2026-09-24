@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.les-editions-du-mecene.fr/sitemap.xml
