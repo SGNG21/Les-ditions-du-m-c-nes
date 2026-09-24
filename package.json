@@ -1,0 +1,13 @@
+{
+  "name": "editions-du-mecene",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Site Les Éditions du Mécène — site statique + génération SEO centralisée (SITE_URL).",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

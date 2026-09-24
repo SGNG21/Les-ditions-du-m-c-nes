@@ -16,3 +16,30 @@
 @media(max-width:1000px){:root{--pad:24px}.menu-body{grid-template-columns:1fr}.menu-side{display:none}.hero{padding-top:130px}.hero-grid,.chapter-head,.editorial-split,.case-hero,.portrait-story,.cta-grid,.manifesto,.book-detail,.bio-grid,.contact-grid{grid-template-columns:1fr}.hero-stage{height:500px;order:-1}.seal{display:none}.display{font-size:76px}.facts{grid-template-columns:1fr 1fr}.ref-grid{grid-template-columns:1fr 1fr}.awards{grid-template-columns:1fr}.award:nth-child(odd){border-right:0;padding-right:0}.award:nth-child(even){padding-left:0}.process-v4{grid-template-columns:1fr 1fr}.client-list{grid-template-columns:1fr}.catalogue-grid{grid-template-columns:1fr 1fr}.book-detail-cover,.bio-photo{position:relative;top:auto}.pagehero h1{font-size:82px}.manifesto .body{columns:1}.trow{grid-template-columns:90px 1fr}.trow p{grid-column:2}.footer-grid{grid-template-columns:1fr 1fr}.full-bleed{min-height:550px}.portrait-frame{min-height:650px}}
 @media(max-width:620px){.brand-meta,.brand-rule{display:none}.topbar{height:76px}.menu-head{height:76px}.menu-body{height:calc(100vh - 76px)}.hero{padding-top:100px}.hero-stage{height:390px}.hb1{width:39%;height:60%}.hb2{width:44%;height:69%}.hb3{width:34%;height:49%}.display{font-size:58px}.hero-lead{font-size:23px}.chapter{padding:100px 0}.chapter h2{font-size:54px}.facts{grid-template-columns:1fr}.fact{border-right:0;border-bottom:1px solid currentColor}.fact:last-child{border-bottom:0}.catalogue-grid{grid-template-columns:1fr 1fr;gap:42px 16px}.ref-grid{grid-template-columns:1fr}.process-v4{grid-template-columns:1fr}.menu-links a{font-size:43px}.menu-links{padding-left:24px}.pagehero{padding-top:150px;min-height:68vh}.pagehero h1{font-size:62px}.pagehero .intro{font-size:24px}.trow{grid-template-columns:1fr;gap:8px}.trow p{grid-column:auto}.footer-grid{grid-template-columns:1fr}.footer-bottom{gap:18px;flex-direction:column}.form{grid-template-columns:1fr}.field.full{grid-column:auto}.river-item{width:190px}.case-visual{min-height:470px}.portrait-frame{min-height:560px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ===== Stabilisation P0/P2 — utilitaires additifs (ne modifie pas la DA) ===== */
+/* Honeypot anti-spam : masqué visuellement et aux lecteurs d'écran */
+.hp-field{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}
+/* Champs obligatoires + erreurs accessibles */
+.field.is-error{border-bottom-color:var(--wine)}
+.field-error{display:none;margin-top:6px;font:400 8px 'DM Mono';letter-spacing:.08em;text-transform:uppercase;color:var(--wine)}
+.field.is-error .field-error{display:block}
+.field .req{color:var(--wine)}
+/* Zone de statut du formulaire */
+.form-status{grid-column:1/-1;margin:0;min-height:1px;font:400 12px/1.6 'Manrope';display:none}
+.form-status.is-visible{display:block}
+.form-status.is-loading{color:var(--muted)}
+.form-status.is-success{color:#2f6b45}
+.form-status.is-error{color:var(--wine)}
+/* Mention RGPD sous le formulaire */
+.form-note{grid-column:1/-1;margin:4px 0 0;font:400 11px/1.7 'Manrope';color:var(--muted)}
+.form-note a{color:inherit}
+/* Bouton pendant l'envoi */
+.form button[disabled]{opacity:.55;cursor:progress}
+/* Liens légaux dans le footer */
+.footer-legal a{color:inherit;text-decoration:none;opacity:.8}
+.footer-legal a:hover{opacity:1;text-decoration:underline}
+/* Pages légales */
+.legal-block{margin:10px 0 0;font-size:14px;line-height:1.9;color:#544d44}
+.legal-block p{margin:6px 0}
+[data-client-todo]{background:rgba(122,29,38,.08);border:1px dashed var(--wine);color:var(--wine);padding:2px 8px;border-radius:2px;font-size:.92em}

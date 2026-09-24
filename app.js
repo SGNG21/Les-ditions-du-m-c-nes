@@ -135,21 +135,107 @@
     }
   })();
 
-  /* ---------- Contact form (client-side stub — branchement Brevo/Formspree à faire) ---------- */
-  var form = document.querySelector(".form");
+  /* ---------- Book-river : clone accessible pour la boucle (une seule série sémantique) ---------- */
+  document.querySelectorAll(".book-river .river-track").forEach(function (track) {
+    // Ne cloner que les pistes réellement animées (les fiches "Autres ouvrages" sont en animation:none).
+    if (/animation\s*:\s*none/.test(track.getAttribute("style") || "")) return;
+    Array.prototype.slice.call(track.children).forEach(function (node) {
+      var clone = node.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      if (clone.setAttribute) clone.setAttribute("tabindex", "-1");
+      clone.querySelectorAll("a, button, [tabindex]").forEach(function (el) {
+        el.setAttribute("tabindex", "-1");
+      });
+      track.appendChild(clone);
+    });
+  });
+
+  /* ---------- Formulaire de contact — envoi réel via /api/contact (Brevo) ---------- */
+  var form = document.getElementById("contact-form");
   if (form) {
+    var tsField = form.querySelector("#f-ts");
+    if (tsField) tsField.value = String(Date.now());
+    var statusEl = form.querySelector("#form-status");
+    var btn = form.querySelector('button[type="submit"]');
+    var btnLabel = btn ? btn.textContent : "";
+    var submitting = false;
+
+    function setStatus(kind, msg) {
+      if (!statusEl) return;
+      statusEl.className = "form-status is-visible is-" + kind;
+      statusEl.textContent = msg;
+    }
+    function fieldError(id, on) {
+      var input = form.querySelector("#" + id);
+      if (input && input.closest(".field")) input.closest(".field").classList.toggle("is-error", on);
+    }
+    function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || "").trim()); }
+
+    function validate() {
+      var ok = true;
+      var eNom = !form.nom.value.trim(); fieldError("f-nom", eNom); if (eNom) ok = false;
+      var eMail = !validEmail(form.email.value); fieldError("f-email", eMail); if (eMail) ok = false;
+      var eMsg = form.message.value.trim().length < 10; fieldError("message", eMsg); if (eMsg) ok = false;
+      return ok;
+    }
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var btn = form.querySelector("button");
-      var original = btn.textContent;
-      btn.textContent = "Message envoyé — merci";
-      btn.disabled = true;
-      setTimeout(function () {
-        btn.textContent = original;
-        btn.disabled = false;
-        form.reset();
-      }, 3200);
-      /* TODO Geo: brancher sur Brevo (API transactionnelle) ou endpoint /api/contact */
+      if (submitting) return; // anti double-soumission
+      if (!validate()) {
+        setStatus("error", "Merci de corriger les champs indiqués.");
+        var firstErr = form.querySelector(".field.is-error input, .field.is-error textarea");
+        if (firstErr) firstErr.focus();
+        return;
+      }
+      submitting = true;
+      if (btn) { btn.disabled = true; btn.textContent = "Envoi en cours…"; }
+      setStatus("loading", "Envoi en cours…");
+
+      var payload = {
+        societe: form.societe.value, fonction: form.fonction.value,
+        nom: form.nom.value, telephone: form.telephone.value,
+        email: form.email.value, projet: form.projet.value,
+        message: form.message.value, company_url: form.company_url.value,
+        ts: Number(tsField ? tsField.value : 0)
+      };
+
+      fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          return { ok: res.ok, status: res.status, data: data };
+        });
+      }).then(function (r) {
+        if (r.ok && r.data && r.data.ok) {
+          form.reset();
+          if (tsField) tsField.value = String(Date.now());
+          setStatus("success", "Message envoyé — merci. Nous revenons vers vous rapidement.");
+        } else if (r.status === 503 || (r.data && r.data.error === "not_configured")) {
+          setStatus("error", (r.data && r.data.message) || "L’envoi n’est pas encore configuré. Merci de nous appeler au 06 81 27 78 60.");
+        } else if (r.status === 422 && r.data && r.data.fields) {
+          var map = { nom: "f-nom", email: "f-email", message: "message" };
+          Object.keys(r.data.fields).forEach(function (k) { if (map[k]) fieldError(map[k], true); });
+          setStatus("error", "Merci de corriger les champs indiqués.");
+        } else if (r.status === 429) {
+          setStatus("error", "Trop de tentatives. Merci de réessayer dans quelques minutes.");
+        } else {
+          setStatus("error", "L’envoi a échoué. Merci de réessayer ou de nous appeler au 06 81 27 78 60.");
+        }
+      }).catch(function () {
+        setStatus("error", "Connexion impossible. Vérifiez votre réseau ou appelez-nous au 06 81 27 78 60.");
+      }).then(function () {
+        submitting = false;
+        if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+      });
+    });
+
+    form.querySelectorAll("input, textarea").forEach(function (el) {
+      el.addEventListener("input", function () {
+        var f = el.closest(".field"); if (f) f.classList.remove("is-error");
+      });
     });
   }
 })();
