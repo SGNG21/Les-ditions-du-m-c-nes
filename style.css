@@ -109,3 +109,8 @@ a.mail span{white-space:nowrap}
 .collab-step figcaption{margin-top:14px;font:400 8px 'DM Mono';letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
 @media(max-width:1000px){.collab-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.collab-grid{gap:14px;margin:36px 0 56px}}
+/* Hero : couvertures à leurs proportions réelles (plus de recadrage) */
+.hero-book{height:auto!important}
+.hero-book img{height:auto;display:block;object-fit:fill}
+.hb1{width:42%;left:2%;bottom:6%}.hb2{width:47%;right:1%;bottom:16%}.hb3{width:34%;left:38%;bottom:0}
+@media(max-width:1000px){.hb1{width:44%}.hb2{width:48%}.hb3{width:38%}}
