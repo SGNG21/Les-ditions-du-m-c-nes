@@ -62,3 +62,7 @@
 @media(max-width:1000px){.cover-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.cover-grid{grid-template-columns:1fr 1fr;gap:40px 16px}.cover-card h4{font-size:18px}}
 .cover-grid.is-collapsed>.cover-card:nth-child(n+17){display:none}.cover-more{border:0;cursor:pointer;margin-top:50px}
+/* Accueil : second portrait (Debra Finerman), en miroir */
+.portrait-story--reverse{grid-template-columns:1.28fr .72fr;margin-top:140px}
+.portrait-story--reverse .portrait-frame{order:2}
+@media(max-width:1000px){.portrait-story--reverse{grid-template-columns:1fr;margin-top:90px}.portrait-story--reverse .portrait-frame{order:0}}
