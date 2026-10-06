@@ -66,3 +66,33 @@
 .portrait-story--reverse{grid-template-columns:1.28fr .72fr;margin-top:140px}
 .portrait-story--reverse .portrait-frame{order:2}
 @media(max-width:1000px){.portrait-story--reverse{grid-template-columns:1fr;margin-top:90px}.portrait-story--reverse .portrait-frame{order:0}}
+/* Édition de prestige (Histoire Amoureuse du Vin) */
+.book-detail-cover img.cover-3d{box-shadow:none;filter:drop-shadow(0 30px 40px rgba(17,17,15,.28))}
+.spread-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px 48px;margin-top:50px}
+.spread{margin:0}
+.spread img{width:100%;height:auto;box-shadow:0 24px 60px rgba(17,17,15,.18)}
+.spread figcaption{padding-top:26px}
+.spread-era{font:400 8px 'DM Mono';letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+.spread h3{font:500 34px/1 'Cormorant Garamond';margin:12px 0 10px}
+.spread-lead{font:italic 400 21px/1.3 'Cormorant Garamond';color:var(--wine);margin:0 0 12px}
+.spread p{font-size:13px;line-height:1.8;color:#5b544a}
+.spread-wines b{font:400 8px 'DM Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:10px}
+@media(max-width:1000px){.spread-grid{grid-template-columns:1fr}}
+.menu-feature{display:block;color:inherit;text-decoration:none}.menu-feature:hover .edition{color:var(--gold)}
+/* Accueil : bandeau défilant « Les livres du moment » */
+.now-band{display:flex;align-items:stretch;background:var(--ink);color:var(--ivory);border-top:1px solid rgba(243,238,228,.12);border-bottom:1px solid rgba(243,238,228,.12);overflow:hidden}
+.now-label{flex:0 0 auto;display:flex;align-items:center;padding:0 34px 0 var(--pad);font:400 8px/1.7 'DM Mono';letter-spacing:.16em;text-transform:uppercase;color:var(--gold);border-right:1px solid rgba(243,238,228,.14);position:relative;z-index:2;background:var(--ink)}
+.now-viewport{flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.now-track{display:flex;gap:56px;width:max-content;padding:22px 28px;animation:river 60s linear infinite}
+.now-band:hover .now-track,.now-band:focus-within .now-track{animation-play-state:paused}
+.now-item{display:flex;align-items:center;gap:18px;color:inherit;text-decoration:none;flex:0 0 auto}
+.now-item img{width:auto;height:74px;box-shadow:0 10px 24px rgba(0,0,0,.45);transition:transform .3s}
+.now-item:hover img{transform:translateY(-3px)}
+.now-item b{display:block;font:500 21px/1.05 'Cormorant Garamond';max-width:17ch}
+.now-item small{display:block;margin-top:6px;font:400 7px 'DM Mono';letter-spacing:.13em;text-transform:uppercase;color:rgba(243,238,228,.55)}
+.now-item:hover b{color:var(--gold)}
+@media(max-width:620px){.now-label{padding:0 18px 0 var(--pad)}.now-track{gap:36px;padding:16px 20px}.now-item img{height:58px}.now-item b{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.now-viewport{overflow-x:auto}}
+.offer-grid{grid-template-columns:1.15fr .85fr}.offer-list{grid-template-columns:1fr;margin-top:34px}.offer-list .award{padding-left:0}
+@media(max-width:1000px){.offer-grid{grid-template-columns:1fr}}
+.offer-list .award{border-right:0!important;padding-left:0!important;padding-right:0!important}

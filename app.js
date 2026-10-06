@@ -136,7 +136,7 @@
   })();
 
   /* ---------- Book-river : clone accessible pour la boucle (une seule série sémantique) ---------- */
-  document.querySelectorAll(".book-river .river-track").forEach(function (track) {
+  document.querySelectorAll(".book-river .river-track, .now-band .now-track").forEach(function (track) {
     // Ne cloner que les pistes réellement animées (les fiches "Autres ouvrages" sont en animation:none).
     if (/animation\s*:\s*none/.test(track.getAttribute("style") || "")) return;
     Array.prototype.slice.call(track.children).forEach(function (node) {
