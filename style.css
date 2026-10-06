@@ -153,3 +153,13 @@ a.mail span{white-space:nowrap}
 .moment-list small{font:400 7px 'DM Mono';letter-spacing:.13em;text-transform:uppercase;color:var(--wine);white-space:nowrap}
 .moment-list a:hover b{color:var(--wine)}
 .contact-hero-grid{align-items:center}
+/* Personnalités : petites photos */
+.sig-card{min-height:0}
+.sig-list{list-style:none;margin:22px 0 0;padding:0}
+.sig-list li{display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.sig-list li:first-child{border-top:0}
+.sig-av{position:relative;flex:0 0 52px;width:52px;height:52px;border-radius:50%;overflow:hidden;background:var(--wine);display:grid;place-items:center}
+.sig-av i{font:italic 500 18px 'Cormorant Garamond';color:var(--ivory)}
+.sig-av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(100%) contrast(1.05)}
+.sig-list b{display:block;font:500 23px/1.05 'Cormorant Garamond'}
+.sig-list small{display:block;margin-top:4px;font:400 7px 'DM Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
