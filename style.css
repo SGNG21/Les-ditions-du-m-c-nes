@@ -51,3 +51,13 @@
 .logo-wall{background:transparent;border:0;gap:0}.logo-wall>div,.logo-wall>a{box-shadow:0 0 0 .5px var(--line)}
 /* Repère « Faire défiler » dans la marge, sans chevaucher le texte */
 .scroll-note{left:calc(var(--pad)/2 - 5px)}@media(max-width:1000px){.scroll-note{display:none}}
+/* Galerie de couvertures (réalisations) */
+.cover-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:60px 34px;margin-top:50px;align-items:start}
+.cover-card{margin:0}
+.cover-frame{aspect-ratio:3/4;display:flex;align-items:flex-end;justify-content:center}
+.cover-frame img{max-width:100%;max-height:100%;width:auto;height:auto;box-shadow:0 22px 50px rgba(17,17,15,.25)}
+.cover-card h4{font:500 22px/1.05 'Cormorant Garamond';margin:20px 0 8px}
+.cover-card p{margin:0;font:400 8px/1.6 'DM Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--wine)}
+.chapter.dark .cover-card p{color:var(--gold)}
+@media(max-width:1000px){.cover-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.cover-grid{grid-template-columns:1fr 1fr;gap:40px 16px}.cover-card h4{font-size:18px}}
