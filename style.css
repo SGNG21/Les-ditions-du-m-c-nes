@@ -44,3 +44,8 @@
 .legal-block{margin:10px 0 0;font-size:14px;line-height:1.9;color:#544d44}
 .legal-block p{margin:6px 0}
 [data-client-todo]{background:rgba(122,29,38,.08);border:1px dashed var(--wine);color:var(--wine);padding:2px 8px;border-radius:2px;font-size:.92em}
+
+/* Grille 2 colonnes (interlocuteurs) */
+.client-list.two{grid-template-columns:1fr 1fr}@media(max-width:1000px){.client-list.two{grid-template-columns:1fr}}
+.chapter.dark .client,.chapter.wine .client{color:var(--ink)}
+.logo-wall{background:transparent;border:0;gap:0}.logo-wall>div,.logo-wall>a{box-shadow:0 0 0 .5px var(--line)}

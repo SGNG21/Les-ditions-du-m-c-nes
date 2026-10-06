@@ -55,6 +55,7 @@ export const SITEMAP_PAGES = [
   { path: "/", priority: "1.0", changefreq: "monthly" },
   { path: "/maison.html", priority: "0.8", changefreq: "yearly" },
   { path: "/entreprises.html", priority: "0.9", changefreq: "yearly" },
+  { path: "/international.html", priority: "0.7", changefreq: "yearly" },
   { path: "/catalogue.html", priority: "0.9", changefreq: "monthly" },
   { path: "/patrice-de-moncan.html", priority: "0.7", changefreq: "yearly" },
   { path: "/contact.html", priority: "0.8", changefreq: "yearly" },
