@@ -265,3 +265,17 @@
   });
   grid.after(btn);
 })();
+
+/* ---------- Bouton « Demander un devis » flottant : visible après le premier écran ---------- */
+(function () {
+  var btn = document.querySelector(".devis-float");
+  if (!btn) return;
+  var footer = document.querySelector(".footer");
+  function update() {
+    var past = window.scrollY > window.innerHeight * 0.8;
+    var atFooter = footer && footer.getBoundingClientRect().top < window.innerHeight - 40;
+    btn.classList.toggle("is-visible", past && !atFooter);
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+})();
