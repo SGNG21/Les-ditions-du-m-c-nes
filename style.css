@@ -164,3 +164,17 @@ a.mail span{white-space:nowrap}
 .sig-list b{display:block;font:500 23px/1.05 'Cormorant Garamond'}
 .sig-list small{display:block;margin-top:4px;font:400 7px 'DM Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .sig-av img.local{object-position:center}
+/* Trois façons de publier : 3 offres illustrées */
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(243,238,228,.16);border-top:1px solid rgba(243,238,228,.16);border-bottom:1px solid rgba(243,238,228,.16);margin-top:20px}
+.offer{background:var(--wine);padding:44px 38px 40px;display:flex;flex-direction:column}
+.offer-visual{height:260px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:36px}
+.offer-visual img{max-height:100%;width:auto;max-width:72%;filter:drop-shadow(0 26px 30px rgba(0,0,0,.4));transition:transform .5s}
+.offer:hover .offer-visual img{transform:translateY(-6px) rotate(-1.5deg)}
+.offer-n{font:italic 500 46px/1 'Cormorant Garamond';color:var(--gold)}
+.offer h3{font:500 32px/1 'Cormorant Garamond';margin:10px 0 14px;color:var(--ivory)}
+.offer p{font-size:13px;line-height:1.8;opacity:.78;margin:0 0 18px;flex:1}
+.offer small{display:block;font:400 7px/1.6 'DM Mono';letter-spacing:.13em;text-transform:uppercase;color:rgba(243,238,228,.55);margin-bottom:18px}
+.offer .text-link{color:var(--ivory)}
+@media(max-width:1000px){.offers{grid-template-columns:1fr}.offer-visual{height:220px}}
+.chapter.wine .offer{background:transparent}.offers{background:transparent}.offer+.offer{border-left:1px solid rgba(243,238,228,.16)}
+@media(max-width:1000px){.offer+.offer{border-left:0;border-top:1px solid rgba(243,238,228,.16)}}
