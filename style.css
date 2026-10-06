@@ -208,3 +208,5 @@ a.mail span{white-space:nowrap}
 .logo-strip img{filter:none!important;opacity:1!important;max-height:48px}
 .client-list>.client:last-child:nth-child(3n+1){grid-column:1/-1;min-height:0}
 @media(max-width:1000px){.client-list>.client:last-child:nth-child(3n+1){grid-column:auto}}
+.cover-grid-3{grid-template-columns:repeat(3,minmax(0,280px))}
+@media(max-width:620px){.cover-grid-3{grid-template-columns:1fr 1fr}}
