@@ -114,3 +114,16 @@ a.mail span{white-space:nowrap}
 .hero-book img{height:auto;display:block;object-fit:fill}
 .hb1{width:42%;left:2%;bottom:6%}.hb2{width:47%;right:1%;bottom:16%}.hb3{width:34%;left:38%;bottom:0}
 @media(max-width:1000px){.hb1{width:44%}.hb2{width:48%}.hb3{width:38%}}
+/* Accueil : Patrice et Debra côte à côte */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:6vw;margin-top:50px;align-items:start}
+.duo-card{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:start}
+.duo-frame{min-height:0!important;aspect-ratio:3/4}
+.duo-frame .portrait-tag{left:18px;bottom:18px;padding:9px 12px}
+.duo-frame:after{inset:12px}
+.duo-copy h3{font:500 clamp(30px,2.6vw,44px)/.95 'Cormorant Garamond';letter-spacing:-.03em;margin:10px 0 14px}
+.duo-copy .signature{font-size:clamp(19px,1.5vw,24px);margin:0 0 14px}
+.duo-copy .copy{font-size:13px;line-height:1.8}
+.duo-copy .mini-timeline{margin:18px 0 20px}
+@media(max-width:1200px){.duo-card{grid-template-columns:1fr}.duo-frame{max-width:360px}}
+@media(max-width:760px){.duo{grid-template-columns:1fr;gap:70px}}
+.duo-copy .mini-timeline div{grid-template-columns:90px 1fr;gap:16px;padding:12px 0}
