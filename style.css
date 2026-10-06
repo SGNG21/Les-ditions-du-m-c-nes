@@ -100,3 +100,12 @@ a.mail span{white-space:nowrap}
 .now-cover-ph{display:flex;align-items:center;justify-content:center;text-align:center;width:50px;height:74px;background:var(--wine);color:var(--ivory);font:500 11px/1 "Cormorant Garamond";box-shadow:0 10px 24px rgba(0,0,0,.45)}.now-cover-ph em{font-size:12px}
 @media(max-width:620px){.now-cover-ph{width:40px;height:58px;font-size:9px}}
 .now-cover-ph{flex-direction:column;gap:2px}
+/* Accueil : 4 étapes en images (rédaction, studio photo, maquette, imprimerie) */
+.collab-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:50px 0 80px}
+.collab-step{margin:0}
+.collab-img{aspect-ratio:4/5;overflow:hidden;background:#d6cdbd}
+.collab-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.collab-step:hover img{transform:scale(1.04)}
+.collab-step figcaption{margin-top:14px;font:400 8px 'DM Mono';letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+@media(max-width:1000px){.collab-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.collab-grid{gap:14px;margin:36px 0 56px}}
