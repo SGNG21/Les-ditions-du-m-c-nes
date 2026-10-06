@@ -163,3 +163,4 @@ a.mail span{white-space:nowrap}
 .sig-av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(100%) contrast(1.05)}
 .sig-list b{display:block;font:500 23px/1.05 'Cormorant Garamond'}
 .sig-list small{display:block;margin-top:4px;font:400 7px 'DM Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.sig-av img.local{object-position:center}
