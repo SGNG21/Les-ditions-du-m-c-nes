@@ -279,3 +279,49 @@
   window.addEventListener("scroll", update, { passive: true });
   update();
 })();
+
+/* ---------- Carrousel des livres d'entreprise (flèches + défilement automatique) ---------- */
+(function () {
+  var root = document.querySelector(".case-carousel");
+  if (!root) return;
+  var slides = root.querySelectorAll(".case-slide");
+  var count = root.querySelector(".case-count b");
+  var bar = root.querySelector(".case-progress i");
+  var DELAY = 6000, i = 0, timer = null, paused = false;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  root.style.setProperty("--case-delay", DELAY / 1000 + "s");
+  function show(n) {
+    slides[i].classList.remove("is-active"); slides[i].setAttribute("aria-hidden", "true");
+    i = (n + slides.length) % slides.length;
+    slides[i].classList.add("is-active"); slides[i].removeAttribute("aria-hidden");
+    var img = slides[i].querySelector("img"); if (img) img.loading = "eager";
+    if (count) count.textContent = String(i + 1).padStart(2, "0");
+    restart();
+  }
+  function restart() {
+    clearTimeout(timer);
+    if (bar) { bar.classList.remove("run"); void bar.offsetWidth; }
+    if (reduce || paused) return;
+    if (bar) bar.classList.add("run");
+    timer = setTimeout(function () { show(i + 1); }, DELAY);
+  }
+  root.querySelector(".case-prev").addEventListener("click", function () { show(i - 1); });
+  root.querySelector(".case-next").addEventListener("click", function () { show(i + 1); });
+  function pause(on) { paused = on; root.classList.toggle("is-paused", on); if (on) { clearTimeout(timer); } else { restart(); } }
+  root.addEventListener("mouseenter", function () { pause(true); });
+  root.addEventListener("mouseleave", function () { pause(false); });
+  root.addEventListener("focusin", function () { pause(true); });
+  root.addEventListener("focusout", function () { pause(false); });
+  root.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") show(i - 1);
+    if (e.key === "ArrowRight") show(i + 1);
+  });
+  // Glisser au doigt sur mobile
+  var x0 = null;
+  root.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  root.addEventListener("touchend", function (e) {
+    if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) show(dx < 0 ? i + 1 : i - 1);
+  });
+  restart();
+})();

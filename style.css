@@ -210,3 +210,24 @@ a.mail span{white-space:nowrap}
 @media(max-width:1000px){.client-list>.client:last-child:nth-child(3n+1){grid-column:auto}}
 .cover-grid-3{grid-template-columns:repeat(3,minmax(0,280px))}
 @media(max-width:620px){.cover-grid-3{grid-template-columns:1fr 1fr}}
+/* Entreprises : carrousel des livres d'entreprise */
+.case-head{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:40px}
+.case-nav{display:flex;align-items:center;gap:18px}
+.case-nav button{width:54px;height:54px;border-radius:50%;border:1px solid var(--ink);background:transparent;color:var(--ink);font-size:20px;cursor:pointer;transition:background .25s,color .25s}
+.case-nav button:hover,.case-nav button:focus-visible{background:var(--ink);color:var(--ivory)}
+.case-count{font:400 11px 'DM Mono';letter-spacing:.14em;color:var(--muted)}.case-count b{color:var(--wine);font-weight:400}
+.case-track{display:grid}
+.case-slide{grid-area:1/1;display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;opacity:0;visibility:hidden;transition:opacity .7s ease,visibility 0s .7s}
+.case-slide.is-active{opacity:1;visibility:visible;transition:opacity .7s ease}
+.case-slide-visual{background:var(--paper);height:min(70vh,640px);display:flex;align-items:center;justify-content:center;padding:6%}
+.case-slide-visual img{max-height:100%;width:auto;max-width:100%;box-shadow:0 30px 60px rgba(17,17,15,.28);transform:translateY(14px);transition:transform 1s ease}
+.case-slide.is-active .case-slide-visual img{transform:none}
+.case-slide-copy h3{font:500 clamp(44px,4.6vw,78px)/.92 'Cormorant Garamond';letter-spacing:-.045em;margin:12px 0 26px}
+.case-slide-copy p{font-size:14px;line-height:1.9;color:#544d44;max-width:52ch}
+.case-progress{height:1px;background:var(--line);margin-top:40px;position:relative;overflow:hidden}
+.case-progress i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--wine)}
+.case-progress i.run{animation:caseprog var(--case-delay,6s) linear forwards}
+.case-carousel.is-paused .case-progress i{animation-play-state:paused}
+@keyframes caseprog{to{width:100%}}
+@media(max-width:1000px){.case-slide{grid-template-columns:1fr;gap:34px}.case-slide-visual{height:420px}}
+@media(max-width:620px){.case-head{flex-direction:column;align-items:flex-start}.case-slide-visual{height:340px}}
