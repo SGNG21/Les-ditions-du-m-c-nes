@@ -197,3 +197,14 @@ a.mail span{white-space:nowrap}
 @media(max-width:1000px){.logo-strip{grid-template-columns:repeat(6,1fr)}}
 @media(max-width:620px){.logo-strip{grid-template-columns:repeat(3,1fr)}}
 .seal{font-size:7.5px!important;line-height:1.5}
+/* Logos clients : en couleur, sans fond blanc (PNG transparents) */
+.logo-wall{background:transparent!important;border:0!important;gap:0!important}
+.logo-wall>div,.logo-wall>a{background:transparent!important;box-shadow:none!important;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:120px}
+.logo-wall img{filter:none!important;opacity:1!important;max-height:64px}
+.logo-wall a:hover img,.logo-wall div:hover img{transform:scale(1.05);transition:transform .3s}
+/* Bande de logos de l'accueil : bandeau papier dans la section sombre */
+.logo-strip{background:var(--paper)!important;gap:0!important;padding:10px 0}
+.logo-strip span{background:transparent!important;height:90px}
+.logo-strip img{filter:none!important;opacity:1!important;max-height:48px}
+.client-list>.client:last-child:nth-child(3n+1){grid-column:1/-1;min-height:0}
+@media(max-width:1000px){.client-list>.client:last-child:nth-child(3n+1){grid-column:auto}}
