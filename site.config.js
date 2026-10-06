@@ -8,6 +8,8 @@
  * pour ne pas créer une seconde version indexable du site.
  */
 
+import { readFileSync } from "node:fs";
+
 export const PRODUCTION_URL = "https://les-editions-du-mecene.com";
 
 export const SITE = {
@@ -73,3 +75,13 @@ export const SITEMAP_PAGES = [
   { path: "/ouvrage-strasbourg.html", priority: "0.6", changefreq: "yearly" },
   { path: "/ouvrage-vin.html", priority: "0.6", changefreq: "yearly" },
 ];
+
+// Pages livres générées au build (scripts/livres.mjs) depuis data/livres.json.
+const LIVRES = JSON.parse(
+  readFileSync(new URL("./data/livres.json", import.meta.url), "utf8")
+);
+for (const b of LIVRES) {
+  if (!b.page) {
+    SITEMAP_PAGES.push({ path: `/livre-${b.slug}.html`, priority: "0.5", changefreq: "yearly" });
+  }
+}

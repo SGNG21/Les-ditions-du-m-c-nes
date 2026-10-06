@@ -258,3 +258,27 @@ a.award:hover h4:after{opacity:1}
 .offer-visual-duo img:last-child{transform:rotate(3deg) translateX(-3%) translateY(-8px)}
 .offer:hover .offer-visual-duo img:first-child{transform:rotate(-4deg) translateX(0) translateY(-6px)}
 .offer:hover .offer-visual-duo img:last-child{transform:rotate(4deg) translateX(0) translateY(-12px)}
+/* Pages livres générées */
+.pagehero.livre-hero{min-height:62vh}.pagehero.livre-hero h1{font-size:clamp(50px,6.4vw,112px);line-height:.86;max-width:18ch}
+.pagehero .kicker a{text-decoration:none}
+.livre-title{font:500 clamp(40px,4.4vw,72px)/.92 'Cormorant Garamond',serif;letter-spacing:-.045em;margin:12px 0 28px}
+.spec-link{display:inline-block;margin-top:6px;color:var(--wine);font:400 10.5px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(101,28,39,.35)}
+.spec-link:hover{border-color:var(--wine)}
+.book-detail-copy .button-ghost{margin-left:10px}
+.press-list{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid rgba(243,238,228,.2)}
+.press-item{display:flex;flex-direction:column;gap:10px;padding:30px 40px 30px 0;border-bottom:1px solid rgba(243,238,228,.2);text-decoration:none;color:inherit;position:relative}
+.press-item:nth-child(even){padding-left:40px;border-left:1px solid rgba(243,238,228,.2)}
+.press-item small{font:400 10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.press-item span{font:500 26px/1.1 'Cormorant Garamond',serif}
+.press-item span:after{content:' ↗';color:var(--gold);font-size:.8em}
+.press-item:hover span{color:var(--gold)}
+@media(max-width:800px){.press-list{grid-template-columns:1fr}.press-item:nth-child(even){padding-left:0;border-left:0}.book-detail-copy .button-ghost{margin:12px 0 0}}
+/* Couvertures cliquables */
+a.cover-link{display:block;text-decoration:none;color:inherit}
+a.cover-link .cover-frame{transition:transform .45s,box-shadow .45s}
+a.cover-link:hover .cover-frame{transform:translateY(-6px)}
+a.cover-link figcaption h4:after{content:' →';color:var(--gold);opacity:0;transition:opacity .2s}
+a.cover-link:hover figcaption h4:after{opacity:1}
+.livre-related{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-bottom:40px}.livre-related .river-item{width:auto}
+@media(max-width:800px){.livre-related{grid-template-columns:1fr 1fr;gap:28px}.livre-related .river-item h4{font-size:20px}}
+a.river-item{text-decoration:none;color:inherit}

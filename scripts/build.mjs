@@ -12,6 +12,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { resolveSiteUrl, SITEMAP_PAGES } from "../site.config.js";
+import { buildLivres } from "./livres.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -26,6 +27,7 @@ const EXCLUDE = new Set([
   "scripts",
   "api",
   "site.config.js",
+  "data",
   "package.json",
   "package-lock.json",
   "pnpm-lock.yaml",
@@ -105,6 +107,8 @@ function buildRobots() {
 async function main() {
   await fs.rm(DIST, { recursive: true, force: true });
   await copyDir(ROOT, DIST);
+  const nLivres = await buildLivres(DIST, transformHtml);
+  console.log(`[build] ${nLivres} pages livres générées.`);
   await fs.writeFile(path.join(DIST, "sitemap.xml"), buildSitemap());
   await fs.writeFile(path.join(DIST, "robots.txt"), buildRobots());
 
