@@ -96,3 +96,7 @@
 .offer-grid{grid-template-columns:1.15fr .85fr}.offer-list{grid-template-columns:1fr;margin-top:34px}.offer-list .award{padding-left:0}
 @media(max-width:1000px){.offer-grid{grid-template-columns:1fr}}
 .offer-list .award{border-right:0!important;padding-left:0!important;padding-right:0!important}
+a.mail span{white-space:nowrap}
+.now-cover-ph{display:flex;align-items:center;justify-content:center;text-align:center;width:50px;height:74px;background:var(--wine);color:var(--ivory);font:500 11px/1 "Cormorant Garamond";box-shadow:0 10px 24px rgba(0,0,0,.45)}.now-cover-ph em{font-size:12px}
+@media(max-width:620px){.now-cover-ph{width:40px;height:58px;font-size:9px}}
+.now-cover-ph{flex-direction:column;gap:2px}
