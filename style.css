@@ -146,3 +146,10 @@ a.mail span{white-space:nowrap}
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .40 0 0 0 0 .33 0 0 0 0 .24 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
  repeating-linear-gradient(0deg,transparent 0 31px,rgba(101,28,39,.045) 31px 32px)}
 .contact-texture:after{content:'Mécène';position:absolute;z-index:-1;right:-2vw;bottom:-4vw;font:italic 500 clamp(120px,20vw,320px)/.8 'Cormorant Garamond';letter-spacing:-.05em;color:rgba(101,28,39,.06);pointer-events:none;white-space:nowrap}
+.moment-list{margin-top:38px;border-top:1px solid var(--line);max-width:560px}
+.moment-list .eyebrow{margin:18px 0 6px}
+.moment-list a{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.moment-list b{font:500 22px/1.1 'Cormorant Garamond'}
+.moment-list small{font:400 7px 'DM Mono';letter-spacing:.13em;text-transform:uppercase;color:var(--wine);white-space:nowrap}
+.moment-list a:hover b{color:var(--wine)}
+.contact-hero-grid{align-items:center}

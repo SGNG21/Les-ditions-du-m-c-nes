@@ -121,12 +121,16 @@
     var select = document.getElementById("projet");
     var message = document.getElementById("message");
     if (select) {
+      // Livre du moment (« Commander : Titre ») si le titre correspond, sinon achat catalogue.
+      var titre = ouvrage.split(" · ")[0].toLowerCase();
+      var fallback = -1, match = -1;
       for (var i = 0; i < select.options.length; i++) {
-        if (select.options[i].text === "Achat d’un ouvrage du catalogue") {
-          select.selectedIndex = i;
-          break;
-        }
+        var txt = select.options[i].text;
+        if (txt === "Achat d’un ouvrage du catalogue") fallback = i;
+        if (txt.indexOf("Commander : ") === 0 && txt.slice(12).toLowerCase() === titre) match = i;
       }
+      if (match > -1) select.selectedIndex = match;
+      else if (fallback > -1) select.selectedIndex = fallback;
     }
     if (message) {
       message.value = "Bonjour,\n\nJe souhaite en savoir plus sur l’ouvrage : " + ouvrage + ".\n\n";
