@@ -61,3 +61,4 @@
 .chapter.dark .cover-card p{color:var(--gold)}
 @media(max-width:1000px){.cover-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.cover-grid{grid-template-columns:1fr 1fr;gap:40px 16px}.cover-card h4{font-size:18px}}
+.cover-grid.is-collapsed>.cover-card:nth-child(n+17){display:none}.cover-more{border:0;cursor:pointer;margin-top:50px}

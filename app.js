@@ -239,3 +239,25 @@
     });
   }
 })();
+
+/* ---------- Galerie « D'autres livres » : 16 premiers visibles, bouton pour le reste ---------- */
+(function () {
+  var grid = document.querySelector("#autres-livres .cover-grid");
+  if (!grid) return;
+  var LIMIT = 16;
+  var hidden = grid.children.length - LIMIT;
+  if (hidden <= 0) return;
+  grid.classList.add("is-collapsed");
+  var btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "button cover-more";
+  btn.setAttribute("aria-expanded", "false");
+  btn.textContent = "Voir les " + hidden + " autres livres";
+  btn.addEventListener("click", function () {
+    var open = grid.classList.toggle("is-collapsed") === false;
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Réduire la liste" : "Voir les " + hidden + " autres livres";
+    if (!open) grid.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  grid.after(btn);
+})();
