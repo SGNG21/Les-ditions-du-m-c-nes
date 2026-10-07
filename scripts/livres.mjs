@@ -19,6 +19,11 @@ export function loadLivres() {
   return JSON.parse(readFileSync(path.join(ROOT, "data", "livres.json"), "utf8"));
 }
 
+/** Fiche sans description sourcée : non indexée tant qu'elle n'est pas enrichie. */
+export function isThin(b) {
+  return !b.description;
+}
+
 export function livreHref(b) {
   return b.page || `livre-${b.slug}.html`;
 }
@@ -149,6 +154,13 @@ function renderHead(b, desc) {
   if (b.isbn) book.isbn = b.isbn;
   if (b.pages && /^\d+$/.test(b.pages)) book.numberOfPages = Number(b.pages);
   if (b.prix?.length) book.award = b.prix;
+  if (b.presse?.length)
+    book.subjectOf = b.presse.map((p) => ({
+      "@type": "CreativeWork",
+      name: p.titre,
+      url: p.url,
+      publisher: { "@type": "Organization", name: p.source },
+    }));
   if (b.client) book.sponsor = { "@type": "Organization", name: b.client, ...(b.liens_client?.[0] ? { url: b.liens_client[0].url } : {}) };
   const crumbs = {
     "@context": "https://schema.org",
@@ -161,7 +173,7 @@ function renderHead(b, desc) {
   };
   const d = esc(desc.length > 300 ? desc.slice(0, 297).replace(/\s\S*$/, "") + "…" : desc);
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="${d}">
+<meta name="description" content="${d}">${isThin(b) ? '\n<meta name="robots" content="noindex,follow">' : ""}
 <link rel="canonical" href="${url}">
 <meta name="theme-color" content="#11110f"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <title>${esc(title)}</title>

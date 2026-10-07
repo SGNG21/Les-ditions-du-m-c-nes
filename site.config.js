@@ -81,7 +81,8 @@ const LIVRES = JSON.parse(
   readFileSync(new URL("./data/livres.json", import.meta.url), "utf8")
 );
 for (const b of LIVRES) {
-  if (!b.page) {
+  // Les fiches sans description sourcée (noindex) restent hors sitemap.
+  if (!b.page && b.description) {
     SITEMAP_PAGES.push({ path: `/livre-${b.slug}.html`, priority: "0.5", changefreq: "yearly" });
   }
 }
