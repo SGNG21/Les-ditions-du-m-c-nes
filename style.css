@@ -380,3 +380,7 @@ a.river-item{text-decoration:none;color:inherit}
 @keyframes whyIn{from{opacity:0;margin-bottom:-30px}to{opacity:1;margin-bottom:0}}
 @media(max-width:1000px){.why-visual{height:220px}.why-visual a{max-width:130px}}
 @media(prefers-reduced-motion:reduce){.why-visual a{transition:none;animation:none!important}}
+/* Liens de redirection (text-link) plus visibles */
+.text-link{font-size:13px;letter-spacing:.12em;gap:12px;padding-bottom:6px;border-bottom:1px solid currentColor}
+.text-link:after{font-size:15px}
+@media(max-width:620px){.text-link{font-size:12px}}
