@@ -389,3 +389,12 @@ a.river-item{text-decoration:none;color:inherit}
 .logo-wall img{max-height:70px;max-width:88%}
 .logo-wall img.sq{max-height:104px}
 @media(max-width:620px){.logo-wall>div,.logo-wall>a{min-height:110px;padding:12px}.logo-wall img{max-height:54px}.logo-wall img.sq{max-height:80px}}
+/* Prix : l'institution en grand, le nom du prix en petit */
+.award .award-prize{font:400 10.5px/1.5 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);opacity:1;margin:0 0 6px}
+.award h4{font-size:32px}
+.award-medal b{font-size:30px;line-height:.95}
+.award-star-copy .copy+.copy{margin-top:-6px}
+.award p b{font-weight:600;color:var(--ivory);opacity:.95}
+.award-star-by span{color:#e3c88f}
+.award-medal b{font-size:25px}
+@media(max-width:800px){.award-medal b{font-size:16px}.award-medal span{font-size:7px}}
