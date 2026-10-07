@@ -384,3 +384,8 @@ a.river-item{text-decoration:none;color:inherit}
 .text-link{font-size:13px;letter-spacing:.12em;gap:12px;padding-bottom:6px;border-bottom:1px solid currentColor}
 .text-link:after{font-size:15px}
 @media(max-width:620px){.text-link{font-size:12px}}
+/* Murs de logos : logos carrés/ronds agrandis pour la lisibilité */
+.logo-wall>div,.logo-wall>a{min-height:140px;padding:18px}
+.logo-wall img{max-height:70px;max-width:88%}
+.logo-wall img.sq{max-height:104px}
+@media(max-width:620px){.logo-wall>div,.logo-wall>a{min-height:110px;padding:12px}.logo-wall img{max-height:54px}.logo-wall img.sq{max-height:80px}}
