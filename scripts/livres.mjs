@@ -96,7 +96,7 @@ function renderMain(b, all) {
     : "";
 
   const voir = b.voir_aussi
-    ? ` <a class="button button-ghost" href="${esc(b.voir_aussi)}">Voir l’ouvrage de référence</a>`
+    ? ` <a class="button button-ghost" href="${esc(b.voir_aussi)}">${esc(b.voir_aussi_label || "Voir l’ouvrage de référence")}</a>`
     : "";
 
   const rel = related(b, all)

@@ -144,7 +144,26 @@
     "titre": "Christian Lacroix, Costumier - Christian Lacroix",
     "url": "https://www.babelio.com/livres/Lacroix-Christian-Lacroix-Costumier/477006"
    }
-  ]
+  ],
+  "description_courte": "Le catalogue a aussi paru au Brésil, en portugais, sous le titre Christian Lacroix · Trajes de Cena, avec la Fundação Armando Alvares Penteado de São Paulo."
+ },
+ {
+  "slug": "christian-lacroix-trajes-de-cena",
+  "titre": "Christian Lacroix · Trajes de Cena",
+  "client": "Fundação Armando Alvares Penteado (FAAP) · São Paulo",
+  "src": "assets/realisations/christian-lacroix-trajes-de-cena.jpg",
+  "w": 481,
+  "h": 581,
+  "categorie": "musee",
+  "description": "Édition en portugais du catalogue Christian Lacroix costumier, publiée au Brésil avec la Fundação Armando Alvares Penteado (FAAP) de São Paulo. Le livre consacré aux costumes de scène créés par Christian Lacroix pour le théâtre, l’opéra et le ballet voyage ainsi de Moulins à São Paulo, dans la langue de son public.",
+  "liens_client": [
+   {
+    "nom": "FAAP",
+    "url": "https://www.faap.br"
+   }
+  ],
+  "voir_aussi": "livre-christian-lacroix-costumier.html",
+  "voir_aussi_label": "Voir l’édition française"
  },
  {
   "slug": "histoire-centres-commerciaux",
@@ -449,7 +468,26 @@
     "titre": "Le Centre national du costume de scène ouvrira ses portes à Moulins (Allier) le 1er juillet 2006",
     "url": "https://www.banquedesterritoires.fr/le-centre-national-du-costume-de-scene-ouvrira-ses-portes-moulins-allier-le-1er-juillet-2006"
    }
-  ]
+  ],
+  "description_courte": "Le catalogue a aussi paru en Espagne, sous le titre Animales a Escena, avec le Teatro Fernán Gómez de Madrid."
+ },
+ {
+  "slug": "animales-a-escena",
+  "titre": "Animales a Escena · Ópera, Teatro y Ballet",
+  "client": "Teatro Fernán Gómez – Centro de Arte · Madrid · CNCS",
+  "src": "assets/realisations/animales-a-escena.jpg",
+  "w": 480,
+  "h": 554,
+  "categorie": "musee",
+  "description": "Édition en espagnol de Bêtes de scène, le catalogue consacré aux animaux tels que les ont imaginés les costumiers de l’opéra, du théâtre et du ballet. Publiée avec le Teatro Fernán Gómez – Centro de Arte de Madrid et le Centre national du costume de scène, elle accompagne la présentation de l’exposition en Espagne.",
+  "liens_client": [
+   {
+    "nom": "Centre national du costume de scène",
+    "url": "https://www.cncs.fr"
+   }
+  ],
+  "voir_aussi": "livre-betes-de-scene.html",
+  "voir_aussi_label": "Voir l’édition française"
  },
  {
   "slug": "cardinal-fronde-bibliothecaire",
