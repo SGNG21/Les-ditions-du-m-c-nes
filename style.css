@@ -365,3 +365,18 @@ a.river-item{text-decoration:none;color:inherit}
 .logo-set img{max-width:100%;max-height:50px;width:auto;height:auto}
 @media(max-width:620px){.logo-set span{width:130px;height:84px;padding:12px 16px}.logo-set img{max-height:40px}.logo-track{animation-duration:70s}}
 @media(prefers-reduced-motion:reduce){.logo-track{animation:none}.logo-marquee{overflow-x:auto}}
+/* « Quarante ans » : couvertures en éventail animées */
+.why-visual{position:relative;height:250px;margin:0 0 34px;display:flex;align-items:flex-end;justify-content:center}
+.why-visual a{position:absolute;bottom:0;width:38%;max-width:150px;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.why-visual img{display:block;width:100%;height:auto;box-shadow:0 22px 40px rgba(17,17,15,.28)}
+.why-visual a:nth-child(1){transform:translateX(-62%) rotate(-8deg);z-index:1}
+.why-visual a:nth-child(2){transform:translateX(0) translateY(-14px);z-index:3}
+.why-visual a:nth-child(3){transform:translateX(62%) rotate(8deg);z-index:2}
+.why-card:hover .why-visual a:nth-child(1){transform:translateX(-82%) rotate(-12deg) translateY(-6px)}
+.why-card:hover .why-visual a:nth-child(2){transform:translateY(-28px)}
+.why-card:hover .why-visual a:nth-child(3){transform:translateX(82%) rotate(12deg) translateY(-6px)}
+.why-card.in .why-visual a,.why-card.visible .why-visual a{animation:whyIn .9s cubic-bezier(.2,.7,.2,1) both}
+.why-card .why-visual a:nth-child(2){animation-delay:.08s}.why-card .why-visual a:nth-child(3){animation-delay:.16s}
+@keyframes whyIn{from{opacity:0;margin-bottom:-30px}to{opacity:1;margin-bottom:0}}
+@media(max-width:1000px){.why-visual{height:220px}.why-visual a{max-width:130px}}
+@media(prefers-reduced-motion:reduce){.why-visual a{transition:none;animation:none!important}}
