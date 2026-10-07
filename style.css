@@ -398,3 +398,27 @@ a.river-item{text-decoration:none;color:inherit}
 .award-star-by span{color:#e3c88f}
 .award-medal b{font-size:25px}
 @media(max-width:800px){.award-medal b{font-size:16px}.award-medal span{font-size:7px}}
+/* Autres prix : même système que la Société de Géographie, en cartes */
+.award-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.award-card{position:relative;display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:34px;align-items:center;padding:34px;text-decoration:none;color:inherit;border:1px solid rgba(183,154,93,.4);background:radial-gradient(120% 90% at 15% 30%,rgba(183,154,93,.1),transparent 60%),linear-gradient(135deg,#1a1814,#11110f)}
+.award-card:before{content:'';position:absolute;inset:8px;border:1px solid rgba(183,154,93,.16);pointer-events:none}
+.award-card-visual{position:relative;justify-self:center;width:min(190px,100%)}
+.award-card-visual img{display:block;width:100%;height:auto;box-shadow:0 22px 44px rgba(0,0,0,.55);transform:rotate(-2.5deg);transition:transform .6s}
+a.award-card:hover .award-card-visual img{transform:rotate(0) scale(1.03)}
+.award-card-novis{min-height:200px;display:flex;align-items:center;justify-content:center}
+.award-medal-sm{width:104px;height:104px;right:-22px;bottom:-20px;gap:2px}
+.award-medal-sm b{font-size:15px!important;line-height:1}
+.award-medal-sm span{font-size:6.5px!important;letter-spacing:.1em}
+.award-card-novis .award-medal-sm{position:relative;right:auto;bottom:auto;width:150px;height:150px}
+.award-card-novis .award-medal-sm b{font-size:20px!important}
+.award-card-novis .award-medal-sm span{font-size:8px!important}
+.award-card-copy .eyebrow{color:var(--gold)}
+.award-card-copy h3{font:500 clamp(38px,3.4vw,56px)/.92 'Cormorant Garamond',serif;letter-spacing:-.04em;margin:12px 0 12px}
+.award-card-copy h3 em{color:var(--gold);font-weight:400}
+.award-card-copy .award-star-by{margin-bottom:14px}
+.award-card-copy .copy{font-size:14px;line-height:1.75;margin:0 0 12px}
+.award-card-book{font-size:13px;color:rgba(243,238,228,.75);margin:0}
+.award-card-book b{color:var(--ivory);font-weight:600}
+.award-card .text-link{color:var(--gold);margin-top:18px}
+@media(max-width:1100px){.award-cards{grid-template-columns:1fr}}
+@media(max-width:620px){.award-card{grid-template-columns:1fr;padding:28px 24px}.award-card-visual{width:min(170px,60%);margin-bottom:24px}}
