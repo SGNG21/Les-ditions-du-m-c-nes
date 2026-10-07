@@ -126,7 +126,7 @@ function renderMain(b, all) {
 ${specs.map(([k, v]) => `<div><b>${k}</b><span>${v}</span></div>`).join("\n")}
 </div>
 <p class="copy">${esc(desc)}</p>${b.description_courte ? `<p class="copy">${esc(b.description_courte)}</p>` : ""}
-<a class="button" href="contact.html?ouvrage=${encodeURIComponent(b.titre)}#contact-form">Créer un livre comme celui-ci</a>${voir}
+${b.achat ? `<a class="button" href="contact.html?ouvrage=${encodeURIComponent(b.achat)}#contact-form">Commander ce livre</a>` : `<a class="button" href="contact.html?ouvrage=${encodeURIComponent(b.titre)}#contact-form">Créer un livre comme celui-ci</a>`}${voir}
 </div></div></section>
 ${press}
 <section class="chapter"><div class="chapter-no">Autres ouvrages</div><div class="wrap chapter-head">

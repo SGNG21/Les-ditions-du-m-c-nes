@@ -1296,7 +1296,20 @@
     "url": "https://bibliotheques.paris.fr/Default/doc/SYRACUSE/879891/paris-avant-apres-rive-droite-19e-siecle-21e-siecle"
    }
   ],
-  "voir_aussi": "ouvrage-marville.html"
+  "voir_aussi": "ouvrage-marville.html",
+  "achat": "Paris avant-après Haussmann"
+ },
+ {
+  "slug": "paris-inonde",
+  "titre": "Paris inondé, la grande crue de 1910",
+  "client": "",
+  "src": "assets/realisations/paris-inonde.jpg",
+  "w": 700,
+  "h": 1000,
+  "categorie": "catalogue",
+  "description": "Un livre consacré à la grande crue de la Seine de janvier 1910 : Paris sous les eaux, ses rues parcourues en barque, ses quartiers submergés, à travers les photographies de l’époque. Une nouveauté des Éditions du Mécène.",
+  "description_courte": "Pour commander le livre, utilisez le bouton ci-dessous ou appelez-nous au 06 81 27 78 60.",
+  "achat": "Paris inondé"
  },
  {
   "slug": "miroirs-rue-commercante",
