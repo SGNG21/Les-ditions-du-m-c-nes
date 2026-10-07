@@ -282,3 +282,17 @@ a.cover-link:hover figcaption h4:after{opacity:1}
 .livre-related{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-bottom:40px}.livre-related .river-item{width:auto}
 @media(max-width:800px){.livre-related{grid-template-columns:1fr 1fr;gap:28px}.livre-related .river-item h4{font-size:20px}}
 a.river-item{text-decoration:none;color:inherit}
+/* International */
+.intl-facts{border-color:rgba(243,238,228,.35)}.intl-facts .fact{border-color:rgba(243,238,228,.35)}
+.intl-logos{grid-template-columns:repeat(6,1fr)}
+.intl-cities{margin-top:34px;font:400 10.5px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:center}
+.intl-duo{grid-template-columns:1fr}
+.intl-press{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:baseline;margin:26px 0 8px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.intl-press small{font:400 10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);width:100%}
+.intl-press a{font:500 21px 'Cormorant Garamond',serif;color:var(--wine);text-decoration:none}
+.intl-press a:hover{text-decoration:underline}
+.intl-phone{font:400 11px 'DM Mono',monospace;letter-spacing:.1em;color:var(--muted);margin:18px 0 0}.intl-phone a{color:inherit}
+@media(max-width:1000px){.intl-logos{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:620px){.intl-logos{grid-template-columns:repeat(3,1fr)}}
+.intl-duo .duo-card{grid-template-columns:minmax(240px,400px) 1fr;gap:6vw;align-items:center}
+@media(max-width:860px){.intl-duo .duo-card{grid-template-columns:1fr}}
