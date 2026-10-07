@@ -347,3 +347,6 @@ a.river-item{text-decoration:none;color:inherit}
 .season-bar:hover span.go{border-color:var(--ivory)}
 @media(max-width:1000px){.gift-hero-grid,.gift-form-grid{grid-template-columns:1fr}.gift-visual{min-height:0;margin-top:20px}.gift-cards,.gift-press{grid-template-columns:1fr}.gift-cards article+article{padding-left:0;border-left:0}.gift-steps{grid-template-columns:1fr 1fr}.gift-steps li+li{padding-left:0;border-left:0}.gift-specs{grid-template-columns:1fr 1fr}.gift-specs div+div{border-left:0;padding-left:0}}
 @media(max-width:620px){.gift-hero{padding:120px 0 80px}.gift-steps,.gift-spreads{grid-template-columns:1fr}.gift-visual img{width:48%}}
+/* Surtitres (kicker) plus lisibles */
+.kicker{font-size:12.5px;letter-spacing:.15em}
+@media(max-width:620px){.kicker{font-size:11px;line-height:1.6}}
