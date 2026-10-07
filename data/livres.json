@@ -696,7 +696,12 @@
   "w": 595,
   "h": 778,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "description": "Beau livre de Patrice de Moncan consacré aux ambiances et aux décors des restaurants en Europe, publié aux Éditions du Mécène en 2001 dans un grand format (environ 32 × 23,5 cm) de 224 pages.",
+  "annee": "2001",
+  "pages": "224",
+  "auteurs": "Patrice de Moncan",
+  "presse": []
  },
  {
   "slug": "paris-d-haussmann-atis-real",
@@ -877,6 +882,14 @@
    {
     "nom": "OGIC",
     "url": "https://www.ogic.fr"
+   }
+  ],
+  "description": "Ouvrage qui retrace l'histoire et la renaissance de l'îlot de l'hôpital Richaud à Versailles, ancien hôpital royal reconverti en ensemble « Carré des Siècles ». Son titre complet est « De l'Hôpital royal au Carré des Siècles : l'histoire d'une résurrection : l'îlot de l'hôpital Richaud ». Le livre a été présenté à l’Espace Richaud de Versailles lors du Sommet européen du patrimoine culturel de 2019.",
+  "presse": [
+   {
+    "source": "Europa Nostra",
+    "titre": "Versailles unveils its unknown heritage gems to Paris Summit delegates",
+    "url": "https://www.europanostra.org/versailles-unveils-its-unknown-heritage-gems-to-paris-summit-delegates"
    }
   ]
  },
@@ -1290,7 +1303,33 @@
     "url": "https://www.klepierre.com"
    }
   ],
-  "voir_aussi": "ouvrage-villes-utopiques.html"
+  "voir_aussi": "ouvrage-villes-utopiques.html",
+  "description": "Ouvrage de Patrice de Moncan, avec la collaboration de l’architecte Philippe Chiambaretta, consacré à l’histoire de l’utopie urbaine : des cités idéales aux villes visionnaires imaginées par les architectes et les urbanistes. Il a été repris et augmenté en 2003 sous le titre « Villes utopiques, villes rêvées » (354 pages, collection « La Ville retrouvée »).",
+  "annee": "1998",
+  "auteurs": "Patrice de Moncan, avec la collaboration de Philippe Chiambaretta",
+  "presse": [
+   {
+    "source": "Bibliothèques de Paris",
+    "titre": "Villes utopiques, villes rêvées (édition 2003)",
+    "url": "https://bibliotheques.paris.fr/Default/doc/SYRACUSE/608087/villes-utopiques-villes-revees"
+   },
+   {
+    "source": "Centre Canadien d'Architecture (bibliothèque)",
+    "titre": "Villes utopiques, villes rêvées — notice",
+    "url": "https://cca.qc.ca/en/search/details/library/publication/53330047"
+   },
+   {
+    "source": "CAGE (catalogue)",
+    "titre": "Villes rêvées — notice",
+    "url": "https://www.cageweb.be/catalog/ams01:000031323"
+   },
+   {
+    "source": "Politis",
+    "titre": "Des cités obscures aux cités vertes",
+    "url": "https://www.politis.fr/articles/2008/07/des-cites-obscures-aux-cites-vertes-4245"
+   }
+  ],
+  "voir_aussi_label": "Voir l’édition de 2003"
  },
  {
   "slug": "processus-creation-centre-commercial",
@@ -1432,6 +1471,26 @@
    {
     "nom": "FNAIM",
     "url": "https://www.fnaim.fr"
+   }
+  ],
+  "description": "Évaluation inédite de la valeur immobilière de Marseille, menée par Patrice de Moncan avec la FNAIM après Paris, Bordeaux et Strasbourg. À partir de l'analyse des 93 917 immeubles des seize arrondissements et des transactions récentes, l'ouvrage chiffre la ville à 82,1 milliards d'euros : 72,75 milliards pour les 423 315 logements, 4,5 milliards pour 1,66 million de m² de bureaux et 1,879 milliard pour quelque 5 900 commerces.",
+  "annee": "2016",
+  "auteurs": "Patrice de Moncan, avec les agents immobiliers de la FNAIM",
+  "presse": [
+   {
+    "source": "FNAIM / Galivel (communiqué de presse)",
+    "titre": "Que vaut Marseille ? — communiqué FNAIM du 3 juin",
+    "url": "https://www.galivel.com/media/files/cp_que_vaut_marseille___fnaim___3_juin.pdf"
+   },
+   {
+    "source": "MonImmeuble.com",
+    "titre": "Que vaut Marseille ?",
+    "url": "https://monimmeuble.com/?p=32220"
+   },
+   {
+    "source": "FNAIM / Galivel (communiqué de presse)",
+    "titre": "Que vaut la France ? (synthèse de la collection)",
+    "url": "https://www.galivel.com/media/files/cp_que_vaut_la_france__fnaim.pdf"
    }
   ]
  },
@@ -1715,7 +1774,17 @@
   "w": 488,
   "h": 800,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "description": "Ouvrage d'Annabel Buffet consacré aux Puces de Saint-Ouen, paru en 1993 aux Éditions P. de Moncan (Paris).",
+  "annee": "1993",
+  "auteurs": "Annabel Buffet",
+  "presse": [
+   {
+    "source": "Encyclopedia.com",
+    "titre": "Buffet, Annabel 1928-2005",
+    "url": "https://encyclopedia.com/arts/educational-magazines/buffet-annabel-1928-2005"
+   }
+  ]
  },
  {
   "slug": "puces-de-paris-saint-ouen",
@@ -1796,7 +1865,11 @@
   "w": 583,
   "h": 800,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "description": "Réédition présentée par Patrice de Moncan d'un texte satirique sur les déboires des candidats locataires à Paris sous le Second Empire. Écrit par trois journalistes d'opposition rédacteurs du Charivari, il parut d'abord en 1854 sous le titre « Paris-propriétaire ». L'ouvrage est illustré de caricatures publiées entre 1847 et 1856 dans la série « Propriétaires et locataires ».",
+  "annee": "2013",
+  "auteurs": "Patrice de Moncan (éd.)",
+  "presse": []
  },
  {
   "slug": "comment-choisir-sa-scpi",
