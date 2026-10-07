@@ -519,3 +519,18 @@ a.award-card:hover .award-card-visual img{transform:rotate(0) scale(1.03)}
 /* Rosette de prix (remplace le mini-écusson) */
 .prize-book{width:44px;margin-right:12px}
 .mini-rosette{position:absolute;right:-16px;bottom:-14px;width:26px;height:auto;filter:drop-shadow(0 3px 5px rgba(0,0,0,.3))}
+/* Bandeau : distinctions sobres sur une ligne (remplace les grosses médailles) */
+.topbar{height:96px}.menu-head{height:96px}.menu-body{height:calc(100vh - 96px)}
+.nav{align-items:center}.brand{align-items:center}
+.header-awards{margin-left:auto;margin-right:44px;display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink)}
+.ha-rosette{width:26px;height:auto;flex:0 0 auto;margin-top:6px}
+.ha-text{display:flex;flex-direction:column;gap:3px;line-height:1}
+.ha-text small{font:400 9.5px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--wine)}
+.ha-text span{font:500 17px/1.1 'Cormorant Garamond',serif;letter-spacing:.005em;white-space:nowrap}
+.ha-rule{width:1px;height:38px;background:var(--line);margin:0 4px}
+.hm-ww{height:44px;width:auto;margin:0}
+.header-awards:hover .ha-text span{color:var(--wine)}
+@media(max-width:1300px){.ha-text span{font-size:15px}}
+@media(max-width:1120px){.ha-text{display:none}}
+@media(max-width:900px){.header-awards{display:none}}
+@media(max-width:620px){.topbar,.menu-head{height:76px}.menu-body{height:calc(100vh - 76px)}}
