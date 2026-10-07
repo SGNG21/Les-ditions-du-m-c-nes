@@ -470,3 +470,8 @@ a.award-card:hover .award-card-visual img{transform:rotate(0) scale(1.03)}
 @media(max-width:1000px){.biz-grid,.biz-buy-grid,.biz-faq{grid-template-columns:1fr}.biz-form-box{position:static}.biz-steps,.biz-examples{grid-template-columns:1fr 1fr}.biz-steps li+li{border-left:0;padding-left:0}}
 @media(max-width:620px){.biz-hero{padding:110px 0 60px}.biz-get li{grid-template-columns:1fr;gap:4px}.biz-form-box{padding:24px 18px}.biz-steps{grid-template-columns:1fr}.biz-buy-covers img{width:30%}.biz-coords-grid{grid-template-columns:1fr;gap:30px}}
 .biz-ex img{height:auto}
+/* Références clients : petit logo + lien vers le site officiel */
+.client .client-logo{display:block;height:34px;width:auto;max-width:150px;object-fit:contain;object-position:left center;margin:14px 0 4px}
+.client h3 a{color:inherit;text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
+.client h3 a:hover{border-color:currentColor}
+.client h3 .ext{font-size:.55em;color:var(--wine);margin-left:8px;vertical-align:super}
