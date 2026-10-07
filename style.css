@@ -505,3 +505,14 @@ a.award-card:hover .award-card-visual img{transform:rotate(0) scale(1.03)}
 .header-awards:hover .hm{transform:translateY(-2px)}
 @media(max-width:1180px){.hm:nth-child(n+4){display:none}}
 @media(max-width:900px){.header-awards{display:none}}
+/* Écussons du bandeau agrandis */
+.topbar{height:104px}.menu-head{height:104px}
+.header-awards{gap:12px}
+.hm{width:76px;height:76px;padding:6px}
+.hm small{font-size:7.5px;margin-bottom:4px}
+.hm b{font-size:13.5px;line-height:1.02}
+.hm-ww{height:70px}
+@media(max-width:1380px){.hm{width:66px;height:66px}.hm b{font-size:12px}.hm small{font-size:6.5px}.hm-ww{height:60px}}
+@media(max-width:1240px){.hm:nth-child(n+4){display:none}}
+@media(max-width:620px){.topbar,.menu-head{height:76px}}
+.menu-body{height:calc(100vh - 104px)}@media(max-width:620px){.menu-body{height:calc(100vh - 76px)}}
