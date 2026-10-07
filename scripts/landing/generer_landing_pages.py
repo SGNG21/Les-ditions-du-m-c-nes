@@ -28,7 +28,7 @@ def page(p):
 </div></section>
 <section class="lp-sec"><div class="wrap lp-about"><div><div class="eyebrow">Le livre</div><h2>{p['h2']}</h2></div><div>{p['body']}<div class="book-specs lp-specs">{facts}</div></div></div></section>
 {gal_html}{q_html}
-<section class="lp-sec lp-gift"><div class="wrap lp-gift-grid"><div><div class="eyebrow">Pour les entreprises</div><h2>Le cadeau qu’on <em>garde.</em></h2><p class="copy">Offrez {p['short']} à vos clients et partenaires, personnalisé à vos couleurs : votre logo en couverture, une préface de votre président, des exemplaires numérotés. À partir de 100 exemplaires.</p></div><ol class="lp-steps"><li>Vous choisissez le nombre d’exemplaires</li><li>Vous nous envoyez votre logo et votre texte</li><li>Vous validez le bon à tirer</li><li>Nous imprimons et livrons</li></ol></div></section>
+<section class="lp-sec lp-gift"><div class="wrap lp-gift-grid"><div><div class="eyebrow">Pour les entreprises</div><h2>Le cadeau qu’on <em>garde.</em></h2><p class="copy">Offrez {p['short']} à vos clients et partenaires, personnalisé à vos couleurs : votre logo en couverture, une préface de votre président, des exemplaires numérotés. À partir de 500 exemplaires.</p></div><ol class="lp-steps"><li>Vous choisissez le nombre d’exemplaires</li><li>Vous nous envoyez votre logo et votre texte</li><li>Vous validez le bon à tirer</li><li>Nous imprimons et livrons</li></ol></div></section>
 <section class="lp-sec lp-order" id="commander"><div class="wrap lp-order-grid"><div><div class="eyebrow">Commander</div><h2>Recevez <em>{p['short']}.</em></h2><p class="copy">Laissez-nous vos coordonnées : nous vous répondons sous 48 heures avec le prix, le délai de livraison et, pour les entreprises, une proposition de personnalisation.</p><p class="lp-phone">Ou appelez-nous : <a href="tel:+33681277860">06 81 27 78 60</a></p><div class="lp-cover-sm"><img loading="lazy" src="{p['cover']}" alt=""></div></div>
 <form class="form" id="contact-form" novalidate>
 <input type="hidden" name="projet" value="Commander : {p['short_raw']}">
@@ -60,14 +60,14 @@ dict(canon='lp-histoire-amoureuse-du-vin.html',theme='lp-wine',title='Histoire A
  desc='70 personnalités et leurs vins préférés, de Dionysos à Churchill : le beau livre de Debra Finerman et Patrice de Moncan, à commander ou à offrir personnalisé.',
  kicker='Édition de prestige · grand format',h1='Histoire Amoureuse <em>du Vin.</em>',
  lead='De Dionysos à Napoléon, de Louis XIV à Churchill, de Colette à Sting : 70 personnalités racontées à travers leurs vins préférés.',
- points=[('70','personnalités, de l’Antiquité à nos jours'),('160','pages, grand format 32 × 23,5 cm'),('100','exemplaires minimum pour une édition à vos couleurs')],
+ points=[('70','personnalités, de l’Antiquité à nos jours'),('160','pages, grand format 32 × 23,5 cm'),('500','exemplaires minimum pour une édition à vos couleurs')],
  cta='Commander le livre',short='Histoire Amoureuse du Vin',short_raw='Histoire Amoureuse du Vin',
  h2='Une autre lecture de l’Histoire, <em>par le vin.</em>',
  body='<p class="copy">Depuis l’Antiquité, le vin accompagne les destins hors du commun. À la table des rois, dans l’intimité des artistes, au cœur des grandes décisions, il révèle une part essentielle de l’humanité. Chaque personnalité est racontée sur une double page, avec ses vins de prédilection.</p>',
  facts=[('Auteurs','Debra Finerman &amp; Patrice de Moncan'),('Format','32 × 23,5 cm'),('Pages','160'),('Éditeur','Les Éditions du Mécène')],
  gallery=[('assets/vin-prestige/double-napoleon.jpg','Double page Napoléon Ier','Napoléon Ier · le Chambertin'),('assets/vin-prestige/double-colette.jpg','Double page Colette','Colette · tous les crus'),('assets/vin-prestige/double-montaigne.jpg','Double page Montaigne','Montaigne · le clairet'),('assets/vin-prestige/double-sting.jpg','Double page Sting et Trudy Styler','Sting &amp; Trudy Styler')],
  quotes=[('Un travail de titan… un régal à lire.','Sud Radio'),('Voilà un ouvrage remarquable.','Valeurs Actuelles'),('Les auteurs s’amusent très sérieusement.','La Revue des Vins de France'),('Passionnant.','Le Magazine des Cavistes')],
- qty=['1 exemplaire','2 à 5','6 à 20','100 à 249 (édition personnalisée)','250 et plus']),
+ qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)']),
 dict(canon='lp-paris-avant-apres.html',theme='lp-stone',title='Paris avant-après Haussmann',cover='assets/realisations/paris-avant-apres.jpg',
  desc='740 photographies : le Paris photographié par Charles Marville pour Haussmann, et les mêmes lieux aujourd’hui. Le livre de Patrice de Moncan, à commander ou à offrir.',
  kicker='Charles Marville · Studio Traktir · Patrice de Moncan',h1='Paris <em>avant-après</em> Haussmann.',
@@ -77,7 +77,7 @@ dict(canon='lp-paris-avant-apres.html',theme='lp-stone',title='Paris avant-aprè
  h2='La ville d’avant Haussmann, <em>face à celle d’aujourd’hui.</em>',
  body='<p class="copy">À la demande de Patrice de Moncan, les photographes du Studio Traktir ont repris, un siècle et demi plus tard, les points de vue exacts de Charles Marville, photographe de la Ville de Paris sous le Second Empire. Rue par rue, le livre confronte les deux villes ; les légendes détaillent tout ce qui a changé.</p>',
  facts=[('Auteur','Patrice de Moncan'),('Photographies','Charles Marville · Studio Traktir'),('Pages','452'),('Parution','2010, Les Éditions du Mécène')],
- qty=['1 exemplaire','2 à 5','6 à 20','100 et plus (édition personnalisée)']),
+ qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)']),
 dict(canon='lp-paris-inonde.html',theme='lp-water',title='Paris inondé, la grande crue de 1910',cover='assets/realisations/paris-inonde.jpg',
  desc='Janvier 1910 : la Seine envahit Paris. Le récit en photographies de la grande crue, un livre des Éditions du Mécène à commander ou à offrir.',
  kicker='Nouveauté · Les Éditions du Mécène',h1='Paris <em>inondé.</em>',
@@ -87,7 +87,7 @@ dict(canon='lp-paris-inonde.html',theme='lp-water',title='Paris inondé, la gran
  h2='Quand la Seine <em>envahit Paris.</em>',
  body='<p class="copy">En janvier 1910, la crue de la Seine paralyse la capitale pendant des semaines. Ce livre réunit les images de ce Paris méconnaissable, où l’on circule en barque devant les immeubles haussmanniens.</p>',
  facts=[('Sujet','La grande crue de la Seine, janvier 1910'),('Illustrations','Photographies d’époque'),('Éditeur','Les Éditions du Mécène')],
- qty=['1 exemplaire','2 à 5','6 à 20','100 et plus (édition personnalisée)'])]
+ qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)'])]
 import os
 for p in P:
     open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..',p['canon']),'w').write(page(p))
