@@ -74,6 +74,7 @@ export const SITEMAP_PAGES = [
   { path: "/ouvrage-objets-passion.html", priority: "0.6", changefreq: "yearly" },
   { path: "/ouvrage-strasbourg.html", priority: "0.6", changefreq: "yearly" },
   { path: "/ouvrage-vin.html", priority: "0.6", changefreq: "yearly" },
+  { path: "/cadeau-fin-annee.html", priority: "0.8", changefreq: "monthly" },
 ];
 
 // Pages livres générées au build (scripts/livres.mjs) depuis data/livres.json.

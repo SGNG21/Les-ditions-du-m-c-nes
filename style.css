@@ -296,3 +296,54 @@ a.river-item{text-decoration:none;color:inherit}
 @media(max-width:620px){.intl-logos{grid-template-columns:repeat(3,1fr)}}
 .intl-duo .duo-card{grid-template-columns:minmax(240px,400px) 1fr;gap:6vw;align-items:center}
 @media(max-width:860px){.intl-duo .duo-card{grid-template-columns:1fr}}
+/* Cadeau d'affaires de fin d'année */
+.gift-hero{background:var(--wine);color:var(--ivory);padding:170px 0 110px;position:relative;overflow:hidden}
+.gift-hero:before{content:'';position:absolute;inset:0;background:radial-gradient(80% 90% at 80% 40%,rgba(183,154,93,.22),transparent 60%);pointer-events:none}
+.gift-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:6vw;align-items:center;position:relative}
+.gift-hero .kicker{color:var(--gold)}
+.gift-title{font:500 clamp(56px,7.4vw,124px)/.84 'Cormorant Garamond',serif;letter-spacing:-.06em;margin:22px 0 30px;max-width:9ch}
+.gift-title em{font-weight:400;color:#e3c88f}
+.gift-lead{font:400 clamp(22px,2.2vw,32px)/1.18 'Cormorant Garamond',serif;max-width:640px;color:rgba(243,238,228,.9);margin:0 0 26px}
+.gift-points{list-style:none;padding:0;margin:0 0 34px;display:flex;flex-wrap:wrap;gap:10px}
+.gift-points li{font:400 11px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(243,238,228,.35);padding:9px 13px}
+.gift-points b{color:#e3c88f;font-weight:400}
+.gift-hero .button{background:var(--ivory);color:var(--wine);border-color:var(--ivory)}
+.gift-hero .gift-ghost{background:transparent;color:var(--ivory);border-color:rgba(243,238,228,.6)}
+.gift-note{margin:26px 0 0;font-size:13px;line-height:1.7;color:rgba(243,238,228,.7);max-width:560px}
+.gift-visual{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:420px}
+.gift-visual img{width:46%;max-width:300px;height:auto;filter:drop-shadow(0 34px 40px rgba(0,0,0,.45))}
+.gift-visual img:first-child{transform:rotate(-4deg) translateX(4%);z-index:2}
+.gift-visual img:nth-child(2){transform:rotate(4deg) translateX(-4%) translateY(-14px)}
+.gift-tag{position:absolute;right:6%;bottom:18%;z-index:3;font:400 10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;background:var(--ivory);color:var(--wine);padding:8px 11px;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.gift-tag:before{content:'↖ '}
+.gift-cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.gift-cards article{padding:34px 34px 34px 0;border-bottom:1px solid var(--line)}
+.gift-cards article+article{padding-left:34px;border-left:1px solid var(--line)}
+.gift-n{font:400 10.5px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+.gift-cards h3{font:500 36px/1 'Cormorant Garamond',serif;letter-spacing:-.03em;margin:14px 0 12px}
+.gift-cards p{font-size:15px;line-height:1.8;color:#514b43;margin:0}
+.gift-spreads{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.gift-spreads img{width:100%;height:auto;display:block;box-shadow:0 26px 60px rgba(17,17,15,.18)}
+.gift-specs{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gift-specs div{padding:22px 20px 22px 0}.gift-specs div+div{padding-left:20px;border-left:1px solid var(--line)}
+.gift-specs b{display:block;font:400 10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.gift-specs span{font:500 24px/1.1 'Cormorant Garamond',serif}
+.gift-press{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:56px}
+.gift-press blockquote{margin:0;font:italic 500 28px/1.12 'Cormorant Garamond',serif}
+.gift-press cite{display:block;margin-top:12px;font:400 10px 'DM Mono',monospace;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+.gift-steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(243,238,228,.25);counter-reset:g}
+.gift-steps li{padding:30px 28px 30px 0;counter-increment:g;display:flex;flex-direction:column;gap:10px}
+.gift-steps li+li{padding-left:28px;border-left:1px solid rgba(243,238,228,.25)}
+.gift-steps li:before{content:'0' counter(g);font:500 40px/1 'Cormorant Garamond',serif;color:#e3c88f}
+.gift-steps b{font:500 26px/1.05 'Cormorant Garamond',serif}
+.gift-steps span{font-size:14px;line-height:1.75;color:rgba(243,238,228,.75)}
+.gift-form-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:6vw;align-items:start}
+.gift-form-title{font:500 clamp(48px,5vw,84px)/.9 'Cormorant Garamond',serif;letter-spacing:-.05em;margin:14px 0 26px}
+.gift-form-title em{color:var(--wine);font-weight:400}
+/* Bandeau d'accueil saisonnier */
+.season-bar{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:var(--wine);color:var(--ivory);text-decoration:none;padding:16px var(--pad);font:400 11px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+.season-bar b{font:italic 500 21px/1.1 'Cormorant Garamond',serif;letter-spacing:-.01em;text-transform:none;color:#e3c88f}
+.season-bar span.go{border-bottom:1px solid rgba(243,238,228,.5)}
+.season-bar:hover span.go{border-color:var(--ivory)}
+@media(max-width:1000px){.gift-hero-grid,.gift-form-grid{grid-template-columns:1fr}.gift-visual{min-height:0;margin-top:20px}.gift-cards,.gift-press{grid-template-columns:1fr}.gift-cards article+article{padding-left:0;border-left:0}.gift-steps{grid-template-columns:1fr 1fr}.gift-steps li+li{padding-left:0;border-left:0}.gift-specs{grid-template-columns:1fr 1fr}.gift-specs div+div{border-left:0;padding-left:0}}
+@media(max-width:620px){.gift-hero{padding:120px 0 80px}.gift-steps,.gift-spreads{grid-template-columns:1fr}.gift-visual img{width:48%}}

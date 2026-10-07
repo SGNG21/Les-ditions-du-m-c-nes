@@ -325,3 +325,14 @@
   });
   restart();
 })();
+
+/* ---------- Contenus saisonniers : data-until="AAAA-MM-JJ" retire après la date, data-from="AAAA-MM-JJ" affiche à partir de la date ---------- */
+(function () {
+  var today = new Date().toISOString().slice(0, 10);
+  document.querySelectorAll("[data-until]").forEach(function (el) {
+    if (today > el.getAttribute("data-until")) el.remove();
+  });
+  document.querySelectorAll("[data-from]").forEach(function (el) {
+    if (today < el.getAttribute("data-from")) el.remove();
+  });
+})();
