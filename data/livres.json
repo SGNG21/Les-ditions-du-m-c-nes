@@ -253,7 +253,12 @@
   "w": 600,
   "h": 657,
   "categorie": "entreprise",
-  "liens_client": []
+  "liens_client": [
+   {
+    "nom": "Le Louvre des Antiquaires",
+    "url": "https://www.louvre-antiquaires.com/"
+   }
+  ]
  },
  {
   "slug": "belles-heures-claridge",
@@ -358,6 +363,10 @@
   "h": 764,
   "categorie": "musee",
   "liens_client": [
+   {
+    "nom": "Le Louvre des Antiquaires",
+    "url": "https://www.louvre-antiquaires.com/"
+   },
    {
     "nom": "Klépierre",
     "url": "https://www.klepierre.com"
@@ -528,7 +537,12 @@
   "w": 600,
   "h": 671,
   "categorie": "musee",
-  "liens_client": []
+  "liens_client": [
+   {
+    "nom": "Le Louvre des Antiquaires",
+    "url": "https://www.louvre-antiquaires.com/"
+   }
+  ]
  },
  {
   "slug": "eclat-de-l-etain",
@@ -538,7 +552,12 @@
   "w": 200,
   "h": 220,
   "categorie": "musee",
-  "liens_client": []
+  "liens_client": [
+   {
+    "nom": "Le Louvre des Antiquaires",
+    "url": "https://www.louvre-antiquaires.com/"
+   }
+  ]
  },
  {
   "slug": "epargne-a-l-affiche",
@@ -599,7 +618,12 @@
   "w": 598,
   "h": 800,
   "categorie": "catalogue",
-  "liens_client": [],
+  "liens_client": [
+   {
+    "nom": "Le Louvre des Antiquaires",
+    "url": "https://www.louvre-antiquaires.com/"
+   }
+  ],
   "description": "Patrice de Moncan, historien de Paris, rassemble les photographies prises par Charles Marville entre 1852 et 1877. Photographe officiel de Napoléon III puis, à partir de 1858, photographe de la Ville de Paris, Marville fut chargé de fixer l'image des rues et quartiers voués à disparaître avec les grands travaux d'Haussmann. Ses clichés montrent un cœur de Paris fait de ruelles sinueuses, sombres et insalubres, et témoignent de la transformation de la capitale.",
   "annee": "2009",
   "auteurs": "Patrice de Moncan (photographies de Charles Marville)",
