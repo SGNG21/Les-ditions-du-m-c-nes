@@ -350,3 +350,9 @@ a.river-item{text-decoration:none;color:inherit}
 /* Surtitres (kicker) plus lisibles */
 .kicker{font-size:12.5px;letter-spacing:.15em}
 @media(max-width:620px){.kicker{font-size:11px;line-height:1.6}}
+/* Héros accueil : 4 livres (Haussmann, Légion d'honneur, Grandir, Vin) */
+.hb1{width:38%;left:0;bottom:12%}
+.hb2{width:36%;right:14%;bottom:30%;transform:rotate(4deg) rotateY(-7deg)}
+.hb3{width:29%;left:37%;bottom:0}
+.hb4{width:33%;right:0;bottom:4%;transform:rotate(7deg);z-index:3}
+@media(max-width:1000px){.hb1{width:40%}.hb2{width:37%}.hb3{width:33%}.hb4{width:35%}}
