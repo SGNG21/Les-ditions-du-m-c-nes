@@ -614,7 +614,8 @@
     "titre": "Charles Marville, photos de Paris avant Haussmann",
     "url": "https://www.unjourdeplusaparis.com/en/paris-reportage/charles-marville-photos-de-paris-avant-haussmann"
    }
-  ]
+  ],
+  "page": "ouvrage-marville.html"
  },
  {
   "slug": "baltard-halles-de-paris",
@@ -928,7 +929,7 @@
   "isbn": "9782907970914",
   "auteurs": "Patrice de Moncan",
   "presse": [],
-  "voir_aussi": "ouvrage-jardins-haussmann.html"
+  "page": "ouvrage-jardins-haussmann.html"
  },
  {
   "slug": "la-rue-parisienne",
@@ -1340,7 +1341,8 @@
   "w": 600,
   "h": 774,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "page": "ouvrage-objets-passion.html"
  },
  {
   "slug": "que-vaut-la-france",
@@ -1643,7 +1645,7 @@
     "url": "https://cca.qc.ca/en/search/details/library/publication/53330047"
    }
   ],
-  "voir_aussi": "ouvrage-villes-utopiques.html"
+  "page": "ouvrage-villes-utopiques.html"
  },
  {
   "slug": "paris-incendie-1871",
@@ -1773,7 +1775,8 @@
   "w": 600,
   "h": 744,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "page": "ouvrage-noureev.html"
  },
  {
   "slug": "vladimir-german",
