@@ -589,3 +589,7 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 @media(max-width:620px){.menu-trigger{padding:10px 14px;font-size:12px}}
 .menu-trigger{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
 .menu-trigger:hover{background:var(--wine);border-color:var(--wine);color:var(--ivory)}
+/* Chiffres clés sous les boutons de l'accueil : plus lisibles */
+.hero-meta{font-size:14px;letter-spacing:.1em;gap:22px;color:#4a443c}
+.hero-meta span{padding-right:22px}
+@media(max-width:620px){.hero-meta{font-size:12px;gap:12px}.hero-meta span{padding-right:12px}}
