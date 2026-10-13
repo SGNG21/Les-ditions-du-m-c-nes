@@ -593,3 +593,6 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .hero-meta{font-size:14px;letter-spacing:.1em;gap:22px;color:#4a443c}
 .hero-meta span{padding-right:22px}
 @media(max-width:620px){.hero-meta{font-size:12px;gap:12px}.hero-meta span{padding-right:12px}}
+/* Titre « Quarante ans de beaux livres d'entreprise » : partie en italique couleur bistre */
+.h-bistre{max-width:14ch!important}
+.h-bistre em{color:#7a5230}
