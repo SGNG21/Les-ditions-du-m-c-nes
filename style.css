@@ -581,3 +581,11 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .preloader{transition:opacity .6s,visibility .6s}
 @keyframes preIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.pre-logo,.preloader .pre-sub{animation:none}}
+/* Bouton Menu bien visible */
+.menu-trigger{gap:14px;padding:12px 20px;border:1px solid var(--ink);font-size:13px;letter-spacing:.2em;font-weight:500;transition:background .25s,color .25s}
+.menu-trigger i{width:30px;height:2px}.menu-trigger i:after{height:2px;left:6px;top:7px;width:24px}
+.menu-trigger:hover{background:var(--ink);color:var(--ivory)}
+.menu-close{font-size:13px;letter-spacing:.2em;padding:12px 20px;border:1px solid rgba(243,238,228,.6)}
+@media(max-width:620px){.menu-trigger{padding:10px 14px;font-size:12px}}
+.menu-trigger{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.menu-trigger:hover{background:var(--wine);border-color:var(--wine);color:var(--ivory)}
