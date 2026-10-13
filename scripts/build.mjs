@@ -12,7 +12,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { resolveSiteUrl, SITEMAP_PAGES } from "../site.config.js";
-import { buildLivres } from "./livres.mjs";
+import { buildLivres, renderCatalogueAll } from "./livres.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -108,6 +108,11 @@ async function main() {
   await fs.rm(DIST, { recursive: true, force: true });
   await copyDir(ROOT, DIST);
   const nLivres = await buildLivres(DIST, transformHtml);
+  // Catalogue : tous les livres de data/livres.json à la suite des titres présentés à la main.
+  const catPath = path.join(DIST, "catalogue.html");
+  const cat = await fs.readFile(catPath, "utf8");
+  const featured = [...cat.matchAll(/class="catalogue-item[^"]*"[^>]*href="([^"]+)"/g)].map((m) => m[1]);
+  await fs.writeFile(catPath, cat.replace("<!--CATALOGUE-ALL-->", renderCatalogueAll(featured)));
   console.log(`[build] ${nLivres} pages livres générées.`);
   await fs.writeFile(path.join(DIST, "sitemap.xml"), buildSitemap());
   await fs.writeFile(path.join(DIST, "robots.txt"), buildRobots());

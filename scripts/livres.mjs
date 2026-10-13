@@ -190,6 +190,19 @@ function renderHead(b, desc) {
 </head>`;
 }
 
+/** Grille complète du catalogue (catalogue.html), hors titres déjà présentés à la main. */
+export function renderCatalogueAll(skipHrefs = []) {
+  const skip = new Set(skipHrefs);
+  const CAT_FILTRE = { entreprise: "entreprise", musee: "musee", catalogue: "catalogue", auteur: "auteur" };
+  return loadLivres()
+    .filter((b) => !skip.has(livreHref(b)))
+    .map(
+      (b) =>
+        `<a class="catalogue-item reveal" data-cat="${CAT_FILTRE[b.categorie] || "catalogue"}" href="${esc(livreHref(b))}"><div class="catalogue-cover"><img loading="lazy" decoding="async" width="${b.w}" height="${b.h}" src="${esc(b.src)}" alt="${esc(b.titre)}"></div><div class="cat">${esc(CATEGORIES[b.categorie] || "Catalogue")}</div><h3>${esc(b.titre)}</h3><p>${esc(b.client || (b.auteurs || ""))}</p></a>`
+    )
+    .join("\n");
+}
+
 /** Écrit les pages livre-*.html dans destDir, en appliquant transform (substitution SITE_URL…). */
 export async function buildLivres(destDir, transform = (s) => s) {
   const all = loadLivres();
