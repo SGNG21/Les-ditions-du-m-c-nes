@@ -12,7 +12,7 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { resolveSiteUrl, SITEMAP_PAGES } from "../site.config.js";
-import { buildLivres, renderCatalogueAll } from "./livres.mjs";
+import { buildLivres, renderCatalogueSections } from "./livres.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -108,11 +108,18 @@ async function main() {
   await fs.rm(DIST, { recursive: true, force: true });
   await copyDir(ROOT, DIST);
   const nLivres = await buildLivres(DIST, transformHtml);
-  // Catalogue : tous les livres de data/livres.json à la suite des titres présentés à la main.
+  // Catalogue : tous les livres de data/livres.json, répartis par catégorie.
   const catPath = path.join(DIST, "catalogue.html");
   const cat = await fs.readFile(catPath, "utf8");
-  const featured = [...cat.matchAll(/class="catalogue-item[^"]*"[^>]*href="([^"]+)"/g)].map((m) => m[1]);
-  await fs.writeFile(catPath, cat.replace("<!--CATALOGUE-ALL-->", renderCatalogueAll(featured)));
+  const start = cat.indexOf('<div class="filter-row">');
+  const end = cat.indexOf("<!--CATALOGUE-ALL-->");
+  if (start > -1 && end > start) {
+    const block = cat.slice(start, end);
+    const featuredHtml = block.slice(block.indexOf('<a class="catalogue-item'));
+    const featured = [...featuredHtml.matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
+    const after = cat.indexOf("</div>", end + "<!--CATALOGUE-ALL-->".length) + "</div>".length;
+    await fs.writeFile(catPath, cat.slice(0, start) + renderCatalogueSections(featuredHtml, featured) + cat.slice(after));
+  }
   console.log(`[build] ${nLivres} pages livres générées.`);
   await fs.writeFile(path.join(DIST, "sitemap.xml"), buildSitemap());
   await fs.writeFile(path.join(DIST, "robots.txt"), buildRobots());

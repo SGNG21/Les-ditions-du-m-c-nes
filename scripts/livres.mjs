@@ -190,17 +190,25 @@ function renderHead(b, desc) {
 </head>`;
 }
 
-/** Grille complète du catalogue (catalogue.html), hors titres déjà présentés à la main. */
-export function renderCatalogueAll(skipHrefs = []) {
+/** Catalogue (catalogue.html) réparti par catégorie ; featuredHtml = titres présentés à la main (catalogue de la maison). */
+export function renderCatalogueSections(featuredHtml = "", skipHrefs = []) {
   const skip = new Set(skipHrefs);
-  const CAT_FILTRE = { entreprise: "entreprise", musee: "musee", catalogue: "catalogue", auteur: "auteur" };
-  return loadLivres()
-    .filter((b) => !skip.has(livreHref(b)))
-    .map(
-      (b) =>
-        `<a class="catalogue-item reveal" data-cat="${CAT_FILTRE[b.categorie] || "catalogue"}" href="${esc(livreHref(b))}"><div class="catalogue-cover"><img loading="lazy" decoding="async" width="${b.w}" height="${b.h}" src="${esc(b.src)}" alt="${esc(b.titre)}"></div><div class="cat">${esc(CATEGORIES[b.categorie] || "Catalogue")}</div><h3>${esc(b.titre)}</h3><p>${esc(b.client || (b.auteurs || ""))}</p></a>`
-    )
-    .join("\n");
+  const all = loadLivres().filter((b) => !skip.has(livreHref(b)));
+  const item = (b) =>
+    `<a class="catalogue-item reveal" href="${esc(livreHref(b))}"><div class="catalogue-cover"><img loading="lazy" decoding="async" width="${b.w}" height="${b.h}" src="${esc(b.src)}" alt="${esc(b.titre)}"></div><div class="cat">${esc(CATEGORIES[b.categorie] || "Catalogue")}</div><h3>${esc(b.titre)}</h3><p>${esc(b.client || b.auteurs || "")}</p></a>`;
+  const SECTIONS = [
+    ["entreprise", "Livres d’<em>entreprise.</em>", "Ouvrages créés pour des sociétés, de la conception à l’impression."],
+    ["musee", "Musées et <em>institutions.</em>", "Catalogues d’exposition et ouvrages réalisés pour des musées et des institutions culturelles."],
+    ["catalogue", "Catalogue de la <em>maison.</em>", "Paris, patrimoine, ville, scène et art de vivre : les ouvrages publiés par Les Éditions du Mécène."],
+    ["auteur", "Les livres de <em>Debra Finerman.</em>", ""],
+  ];
+  const nav = `<nav class="filter-row cat-nav">${SECTIONS.map(([k, t]) => `<a class="filter" href="#cat-${k}">${t.replace(/<[^>]+>/g, "").replace(/\.$/, "")}</a>`).join("")}</nav>`;
+  const body = SECTIONS.map(([k, t, intro]) => {
+    const items = (k === "catalogue" ? featuredHtml : "") + all.filter((b) => b.categorie === k).map(item).join("");
+    if (!items) return "";
+    return `<div class="cat-section" id="cat-${k}"><div class="chapter-head"><h2 class="h-bistre">${t}</h2>${intro ? `<p class="copy">${intro}</p>` : ""}</div><div class="catalogue-grid">${items}</div></div>`;
+  }).join("");
+  return nav + body;
 }
 
 /** Écrit les pages livre-*.html dans destDir, en appliquant transform (substitution SITE_URL…). */

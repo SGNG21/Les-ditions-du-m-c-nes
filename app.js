@@ -102,7 +102,7 @@
   }
 
   /* ---------- Catalogue filter ---------- */
-  var filterRow = document.querySelector(".filter-row");
+  var filterRow = document.querySelector(".filter-row:not(.cat-nav)");
   if (filterRow) {
     var filters = filterRow.querySelectorAll(".filter");
     var items = document.querySelectorAll(".catalogue-item");

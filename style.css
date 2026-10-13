@@ -686,3 +686,9 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .menu-side{position:relative;isolation:isolate}
 .menu-side:before{content:'';position:absolute;z-index:-1;left:0;right:0;bottom:0;top:-150px;background:#24221e}
 .menu-feature .edition{color:var(--gold)}
+/* Catalogue réparti par catégorie */
+.cat-nav{position:sticky;top:104px;z-index:5;background:var(--ivory,#f3eee4);padding:14px 0;margin-bottom:10px}
+.cat-nav .filter{text-decoration:none;color:inherit}
+.cat-section{padding-top:70px;scroll-margin-top:170px}
+.cat-section+.cat-section{margin-top:40px;border-top:1px solid var(--line)}
+.cat-section .chapter-head{margin-bottom:46px}
