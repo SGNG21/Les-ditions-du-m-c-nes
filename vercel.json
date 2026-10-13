@@ -23,6 +23,16 @@
       "source": "/debra-finerman.html",
       "destination": "/#interlocuteurs",
       "permanent": false
+    },
+    {
+      "source": "/maison",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/maison.html",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
