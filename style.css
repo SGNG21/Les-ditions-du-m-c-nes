@@ -669,3 +669,4 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .menu-books:hover~.menu-dots button.is-on:after{animation-play-state:paused}
 @keyframes menuProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(max-width:620px){.menu-links a.is-current span:before{width:10px;right:calc(100% + 6px)}}
+.menu-feature .edition em.accent-wine{color:var(--wine);font-style:italic}
