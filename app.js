@@ -329,7 +329,7 @@
     var dots=document.createElement('div');dots.className='menu-dots';
     var i=0,timer;
     var marks=[];
-    function show(n){items[i].classList.remove('is-on');marks[i].classList.remove('is-on');i=(n+items.length)%items.length;items[i].classList.add('is-on');marks[i].classList.add('is-on')}
+    function show(n){items[i].classList.remove('is-on');marks[i].classList.remove('is-on');i=(n+items.length)%items.length;items[i].classList.add('is-on');void marks[i].offsetWidth;marks[i].classList.add('is-on')}
     items.forEach(function(_,n){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Livre '+(n+1));if(!n)b.className='is-on';b.onclick=function(){show(n);start()};marks.push(b);dots.appendChild(b)});
     function arrow(lbl,txt,d){var b=document.createElement('button');b.type='button';b.className='menu-arrow';b.setAttribute('aria-label',lbl);b.textContent=txt;b.onclick=function(){show(i+d);start()};return b}
     dots.insertBefore(arrow('Livre précédent','←',-1),dots.firstChild);
@@ -337,7 +337,16 @@
     box.after(dots);
     function start(){clearInterval(timer);timer=setInterval(function(){show(i+1)},4500)}
     box.addEventListener('mouseenter',function(){clearInterval(timer)});
-    box.addEventListener('mouseleave',start);
+    box.addEventListener('mouseleave',function(){show(i);start()});
     start();
+  });
+})();
+
+/* Menu : page en cours */
+(function(){
+  var here=(location.pathname.split('/').pop()||'index').replace(/\.html$/,'')||'index';
+  document.querySelectorAll('.menu-links > a:not(.menu-awards)').forEach(function(a){
+    var t=(a.getAttribute('href')||'').split('#')[0].replace(/\.html$/,'');
+    if(t===here)a.classList.add('is-current');
   });
 })();

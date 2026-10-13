@@ -647,3 +647,25 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .menu-dots .menu-arrow{width:44px;height:44px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:none;color:var(--ivory);font:400 18px/1 'DM Mono',monospace;cursor:pointer;transition:.25s}
 .menu-dots .menu-arrow:first-child{margin-right:6px}.menu-dots .menu-arrow:last-child{margin-left:6px}
 .menu-dots .menu-arrow:hover{border-color:var(--gold);color:var(--gold)}
+/* Menu : distinctions */
+.menu-links a.menu-awards{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:6vh;padding:0;font:inherit;letter-spacing:normal}
+.menu-links a.menu-awards:hover{padding-left:0;color:inherit}
+.menu-medals{display:flex;gap:12px}
+.menu-awards .hm{display:flex!important;width:62px;height:62px;padding:5px;box-shadow:0 0 0 2px var(--ink),0 0 0 3px rgba(183,154,93,.7),0 8px 16px rgba(0,0,0,.4)}
+.menu-awards .hm small{font-size:6px;margin-bottom:3px;color:#2a2111}
+.menu-awards .hm b{font-size:10.5px;line-height:1.02;color:#2a2111}
+.menu-awards:hover .hm{transform:translateY(-2px)}
+.menu-awards>small{font:400 10.5px/1.6 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+@media(max-width:620px){.menu-awards .hm{width:50px;height:50px}.menu-awards .hm b{font-size:8.5px}.menu-medals{gap:8px}}
+/* Menu : page en cours */
+.menu-links a.is-current{color:var(--gold)}
+.menu-links a.is-current span{position:relative}
+.menu-links a.is-current span:before{content:'';position:absolute;right:calc(100% + 8px);top:50%;width:18px;height:1px;background:var(--gold)}
+/* Menu : progression du livre */
+.menu-dots button{position:relative;overflow:hidden}
+.menu-dots button.is-on{background:rgba(255,255,255,.25)}
+.menu-dots button.is-on:after{content:'';position:absolute;inset:0;background:var(--gold);transform-origin:left;animation:menuProg 4.5s linear forwards}
+.menu-dots .menu-arrow:after{display:none}
+.menu-books:hover~.menu-dots button.is-on:after{animation-play-state:paused}
+@keyframes menuProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:620px){.menu-links a.is-current span:before{width:10px;right:calc(100% + 6px)}}
