@@ -611,3 +611,4 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .collab-text p{font-size:16px;line-height:1.85;color:#514b43;max-width:760px;margin:0 0 14px}
 .manifesto .body.collab-text{columns:1}
 .accent-wine-dark{color:var(--wine)}
+.chapter h2 em.accent-wine-dark{color:var(--wine)!important;font-style:italic}
