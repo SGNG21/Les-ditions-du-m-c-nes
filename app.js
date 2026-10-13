@@ -6,11 +6,17 @@
 
   /* ---------- Preloader ---------- */
   var preloader = document.querySelector(".preloader");
-  window.addEventListener("load", function () {
-    setTimeout(function () {
-      if (preloader) preloader.classList.add("done");
-    }, 420);
-  });
+  // Écran d'accueil (logo) : affiché assez longtemps pour être lu —
+  // plus long à la première page de la visite, plus court ensuite.
+  var firstVisit = true;
+  try { firstVisit = !sessionStorage.getItem("mecene-seen"); sessionStorage.setItem("mecene-seen", "1"); } catch (e) {}
+  var minShow = firstVisit ? 1900 : 1200;
+  var t0 = Date.now();
+  if (preloader) preloader.style.setProperty("--pre-dur", (minShow / 1000) + "s");
+  function hidePreloader() {
+    setTimeout(function () { if (preloader) preloader.classList.add("done"); }, Math.max(0, minShow - (Date.now() - t0)));
+  }
+  if (document.readyState === "complete") hidePreloader(); else window.addEventListener("load", hidePreloader);
 
   /* ---------- Page-wipe on internal navigation ---------- */
   var wipe = document.querySelector(".page-wipe");

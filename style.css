@@ -572,3 +572,12 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .lp-foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.lp-foot a{color:inherit}
 @media(max-width:1000px){.lp-hero-grid,.lp-about,.lp-gift-grid,.lp-order-grid{grid-template-columns:1fr}.lp-hero-visual{order:-1}.lp-hero-visual img{width:min(300px,70%)}.lp-quotes{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.lp-top-cta{display:none}.lp-top .brand-logo{height:42px}.lp-points{grid-template-columns:1fr}.lp-points li+li{border-left:0;padding-left:0;border-top:1px solid var(--line)}.lp-gallery,.lp-quotes{grid-template-columns:1fr}.lp-sec{padding:70px 0}.lp-order .form{padding:20px 16px}}
+/* Écran d'accueil : logo de la maison, lisible */
+.pre-logo{display:block;width:min(440px,72vw);height:auto;margin:0 auto;animation:preIn .7s ease both}
+.preloader .pre-sub{margin-top:22px;font-size:11px;letter-spacing:.26em;animation:preIn .7s .15s ease both}
+.preloader .pre-sub2{margin-top:16px;color:rgba(243,238,228,.55);font-size:9.5px}
+.preloader .pre-line{margin-top:20px}
+.preloader .pre-line i{animation:load var(--pre-dur,1.2s) ease forwards}
+.preloader{transition:opacity .6s,visibility .6s}
+@keyframes preIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.pre-logo,.preloader .pre-sub{animation:none}}
