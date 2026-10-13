@@ -685,3 +685,4 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .menu-head{z-index:2}
 .menu-side{position:relative;isolation:isolate}
 .menu-side:before{content:'';position:absolute;z-index:-1;left:0;right:0;bottom:0;top:-150px;background:#24221e}
+.menu-feature .edition{color:var(--gold)}
