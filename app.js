@@ -328,8 +328,12 @@
     if(items.length<2)return;
     var dots=document.createElement('div');dots.className='menu-dots';
     var i=0,timer;
-    function show(n){items[i].classList.remove('is-on');dots.children[i].classList.remove('is-on');i=(n+items.length)%items.length;items[i].classList.add('is-on');dots.children[i].classList.add('is-on')}
-    items.forEach(function(_,n){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Livre '+(n+1));if(!n)b.className='is-on';b.onclick=function(){show(n);start()};dots.appendChild(b)});
+    var marks=[];
+    function show(n){items[i].classList.remove('is-on');marks[i].classList.remove('is-on');i=(n+items.length)%items.length;items[i].classList.add('is-on');marks[i].classList.add('is-on')}
+    items.forEach(function(_,n){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Livre '+(n+1));if(!n)b.className='is-on';b.onclick=function(){show(n);start()};marks.push(b);dots.appendChild(b)});
+    function arrow(lbl,txt,d){var b=document.createElement('button');b.type='button';b.className='menu-arrow';b.setAttribute('aria-label',lbl);b.textContent=txt;b.onclick=function(){show(i+d);start()};return b}
+    dots.insertBefore(arrow('Livre précédent','←',-1),dots.firstChild);
+    dots.appendChild(arrow('Livre suivant','→',1));
     box.after(dots);
     function start(){clearInterval(timer);timer=setInterval(function(){show(i+1)},4500)}
     box.addEventListener('mouseenter',function(){clearInterval(timer)});

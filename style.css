@@ -643,3 +643,7 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .menu-contact .button{margin:0}
 .menu-tel{font:400 12px 'DM Mono',monospace;letter-spacing:.14em;color:var(--ivory);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:3px}
 .menu-tel:hover{color:var(--gold);border-color:var(--gold)}
+.menu-dots{align-items:center;gap:12px}
+.menu-dots .menu-arrow{width:44px;height:44px;border:1px solid rgba(255,255,255,.3);border-radius:50%;background:none;color:var(--ivory);font:400 18px/1 'DM Mono',monospace;cursor:pointer;transition:.25s}
+.menu-dots .menu-arrow:first-child{margin-right:6px}.menu-dots .menu-arrow:last-child{margin-left:6px}
+.menu-dots .menu-arrow:hover{border-color:var(--gold);color:var(--gold)}
