@@ -670,3 +670,13 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 @keyframes menuProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(max-width:620px){.menu-links a.is-current span:before{width:10px;right:calc(100% + 6px)}}
 .menu-feature .edition em.accent-wine{color:var(--wine);font-style:italic}
+/* Menu : distinctions, version typographique */
+.menu-links a.menu-awards{gap:14px;border-top:1px solid rgba(255,255,255,.12);padding-top:22px;align-self:flex-start}
+.menu-medals{gap:0}
+.menu-awards .hm{width:auto;height:auto;border-radius:0;background:none;box-shadow:none;padding:0 18px;align-items:flex-start;text-align:left;border-left:1px solid rgba(183,154,93,.35)}
+.menu-awards .hm:first-child{padding-left:0;border-left:0}
+.menu-awards .hm small{font-size:8.5px;letter-spacing:.14em;color:var(--gold);margin-bottom:6px}
+.menu-awards .hm b{font:italic 400 17px/1.1 'Cormorant Garamond',serif;color:var(--ivory);white-space:nowrap}
+.menu-awards:hover .hm{transform:none}.menu-awards:hover .hm b{color:var(--gold)}
+.menu-awards>small{font-size:9.5px;color:#8f897c}
+@media(max-width:620px){.menu-medals{flex-wrap:wrap;row-gap:14px}.menu-awards .hm{width:auto;height:auto;padding:0 12px}.menu-awards .hm b{font-size:14px}}
