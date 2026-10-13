@@ -113,7 +113,7 @@ function renderMain(b, all) {
 
   return `<main>
 <section class="pagehero livre-hero"><div class="folio">${esc(cat)} · Ouvrage</div><div class="wrap">
-<div class="kicker"><a href="${b.categorie === "auteur" ? "interlocuteurs.html#livres-debra" : `entreprises.html#${ANCRES[b.categorie] || "realisations"}`}">${esc(cat)}</a></div>
+<div class="kicker"><a href="${b.categorie === "auteur" ? "index.html#interlocuteurs" : `entreprises.html#${ANCRES[b.categorie] || "realisations"}`}">${esc(cat)}</a></div>
 <h1>${esc(b.titre)}</h1>
 <p class="intro">${esc(intro)}</p>
 </div></section>

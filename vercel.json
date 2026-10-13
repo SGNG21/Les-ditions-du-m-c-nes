@@ -6,23 +6,23 @@
   "redirects": [
     {
       "source": "/patrice-de-moncan",
-      "destination": "/interlocuteurs",
-      "permanent": true
+      "destination": "/#interlocuteurs",
+      "permanent": false
     },
     {
       "source": "/debra-finerman",
-      "destination": "/interlocuteurs",
-      "permanent": true
+      "destination": "/#interlocuteurs",
+      "permanent": false
     },
     {
       "source": "/patrice-de-moncan.html",
-      "destination": "/interlocuteurs",
-      "permanent": true
+      "destination": "/#interlocuteurs",
+      "permanent": false
     },
     {
       "source": "/debra-finerman.html",
-      "destination": "/interlocuteurs",
-      "permanent": true
+      "destination": "/#interlocuteurs",
+      "permanent": false
     }
   ]
 }
