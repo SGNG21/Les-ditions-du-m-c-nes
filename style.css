@@ -615,3 +615,6 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 /* Pied de page : accroche moins haute */
 .footer-title{font-size:40px;line-height:1;max-width:16ch}
 @media(max-width:620px){.footer-title{font-size:32px}}
+.duo-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:26px}
+.duo-cta .button{width:auto;margin:0;white-space:nowrap}.duo-cta .text-link{margin:0}
+@media(max-width:560px){.duo-cta .button{width:100%;text-align:center}}
