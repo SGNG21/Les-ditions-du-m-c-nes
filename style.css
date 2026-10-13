@@ -612,3 +612,6 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .manifesto .body.collab-text{columns:1}
 .accent-wine-dark{color:var(--wine)}
 .chapter h2 em.accent-wine-dark{color:var(--wine)!important;font-style:italic}
+/* Pied de page : accroche moins haute */
+.footer-title{font-size:40px;line-height:1;max-width:16ch}
+@media(max-width:620px){.footer-title{font-size:32px}}
