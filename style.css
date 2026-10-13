@@ -639,3 +639,7 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .menu-head .brand-logo{height:104px}
 .menu-body{height:calc(100vh - 150px)}
 @media(max-width:620px){.menu-head{height:110px}.menu-head .brand-logo{height:64px}.menu-head .brand{left:0;transform:translateY(-50%)}.menu-body{height:calc(100vh - 110px)}}
+.menu-contact{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.menu-contact .button{margin:0}
+.menu-tel{font:400 12px 'DM Mono',monospace;letter-spacing:.14em;color:var(--ivory);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:3px}
+.menu-tel:hover{color:var(--gold);border-color:var(--gold)}
