@@ -681,3 +681,7 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .menu-awards>small{font-size:9.5px;color:#8f897c}
 @media(max-width:620px){.menu-medals{flex-wrap:wrap;row-gap:14px}.menu-awards .hm{width:auto;height:auto;padding:0 12px}.menu-awards .hm b{font-size:14px}}
 .menu-dots button:focus:not(:focus-visible){outline:none}
+/* Menu : panneau livres en fond légèrement plus clair, sur toute la hauteur */
+.menu-head{z-index:2}
+.menu-side{position:relative;isolation:isolate}
+.menu-side:before{content:'';position:absolute;z-index:-1;left:0;right:0;bottom:0;top:-150px;background:#181715}
