@@ -598,3 +598,6 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .h-bistre em{color:var(--wine)}
 .why-label{font-size:15px!important;letter-spacing:.16em;margin:44px 0 24px}
 @media(max-width:620px){.why-label{font-size:13px!important}}
+.logo-wall>div.logo-captioned{flex-direction:column;gap:8px}
+.logo-captioned img.sq{max-height:78px}
+.logo-cap{font:400 10px/1.3 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center}
