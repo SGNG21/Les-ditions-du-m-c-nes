@@ -1922,12 +1922,17 @@
  {
   "slug": "au-secours-les-recours",
   "titre": "Au secours, les recours !",
-  "client": "Carol Galivel",
+  "client": "Galivel & Associés",
   "src": "assets/realisations/au-secours-les-recours.jpg",
   "w": 600,
   "h": 871,
   "categorie": "catalogue",
-  "liens_client": [],
+  "liens_client": [
+   {
+    "nom": "Galivel & Associés",
+    "url": "https://www.galivel.com"
+   }
+  ],
   "description": "Fondatrice en 1992 de la première agence de relations presse spécialisée dans l'immobilier, Carol Galivel dénonce la contestation abusive des permis de construire, qu'elle qualifie de « mal français ». À travers de nombreux exemples concrets, elle décrit une économie souterraine des recours malveillants, pointe les insuffisances de la législation et donne la parole aux promoteurs et juristes favorables à un retour à des pratiques plus saines, sans remettre en cause le principe même du recours.",
   "auteurs": "Carol Galivel",
   "presse": [
