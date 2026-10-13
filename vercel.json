@@ -2,5 +2,27 @@
   "buildCommand": "node scripts/build.mjs",
   "outputDirectory": "dist",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/patrice-de-moncan",
+      "destination": "/interlocuteurs",
+      "permanent": true
+    },
+    {
+      "source": "/debra-finerman",
+      "destination": "/interlocuteurs",
+      "permanent": true
+    },
+    {
+      "source": "/patrice-de-moncan.html",
+      "destination": "/interlocuteurs",
+      "permanent": true
+    },
+    {
+      "source": "/debra-finerman.html",
+      "destination": "/interlocuteurs",
+      "permanent": true
+    }
+  ]
 }
