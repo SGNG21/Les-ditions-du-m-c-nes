@@ -604,3 +604,5 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .logo-wall>a.logo-captioned{flex-direction:column;gap:8px}.logo-wall>a{text-decoration:none}
 .cta-eyebrow{font-size:15px!important;letter-spacing:.16em;margin-bottom:10px}
 @media(max-width:620px){.cta-eyebrow{font-size:13px!important}}
+.logo-wall>.logo-captioned img{max-height:64px}.logo-wall>.logo-captioned img.sq{max-height:74px}
+.logo-cap{max-width:92%;line-height:1.35}
