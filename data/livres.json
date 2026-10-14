@@ -716,12 +716,17 @@
  {
   "slug": "ambiances-et-decors-restaurants",
   "titre": "Ambiances et décors de restaurants en Europe",
-  "client": "Patrice de Moncan",
+  "client": "BNP Paribas",
   "src": "assets/realisations/ambiances-et-decors-restaurants.jpg",
   "w": 595,
   "h": 778,
   "categorie": "catalogue",
-  "liens_client": [],
+  "liens_client": [
+   {
+    "nom": "BNP Paribas",
+    "url": "https://group.bnpparibas"
+   }
+  ],
   "description": "Beau livre de Patrice de Moncan consacré aux ambiances et aux décors des restaurants en Europe, publié aux Éditions du Mécène en 2001 dans un grand format (environ 32 × 23,5 cm) de 224 pages.",
   "annee": "2001",
   "pages": "224",
