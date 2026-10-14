@@ -706,3 +706,10 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .now-item img.now-logo{height:20px;width:auto;max-width:110px;object-fit:contain;object-position:left;margin-top:8px;box-shadow:none;opacity:.8;transform:none}
 .now-item:hover img.now-logo{opacity:1;transform:none}
 .now-item img.now-logo.is-color{height:26px;opacity:1}
+/* Catalogue mobile : navigation des catégories sur une seule ligne, non collante */
+@media(max-width:760px){
+.cat-nav{position:static;display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:10px 0;margin:0 calc(-1 * var(--pad)) 0;padding-left:var(--pad);padding-right:var(--pad)}
+.cat-nav::-webkit-scrollbar{display:none}
+.cat-nav .filter{flex:0 0 auto;padding:9px 12px;font-size:9.5px;letter-spacing:.1em;white-space:nowrap}
+.cat-section{padding-top:44px;scroll-margin-top:20px}
+}
