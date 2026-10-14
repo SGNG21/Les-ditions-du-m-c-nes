@@ -716,12 +716,16 @@
  {
   "slug": "ambiances-et-decors-restaurants",
   "titre": "Ambiances et décors de restaurants en Europe",
-  "client": "BNP Paribas",
+  "client": "BNP Paribas Real Estate",
   "src": "assets/realisations/ambiances-et-decors-restaurants.jpg",
   "w": 595,
   "h": 778,
   "categorie": "catalogue",
   "liens_client": [
+   {
+    "nom": "BNP Paribas Real Estate",
+    "url": "https://www.realestate.bnpparibas.fr"
+   },
    {
     "nom": "BNP Paribas",
     "url": "https://group.bnpparibas"
