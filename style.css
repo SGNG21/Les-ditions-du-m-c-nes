@@ -722,3 +722,4 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .client .client-logos{display:flex;align-items:center;gap:16px;margin:14px 0 4px}
 .client .client-logos .client-logo{margin:0}
 .client .client-logo.is-square{height:44px}
+.prize-line a{color:inherit;text-decoration:none}.prize-line a:hover{color:var(--wine)}
