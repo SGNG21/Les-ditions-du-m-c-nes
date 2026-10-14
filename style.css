@@ -739,3 +739,11 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .page-dark-top .topbar:not(.scrolled) .brand-logo{content:url("assets/logo-mecene-clair.svg")}
 .page-dark-top .topbar:not(.scrolled) .brand-meta{color:rgba(243,238,228,.75)}
 .page-dark-top .topbar:not(.scrolled) .brand-rule{background:var(--gold)}
+/* Petits titres et étiquettes : taille augmentée partout */
+.kicker,.eyebrow,.case-kicker,.cta-eyebrow,.why-label,.logo-wall-label,.now-label{font-size:13px!important;letter-spacing:.14em}
+.chapter-no,.pagehero .folio{font-size:12.5px!important}
+.catalogue-item .cat,.client .type,.mini-timeline b,.book-specs b,.gift-specs b,.footer h4,.award .award-prize,.case-count,.portrait-tag,.gift-tag{font-size:12px!important}
+.cover-card p,.catalogue-item p,.river-item p,.now-item small,.prize-line small,.press-item small,.biz-ex small,.ref small,.logo-cap,.fact small,.caption,.lp-gallery figcaption,.collab-step figcaption,.moment-list small,.sig-list small,.offer small,.intl-press small,.menu-books span,.menu-side small{font-size:11.5px!important}
+.filter,.text-link,.spec-link,.biz-proof-figures,.hero-meta,.season-bar,.footer-bottom,.field label,.step .n{font-size:12px!important}
+.button{font-size:11.5px!important}
+@media(max-width:620px){.kicker,.eyebrow,.case-kicker,.cta-eyebrow,.why-label,.logo-wall-label,.now-label{font-size:11.5px!important}.cover-card p,.catalogue-item p,.river-item p,.now-item small{font-size:10.5px!important}}
