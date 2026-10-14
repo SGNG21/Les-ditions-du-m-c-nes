@@ -925,12 +925,17 @@
  {
   "slug": "passage-couvert-covered-arcade",
   "titre": "Passage couvert · Covered Arcade",
-  "client": "",
+  "client": "Jones Lang LaSalle",
   "src": "assets/realisations/passage-couvert-covered-arcade.jpg",
   "w": 874,
   "h": 1200,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [
+   {
+    "nom": "JLL",
+    "url": "https://www.jll.fr"
+   }
+  ]
  },
  {
   "slug": "paris-jardins-d-haussmann",
