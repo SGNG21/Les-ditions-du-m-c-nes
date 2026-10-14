@@ -356,6 +356,8 @@
   var grid=document.querySelector('.cover-rotator');
   if(!grid||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var all=[].slice.call(grid.children),SLOTS=8;
+  var FAM=[['christian-lacroix'],['betes-de-scene','animales-a-escena'],['a-qui-appartient','who-owns-paris'],['que-vaut'],['puces-de'],['rudolf-nureyev','rudolf-noureev','ouvrage-noureev'],['passage','arcades'],['marville'],['haussmann'],['elysee']];
+  function fam(a){var h=a.getAttribute('href')||'';for(var i=0;i<FAM.length;i++){for(var j=0;j<FAM[i].length;j++){if(h.indexOf(FAM[i][j])>-1)return 'f'+i}}return h}
   if(all.length<=SLOTS)return;
   var rest=all.slice(SLOTS),pool=rest.filter(function(a){return a.classList.contains('is-prestige')}),others=rest.filter(function(a){return !a.classList.contains('is-prestige')}),phase=0,turn=0,n=0;
   // ordre en damier : cases « noires » puis « blanches » (grille de 4 colonnes)
@@ -366,7 +368,12 @@
     cur.classList.add('is-out');
     setTimeout(function(){
       // deux livres de prestige pour un autre titre du catalogue
-      var q=(n++%3===2&&others.length)?others:pool,next=q.shift();
+      var q=(n++%3===2&&others.length)?others:pool;
+      // jamais deux livres de la même famille (éditions jumelles, séries) à l'écran en même temps
+      var shown=[].slice.call(grid.children,0,SLOTS).filter(function(a){return a!==cur}).map(fam);
+      var k=0;while(k<q.length&&shown.indexOf(fam(q[k]))>-1)k++;
+      if(k===q.length)k=0;
+      var next=q.splice(k,1)[0];
       next.classList.add('is-out');
       grid.insertBefore(next,cur);grid.appendChild(cur);(cur.classList.contains('is-prestige')?pool:others).push(cur);
       cur.classList.remove('is-out');
