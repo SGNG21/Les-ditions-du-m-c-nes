@@ -930,12 +930,17 @@
  {
   "slug": "paris-jardins-d-haussmann",
   "titre": "Paris, les jardins d’Haussmann",
-  "client": "",
+  "client": "Le Louvre des Antiquaires",
   "src": "assets/realisations/paris-jardins-d-haussmann.jpg",
   "w": 600,
   "h": 835,
   "categorie": "catalogue",
-  "liens_client": [],
+  "liens_client": [
+   {
+    "nom": "Le Louvre des Antiquaires",
+    "url": "https://www.louvre-antiquaires.com/"
+   }
+  ],
   "description": "Ouvrage de Patrice de Moncan consacré aux parcs, squares et promenades créés à Paris sous le Second Empire par le baron Haussmann et le Service des promenades et plantations, expression de la pensée hygiéniste du XIXe siècle.",
   "annee": "2009",
   "isbn": "9782907970914",
