@@ -639,12 +639,17 @@
  {
   "slug": "baltard-halles-de-paris",
   "titre": "Baltard, les Halles de Paris",
-  "client": "",
+  "client": "Ségécé",
   "src": "assets/realisations/baltard-halles-de-paris.jpg",
   "w": 562,
   "h": 800,
   "categorie": "catalogue",
-  "liens_client": [],
+  "liens_client": [
+   {
+    "nom": "Klépierre",
+    "url": "https://www.klepierre.com"
+   }
+  ],
   "description": "Monographie de Patrice de Moncan consacrée à Victor Baltard (1805-1874), architecte de la Ville de Paris, et à son œuvre la plus célèbre : les pavillons de verre et de fonte des Halles centrales, conçus à partir de 1845 et démolis au début des années 1970.",
   "annee": "1994",
   "pages": "238",
