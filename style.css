@@ -719,3 +719,6 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 /* Menu : titre de l'espace livres en blanc, « fêtes de fin d'année » en doré */
 .menu-feature .edition{color:var(--ivory)}
 .menu-feature .edition em.accent-wine{color:var(--gold)}
+.client .client-logos{display:flex;align-items:center;gap:16px;margin:14px 0 4px}
+.client .client-logos .client-logo{margin:0}
+.client .client-logo.is-square{height:44px}
