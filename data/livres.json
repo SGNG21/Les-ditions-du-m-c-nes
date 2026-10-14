@@ -738,42 +738,6 @@
   "presse": []
  },
  {
-  "slug": "paris-d-haussmann-atis-real",
-  "titre": "Le Paris d’Haussmann",
-  "client": "Atis Real",
-  "src": "assets/realisations/paris-d-haussmann-atis-real.jpg",
-  "w": 584,
-  "h": 800,
-  "categorie": "catalogue",
-  "liens_client": [
-   {
-    "nom": "BNP Paribas Real Estate",
-    "url": "https://www.realestate.bnpparibas.fr"
-   }
-  ],
-  "description": "Patrice de Moncan décrypte l'œuvre du baron Haussmann qui, en dix-sept ans, a profondément transformé Paris : percée de larges avenues, réaménagement des bois de Boulogne et de Vincennes, création de nombreux squares et de monuments comme l'Opéra Garnier ou les Halles de Baltard. Le livre interroge l'esprit de ces travaux controversés, leurs conséquences sur la vie des Parisiens et leur financement.",
-  "annee": "2002",
-  "auteurs": "Patrice de Moncan",
-  "presse": [
-   {
-    "source": "Bibliothèques de la Ville de Paris (catalogue)",
-    "titre": "Le Paris d'Haussmann – Patrice de Moncan (notice)",
-    "url": "https://bibliotheques.paris.fr/2020/doc/SYRACUSE/611243"
-   },
-   {
-    "source": "Centre Canadien d'Architecture (bibliothèque)",
-    "titre": "Le Paris d'Haussmann – notice de catalogue",
-    "url": "https://www.cca.qc.ca/en/search/details/library/publication/606778125"
-   }
-  ],
-  "prix": [
-   "Prix Charles Garnier · Société de Géographie",
-   "Grand Prix Haussmann · FNAIM"
-  ],
-  "voir_aussi": "ouvrage-haussmann.html",
-  "description_courte": "Distingué par le Grand Prix Haussmann de la FNAIM et le Prix Charles Garnier de la Société de Géographie. L’un de plus de vingt livres réalisés pour BNP Paribas Real Estate."
- },
- {
   "slug": "paris-d-haussmann-2019",
   "titre": "Le Paris d’Haussmann · édition 2019",
   "client": "Patrice de Moncan",

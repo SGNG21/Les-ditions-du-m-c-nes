@@ -33,6 +33,16 @@
       "source": "/maison.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/livre-paris-d-haussmann-atis-real",
+      "destination": "/ouvrage-haussmann",
+      "permanent": true
+    },
+    {
+      "source": "/livre-paris-d-haussmann-atis-real.html",
+      "destination": "/ouvrage-haussmann",
+      "permanent": true
     }
   ]
 }
