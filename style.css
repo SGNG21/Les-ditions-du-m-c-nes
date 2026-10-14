@@ -716,3 +716,6 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 /* Catalogue ordinateur : navigation des catégories non collante */
 .cat-nav{position:static;top:auto;background:none}
 .cat-section{scroll-margin-top:30px}
+/* Menu : titre de l'espace livres en blanc, « fêtes de fin d'année » en doré */
+.menu-feature .edition{color:var(--ivory)}
+.menu-feature .edition em.accent-wine{color:var(--gold)}
