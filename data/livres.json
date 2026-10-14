@@ -1996,6 +1996,17 @@
   "liens_client": []
  },
  {
+  "slug": "paris-les-toits-la-nuit",
+  "titre": "Paris, les toits, la nuit… / roofs, night…",
+  "client": "",
+  "src": "assets/realisations/paris-les-toits-la-nuit.jpg",
+  "w": 595,
+  "h": 481,
+  "categorie": "catalogue",
+  "auteurs": "Frédéric Vuillod",
+  "liens_client": []
+ },
+ {
   "slug": "quelle-belle-vie-de-chien",
   "titre": "Quelle belle vie de chien",
   "client": "Les Éditions du Mécène · éd. originale : You Lucky Dog",
