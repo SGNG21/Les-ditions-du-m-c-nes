@@ -380,3 +380,23 @@
     if(turn%set.length===0){phase=1-phase;turn=0}
   },2600);
 })();
+
+/* En-tête : se retire dès que la souris ne bouge plus, revient au moindre mouvement */
+(function(){
+  var bar=document.querySelector('.topbar');if(!bar)return;
+  var t,lastY=window.scrollY;
+  function show(){bar.classList.remove('is-idle');clearTimeout(t);t=setTimeout(hide,1200)}
+  function hide(){
+    var menu=document.querySelector('.menu-overlay.open');
+    if(window.scrollY<120||menu||bar.matches(':hover')||bar.contains(document.activeElement))return;
+    bar.classList.add('is-idle');
+  }
+  window.addEventListener('mousemove',show,{passive:true});
+  window.addEventListener('keydown',show);
+  window.addEventListener('touchstart',show,{passive:true});
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y<120||y<lastY)show();else if(y>lastY+4)hide();
+    lastY=y;
+  },{passive:true});
+})();

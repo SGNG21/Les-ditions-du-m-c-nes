@@ -698,3 +698,6 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .cover-rotator .cover-link.is-out{opacity:0;transform:translateY(10px)}
 .cover-rotator .cover-frame{position:relative}
 .cover-badge{position:absolute;left:0;right:0;bottom:0;padding:9px 10px;background:rgba(17,17,15,.86);color:var(--gold);font:400 10px/1.4 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;text-align:center}
+/* En-tête masqué quand la souris ne bouge plus */
+.topbar{transition:transform .45s ease,background .35s,border-color .35s}
+.topbar.is-idle{transform:translateY(-100%)}
