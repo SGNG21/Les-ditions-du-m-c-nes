@@ -263,17 +263,12 @@
  {
   "slug": "belles-heures-claridge",
   "titre": "Les Belles Heures du Claridge",
-  "client": "AXA",
+  "client": "Hôtel Claridge · Champs-Élysées",
   "src": "assets/realisations/belles-heures-claridge.jpg",
   "w": 600,
   "h": 795,
   "categorie": "entreprise",
-  "liens_client": [
-   {
-    "nom": "AXA",
-    "url": "https://www.axa.com"
-   }
-  ]
+  "liens_client": []
  },
  {
   "slug": "l-oeuf-dans-tous-ses-etats",
