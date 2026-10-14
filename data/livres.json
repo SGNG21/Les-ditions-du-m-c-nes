@@ -352,21 +352,12 @@
  {
   "slug": "paris-baron-haussmann",
   "titre": "Le Paris du baron Haussmann",
-  "client": "Louvre des Antiquaires · Ségécé",
+  "client": "Conseil national des experts-comptables",
   "src": "assets/realisations/paris-baron-haussmann.jpg",
   "w": 600,
   "h": 764,
   "categorie": "musee",
-  "liens_client": [
-   {
-    "nom": "Le Louvre des Antiquaires",
-    "url": "https://www.louvre-antiquaires.com/"
-   },
-   {
-    "nom": "Klépierre",
-    "url": "https://www.klepierre.com"
-   }
-  ],
+  "liens_client": [],
   "voir_aussi": "ouvrage-haussmann.html"
  },
  {
