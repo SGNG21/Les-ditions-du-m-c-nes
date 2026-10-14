@@ -701,3 +701,8 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 /* En-tête masqué quand la souris ne bouge plus */
 .topbar{transition:transform .45s ease,background .35s,border-color .35s}
 .topbar.is-idle{transform:translateY(-100%)}
+/* Livres du moment : logo du commanditaire */
+.now-item span{display:flex;flex-direction:column;align-items:flex-start}
+.now-item img.now-logo{height:20px;width:auto;max-width:110px;object-fit:contain;object-position:left;margin-top:8px;box-shadow:none;opacity:.8;transform:none}
+.now-item:hover img.now-logo{opacity:1;transform:none}
+.now-item img.now-logo.is-color{height:26px;opacity:1}
