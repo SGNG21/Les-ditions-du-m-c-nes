@@ -357,7 +357,7 @@
   if(!grid||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   var all=[].slice.call(grid.children),SLOTS=8;
   if(all.length<=SLOTS)return;
-  var pool=all.slice(SLOTS),phase=0,turn=0;
+  var rest=all.slice(SLOTS),pool=rest.filter(function(a){return a.classList.contains('is-prestige')}),others=rest.filter(function(a){return !a.classList.contains('is-prestige')}),phase=0,turn=0,n=0;
   // ordre en damier : cases « noires » puis « blanches » (grille de 4 colonnes)
   var black=[1,3,4,6],white=[2,5,7];
   function swap(idx){
@@ -365,9 +365,10 @@
     if(!cur||cur.classList.contains('is-fixed')||!pool.length)return;
     cur.classList.add('is-out');
     setTimeout(function(){
-      var next=pool.shift();
+      // deux livres de prestige pour un autre titre du catalogue
+      var q=(n++%3===2&&others.length)?others:pool,next=q.shift();
       next.classList.add('is-out');
-      grid.insertBefore(next,cur);grid.appendChild(cur);pool.push(cur);
+      grid.insertBefore(next,cur);grid.appendChild(cur);(cur.classList.contains('is-prestige')?pool:others).push(cur);
       cur.classList.remove('is-out');
       requestAnimationFrame(function(){requestAnimationFrame(function(){next.classList.remove('is-out')})});
     },600);
