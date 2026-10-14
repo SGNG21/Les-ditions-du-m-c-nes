@@ -350,3 +350,32 @@
     if(t===here)a.classList.add('is-current');
   });
 })();
+
+/* Accueil : couvertures qui changent une à une, en damier */
+(function(){
+  var grid=document.querySelector('.cover-rotator');
+  if(!grid||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var all=[].slice.call(grid.children),SLOTS=8;
+  if(all.length<=SLOTS)return;
+  var pool=all.slice(SLOTS),phase=0,turn=0;
+  // ordre en damier : cases « noires » puis « blanches » (grille de 4 colonnes)
+  var black=[1,3,4,6],white=[2,5,7];
+  function swap(idx){
+    var cur=grid.children[idx];
+    if(!cur||cur.classList.contains('is-fixed')||!pool.length)return;
+    cur.classList.add('is-out');
+    setTimeout(function(){
+      var next=pool.shift();
+      next.classList.add('is-out');
+      grid.insertBefore(next,cur);grid.appendChild(cur);pool.push(cur);
+      cur.classList.remove('is-out');
+      requestAnimationFrame(function(){requestAnimationFrame(function(){next.classList.remove('is-out')})});
+    },600);
+  }
+  setInterval(function(){
+    if(document.hidden)return;
+    var set=phase?white:black;
+    swap(set[turn%set.length]);turn++;
+    if(turn%set.length===0){phase=1-phase;turn=0}
+  },2600);
+})();
