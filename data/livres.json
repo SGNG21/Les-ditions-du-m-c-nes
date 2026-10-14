@@ -906,12 +906,17 @@
  {
   "slug": "passages-couverts-de-paris",
   "titre": "Les Passages couverts de Paris",
-  "client": "Patrice de Moncan",
+  "client": "Ségécé",
   "src": "assets/realisations/passages-couverts-de-paris.jpg",
   "w": 600,
   "h": 732,
   "categorie": "catalogue",
-  "liens_client": [],
+  "liens_client": [
+   {
+    "nom": "Klépierre",
+    "url": "https://www.klepierre.com"
+   }
+  ],
   "description": "Patrice de Moncan propose une promenade dans les passages couverts de Paris, apparus pour la première fois au Palais-Royal en 1786, en retraçant leur histoire, leur architecture et leur vie aujourd'hui, au XXIe siècle.",
   "auteurs": "Patrice de Moncan",
   "presse": [],
