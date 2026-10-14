@@ -107,7 +107,7 @@ function renderMain(b, all) {
   const rel = related(b, all)
     .map(
       (x) =>
-        `<a class="river-item" href="${esc(livreHref(x))}"><div class="river-cover"><img decoding="async" loading="lazy" width="${x.w}" height="${x.h}" src="${esc(x.src)}" alt="${esc(x.titre)}"></div><h4>${esc(x.titre)}</h4><p>${esc(x.client || CATEGORIES[x.categorie] || "")}</p></a>`
+        `<a class="river-item" href="${esc(livreHref(x))}"><div class="river-cover"><img${x.w > x.h ? ' class="is-wide"' : ""} decoding="async" loading="lazy" width="${x.w}" height="${x.h}" src="${esc(x.src)}" alt="${esc(x.titre)}"></div><h4>${esc(x.titre)}</h4><p>${esc(x.client || CATEGORIES[x.categorie] || "")}</p></a>`
     )
     .join("");
 
@@ -213,7 +213,7 @@ export function renderCatalogueSections(featuredHtml = "", skipHrefs = []) {
   const skip = new Set(skipHrefs);
   const all = loadLivres().filter((b) => !skip.has(livreHref(b)));
   const item = (b) =>
-    `<a class="catalogue-item reveal" href="${esc(livreHref(b))}"><div class="catalogue-cover"><img loading="lazy" decoding="async" width="${b.w}" height="${b.h}" src="${esc(b.src)}" alt="${esc(b.titre)}"></div><div class="cat">${esc(CATEGORIES[b.categorie] || "Catalogue")}</div><h3>${esc(b.titre)}</h3><p>${esc(b.client || b.auteurs || "")}</p></a>`;
+    `<a class="catalogue-item reveal${b.w > b.h ? " is-wide-item" : ""}" href="${esc(livreHref(b))}"><div class="catalogue-cover"><img${b.w > b.h ? ' class="is-wide"' : ""} loading="lazy" decoding="async" width="${b.w}" height="${b.h}" src="${esc(b.src)}" alt="${esc(b.titre)}"></div><div class="cat">${esc(CATEGORIES[b.categorie] || "Catalogue")}</div><h3>${esc(b.titre)}</h3><p>${esc(b.client || b.auteurs || "")}</p></a>`;
   const SECTIONS = [
     ["entreprise", "Livres d’<em>entreprise.</em>", "Ouvrages créés pour des sociétés, de la conception à l’impression."],
     ["musee", "Musées et <em>institutions.</em>", "Catalogues d’exposition et ouvrages réalisés pour des musées et des institutions culturelles."],
