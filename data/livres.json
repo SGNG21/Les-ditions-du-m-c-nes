@@ -678,8 +678,8 @@
   "titre": "À qui appartient Paris",
   "client": "Patrice de Moncan · préface de Jacques Chirac",
   "src": "assets/realisations/a-qui-appartient-paris.jpg",
-  "w": 600,
-  "h": 627,
+  "w": 1148,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": [],
   "description": "Enquête de Patrice de Moncan sur la propriété immobilière à Paris : qui possède les immeubles, terrains et bureaux de la capitale. L'ouvrage a paru dans la collection « Observatoire de la propriété immobilière ».",
@@ -929,6 +929,16 @@
   "liens_client": []
  },
  {
+  "slug": "arcades-of-paris-guidebook",
+  "titre": "The Arcades of Paris, Guidebook",
+  "client": "",
+  "src": "assets/realisations/arcades-of-paris-guidebook.jpg",
+  "w": 904,
+  "h": 1200,
+  "categorie": "catalogue",
+  "liens_client": []
+ },
+ {
   "slug": "passages-couverts-de-paris",
   "titre": "Les Passages couverts de Paris",
   "client": "Patrice de Moncan",
@@ -947,8 +957,8 @@
   "titre": "Passage couvert · Covered Arcade",
   "client": "",
   "src": "assets/realisations/passage-couvert-covered-arcade.jpg",
-  "w": 592,
-  "h": 800,
+  "w": 874,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": []
  },
@@ -1032,8 +1042,8 @@
   "titre": "Le Domaine de Combafort, Megève",
   "client": "",
   "src": "assets/realisations/domaine-de-combafort.jpg",
-  "w": 590,
-  "h": 800,
+  "w": 900,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": []
  },
@@ -1052,8 +1062,8 @@
   "titre": "La Mouffe",
   "client": "",
   "src": "assets/realisations/la-mouffe.jpg",
-  "w": 600,
-  "h": 984,
+  "w": 711,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": []
  },
@@ -1140,8 +1150,8 @@
   "titre": "Quartier Claude Bernard, Paris 19e",
   "client": "",
   "src": "assets/realisations/quartier-claude-bernard.jpg",
-  "w": 600,
-  "h": 811,
+  "w": 906,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": []
  },
@@ -1170,8 +1180,8 @@
   "titre": "L’Incendie du tunnel du Mont-Blanc",
   "client": "Philippe Fourny",
   "src": "assets/realisations/incendie-tunnel-mont-blanc.jpg",
-  "w": 600,
-  "h": 970,
+  "w": 749,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": [],
   "description": "Le journaliste Philippe Fourny revient sur l'incendie du tunnel du Mont-Blanc de mars 1999, présenté comme la chronique d'une catastrophe annoncée, et dresse l'inventaire de 42 tunnels quasiment dépourvus d'issues de secours, qui restent de véritables pièges en cas d'accident.",
@@ -1317,8 +1327,8 @@
   "titre": "Miroirs de la rue commerçante en Europe",
   "client": "Ségécé",
   "src": "assets/realisations/miroirs-rue-commercante.jpg",
-  "w": 589,
-  "h": 800,
+  "w": 902,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": [
    {
@@ -1691,8 +1701,8 @@
   "titre": "Who Owns Paris",
   "client": "Patrice de Moncan",
   "src": "assets/realisations/who-owns-paris.jpg",
-  "w": 600,
-  "h": 892,
+  "w": 778,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": []
  },
@@ -1829,8 +1839,8 @@
   "titre": "Les Puces de Paris Saint-Ouen",
   "client": "",
   "src": "assets/realisations/puces-de-paris-saint-ouen.jpg",
-  "w": 600,
-  "h": 789,
+  "w": 913,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": []
  },
@@ -1884,6 +1894,16 @@
   "categorie": "catalogue",
   "liens_client": [],
   "page": "ouvrage-noureev.html"
+ },
+ {
+  "slug": "rudolf-nureyev-a-life-in-dance",
+  "titre": "Rudolf Nureyev, A Life in Dance",
+  "client": "",
+  "src": "assets/realisations/rudolf-nureyev-a-life-in-dance.jpg",
+  "w": 977,
+  "h": 1200,
+  "categorie": "catalogue",
+  "liens_client": []
  },
  {
   "slug": "vladimir-german",
