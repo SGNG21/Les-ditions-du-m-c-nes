@@ -713,3 +713,6 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .cat-nav .filter{flex:0 0 auto;padding:9px 12px;font-size:9.5px;letter-spacing:.1em;white-space:nowrap}
 .cat-section{padding-top:44px;scroll-margin-top:20px}
 }
+/* Catalogue ordinateur : navigation des catégories non collante */
+.cat-nav{position:static;top:auto;background:none}
+.cat-section{scroll-margin-top:30px}
