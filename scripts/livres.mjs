@@ -190,6 +190,24 @@ function renderHead(b, desc) {
 </head>`;
 }
 
+/** Familles de livres (éditions jumelles, séries) à ne pas afficher côte à côte. */
+const FAMILLES = [["christian-lacroix"], ["betes-de-scene", "animales-a-escena"], ["a-qui-appartient", "who-owns-paris"], ["que-vaut"], ["puces-de"], ["rudolf-nureyev", "rudolf-noureev"], ["passage", "arcades"], ["charles-marville"], ["paris-d-haussmann"], ["palais-de-l-elysee"]];
+const famille = (slug) => { const i = FAMILLES.findIndex((ks) => ks.some((k) => slug.includes(k))); return i < 0 ? slug : "f" + i; };
+export function spread(list, key = (b) => b.slug) {
+  const out = [...list];
+  for (let n = 0; n < out.length * 2; n++) {
+    const i = out.findIndex((b, j) => j > 0 && famille(key(b)) === famille(key(out[j - 1])));
+    if (i < 0) break;
+    const [x] = out.splice(i, 1);
+    const ok = (j) => (j === 0 || famille(key(out[j - 1])) !== famille(key(x))) && (j === out.length || famille(key(out[j])) !== famille(key(x)));
+    const spots = [...Array(out.length + 1).keys()];
+    const j = spots.slice(i + 1).concat(spots.slice(0, i + 1)).find(ok);
+    if (j === undefined) { out.splice(i, 0, x); break; }
+    out.splice(j, 0, x);
+  }
+  return out;
+}
+
 /** Catalogue (catalogue.html) réparti par catégorie ; featuredHtml = titres présentés à la main (catalogue de la maison). */
 export function renderCatalogueSections(featuredHtml = "", skipHrefs = []) {
   const skip = new Set(skipHrefs);
@@ -204,7 +222,7 @@ export function renderCatalogueSections(featuredHtml = "", skipHrefs = []) {
   ];
   const nav = `<nav class="filter-row cat-nav">${SECTIONS.map(([k, t]) => `<a class="filter" href="#cat-${k}">${t.replace(/<[^>]+>/g, "").replace(/\.$/, "")}</a>`).join("")}</nav>`;
   const body = SECTIONS.map(([k, t, intro]) => {
-    const items = (k === "catalogue" ? featuredHtml : "") + all.filter((b) => b.categorie === k).map(item).join("");
+    const items = (k === "catalogue" ? featuredHtml : "") + spread(all.filter((b) => b.categorie === k)).map(item).join("");
     if (!items) return "";
     return `<div class="cat-section" id="cat-${k}"><div class="chapter-head"><h2 class="h-bistre">${t}</h2>${intro ? `<p class="copy">${intro}</p>` : ""}</div><div class="catalogue-grid">${items}</div></div>`;
   }).join("");
