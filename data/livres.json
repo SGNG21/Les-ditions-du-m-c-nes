@@ -676,7 +676,7 @@
  {
   "slug": "a-qui-appartient-paris",
   "titre": "À qui appartient Paris",
-  "client": "Patrice de Moncan · préface de Jacques Chirac",
+  "client": "Jacques de Moncan SA · préface de Jacques Chirac",
   "src": "assets/realisations/a-qui-appartient-paris.jpg",
   "w": 1148,
   "h": 1200,
@@ -705,12 +705,13 @@
  {
   "slug": "aux-affiches-citoyens",
   "titre": "Aux affiches citoyens",
-  "client": "Gaëtan de Royer",
+  "client": "KOZ",
   "src": "assets/realisations/aux-affiches-citoyens.jpg",
   "w": 589,
   "h": 800,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "auteurs": "Gaëtan de Royer"
  },
  {
   "slug": "ambiances-et-decors-restaurants",
