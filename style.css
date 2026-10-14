@@ -735,3 +735,7 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .cover-frame img.is-wide,.catalogue-cover img.is-wide{position:absolute;left:0;bottom:0;height:100%;width:auto;max-width:100%;max-height:none;object-fit:contain;object-position:left bottom;box-shadow:none;filter:drop-shadow(0 18px 30px rgba(17,17,15,.28))}
 .river-cover img.is-wide,.biz-ex-cover img.is-wide{max-width:100%;max-height:100%}
 .cover-link.is-wide-item .cover-frame,.catalogue-item.is-wide-item .catalogue-cover{position:relative}
+/* Pages à en-tête sombre : logo et textes clairs tant que la barre est transparente */
+.page-dark-top .topbar:not(.scrolled) .brand-logo{content:url("assets/logo-mecene-clair.svg")}
+.page-dark-top .topbar:not(.scrolled) .brand-meta{color:rgba(243,238,228,.75)}
+.page-dark-top .topbar:not(.scrolled) .brand-rule{background:var(--gold)}
