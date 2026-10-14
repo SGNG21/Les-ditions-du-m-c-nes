@@ -1072,8 +1072,8 @@
   "titre": "Le Triomphe du VIIIe",
   "client": "Patrice de Moncan",
   "src": "assets/realisations/triomphe-du-viiie.jpg",
-  "w": 600,
-  "h": 633,
+  "w": 1159,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": []
  },
@@ -1254,8 +1254,8 @@
   "titre": "Pantin, portrait d’une ville",
   "client": "BNP Paribas Real Estate",
   "src": "assets/realisations/pantin-portrait-d-une-ville.jpg",
-  "w": 593,
-  "h": 800,
+  "w": 906,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": [
    {
@@ -1711,8 +1711,8 @@
   "titre": "Villes haussmanniennes",
   "client": "",
   "src": "assets/realisations/villes-haussmanniennes.jpg",
-  "w": 600,
-  "h": 810,
+  "w": 868,
+  "h": 1200,
   "categorie": "catalogue",
   "liens_client": [],
   "description": "Ouvrage collectif dirigé par Patrice de Moncan et Claude Heurteux, consacré à la diffusion du modèle haussmannien hors de Paris, à Bordeaux, Lille, Lyon et Marseille. Il montre comment ces grandes villes de province ont, à leur tour, percé, assaini et embelli leur centre dans l'esprit des travaux du préfet Haussmann.",
@@ -1982,6 +1982,17 @@
   "h": 1041,
   "categorie": "catalogue",
   "auteurs": "Romain Cartier",
+  "liens_client": []
+ },
+ {
+  "slug": "souvenirs-souvenirs",
+  "titre": "Souvenirs, souvenirs…",
+  "client": "",
+  "src": "assets/realisations/souvenirs-souvenirs.jpg",
+  "w": 786,
+  "h": 1200,
+  "categorie": "catalogue",
+  "auteurs": "Jacques de Moncan",
   "liens_client": []
  },
  {
