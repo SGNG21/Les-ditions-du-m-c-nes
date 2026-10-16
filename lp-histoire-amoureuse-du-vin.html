@@ -1,47 +1,649 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta name="robots" content="noindex,follow">
+<link rel="icon" href="favicon.ico" sizes="any">
 <title>Histoire Amoureuse du Vin — Les Éditions du Mécène</title>
-<meta name="description" content="70 personnalités et leurs vins préférés, de Dionysos à Churchill : le beau livre de Debra Finerman et Patrice de Moncan, à commander ou à offrir personnalisé.">
-<link rel="canonical" href="{{SITE_URL}}/lp-histoire-amoureuse-du-vin.html">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Les Éditions du Mécène">
-<meta property="og:title" content="Histoire Amoureuse du Vin"><meta property="og:description" content="70 personnalités et leurs vins préférés, de Dionysos à Churchill : le beau livre de Debra Finerman et Patrice de Moncan, à commander ou à offrir personnalisé.">
-<meta property="og:image" content="{{SITE_URL}}/assets/vin.jpg"><meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#11110f"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
-<link rel="stylesheet" href="style.css"></head><body class="lp lp-wine">
-<header class="lp-top"><div class="wrap lp-top-in"><a href="index.html" aria-label="Les Éditions du Mécène — accueil"><img class="brand-logo" src="assets/logo-mecene.svg" width="1730" height="626" alt="Les Éditions du Mécène"></a><a class="button lp-top-cta" href="#commander">Commander le livre</a></div></header>
-<main>
-<section class="lp-hero"><div class="wrap lp-hero-grid">
-<div class="lp-hero-copy"><div class="kicker">Édition de prestige · grand format</div><h1>Histoire Amoureuse <em>du Vin.</em></h1><p class="lp-lead">De Dionysos à Napoléon, de Louis XIV à Churchill, de Colette à Sting : 70 personnalités racontées à travers leurs vins préférés.</p>
-<ul class="lp-points"><li><b>70</b><span>personnalités, de l’Antiquité à nos jours</span></li><li><b>160</b><span>pages, grand format 32 × 23,5 cm</span></li><li><b>500</b><span>exemplaires minimum pour une édition à vos couleurs</span></li></ul>
-<div class="hero-cta"><a class="button" href="#commander">Commander le livre</a><a class="button button-ghost" href="#commander" data-usage="Cadeau d’affaires personnalisé">Offrir à vos clients, à vos couleurs</a></div></div>
-<div class="lp-hero-visual"><img fetchpriority="high" decoding="async" src="assets/vin.jpg" alt="Couverture : Histoire Amoureuse du Vin"></div>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=Marcellus&amp;family=Jost:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bordeaux:#6B1A1A;
+  --bordeaux-deep:#4A0E0E;
+  --or:#C9A84C;
+  --or-light:#E2C97E;
+  --creme:#F7F2E8;
+  --creme-dark:#EDE5D0;
+  --blanc:#FDFAF4;
+  --texte:#2A1A1A;
+  --texte-muted:#6B5A5A;
+  --texte-light:#9A8080;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--blanc);color:var(--texte);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--bordeaux-deep);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 80% at 70% 50%,rgba(201,168,76,0.07) 0%,transparent 70%);pointer-events:none}
+.hero-text{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 80px;position:relative;z-index:1}
+.hero-eyebrow{font-family:'Marcellus',serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--or);margin-bottom:36px}
+.hero-logo{width:280px;margin-bottom:52px;filter:brightness(0) invert(1);opacity:0.9}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5vw,68px);font-weight:300;line-height:1.08;color:var(--creme);letter-spacing:-1px;margin-bottom:8px}
+.hero h1 em{font-style:italic;color:var(--or-light);display:block;font-size:1.12em}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:rgba(247,242,232,0.85);margin:24px 0 48px;max-width:500px;line-height:1.5}
+.cta-primary{display:inline-flex;align-items:center;gap:12px;background:var(--or);color:var(--bordeaux-deep);font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;padding:18px 36px;text-decoration:none;transition:all .3s;cursor:pointer;border:none;width:fit-content}
+.cta-primary:hover{background:var(--or-light);transform:translateY(-2px)}
+.cta-primary svg{width:15px;height:15px;transition:transform .3s}
+.cta-primary:hover svg{transform:translateX(4px)}
+.hero-visual{
+  position:relative;
+  overflow:visible;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  min-height:100vh;
+  height:100vh;
+  padding:1cm 0;
+  box-sizing:border-box;
+}
+.hero-visual img{
+  height:calc(100vh - 2cm);
+  max-height:calc(100vh - 2cm);
+  width:auto;
+  max-width:calc(100vw - 2cm);
+  object-fit:contain;
+  object-position:center center;
+  display:block;
+  opacity:1;
+  filter:drop-shadow(0 34px 72px rgba(0,0,0,0.42));
+}
+
+
+
+
+.hero-specs-inline{
+  display:flex;align-items:center;gap:0;
+  margin-top:36px;
+  flex-wrap:wrap;gap:8px 0;
+}
+.hero-spec-item{
+  display:flex;flex-direction:column;
+  padding:0 20px;
+}
+.hero-spec-item:first-child{padding-left:0}
+.spec-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;
+  color:var(--or-light);line-height:1.1;
+}
+.spec-lab{
+  font-family:'Jost',sans-serif;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(247,242,232,0.4);margin-top:3px;
+}
+.hero-spec-sep{
+  width:1px;height:32px;
+  background:rgba(201,168,76,0.25);
+  flex-shrink:0;
+}
+
+/* TICKER */
+.presse-band{background:var(--bordeaux);padding:20px 0;overflow:hidden}
+.presse-ticker{display:flex;gap:72px;animation:ticker 32s linear infinite;white-space:nowrap}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.presse-item{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.presse-source{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--or)}
+.presse-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--creme)}
+.sep{color:var(--or);opacity:0.35;font-size:18px}
+
+/* INTRO */
+
+.intro-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--or);font-weight:500;margin-bottom:24px}
+.intro h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.5vw,48px);font-weight:300;line-height:1.2;color:var(--bordeaux-deep);margin-bottom:32px}
+.intro h2 em{font-style:italic;color:var(--bordeaux)}
+.intro-text{font-size:15px;color:var(--texte-muted);line-height:1.95}
+.intro-text p+p{margin-top:18px}
+
+
+
+
+
+
+
+/* ─── INTRO 3D ─── */
+.intro-text-section{
+  border-top:1px solid rgba(105,16,25,.06);
+  background:var(--blanc);
+  padding:80px;
+}
+.intro-text-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:start;
+}
+.intro-text-inner .intro-label{color:var(--or);font-size:11px;letter-spacing:4px;text-transform:uppercase;font-weight:500;margin-bottom:24px}
+.intro-text-inner h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,3.5vw,48px);
+  font-weight:300;line-height:1.2;
+  color:var(--bordeaux-deep);margin-bottom:32px;
+}
+.intro-text-inner h2 em{font-style:italic;color:var(--bordeaux)}
+.intro-text-inner .intro-text{font-size:15px;color:var(--texte-muted);line-height:1.95}
+.intro-text-inner .intro-text p+p{margin-top:18px}
+@media(max-width:900px){
+  
+  .intro-text-section{padding:64px 24px}
+  .intro-text-inner{grid-template-columns:1fr;gap:0}
+}
+
+/* DOUBLES PAGES */
+.doubles{background:var(--creme);padding:96px 80px}
+.doubles-header{max-width:1200px;margin:0 auto 60px;text-align:center}
+.doubles-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);font-weight:300;color:var(--bordeaux-deep);margin-top:12px}
+.doubles-list{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:64px}
+.dp-item{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--blanc);box-shadow:0 8px 40px rgba(42,26,26,0.1)}
+.dp-item:nth-child(even){direction:rtl}
+.dp-item:nth-child(even)>*{direction:ltr}
+.dp-img{overflow:hidden;min-height:320px}
+.dp-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.dp-item:hover .dp-img img{transform:scale(1.03)}
+.dp-body{padding:44px 48px;display:flex;flex-direction:column;justify-content:center}
+.dp-era{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--or);margin-bottom:10px}
+.dp-name{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--bordeaux-deep);margin-bottom:4px;line-height:1.1}
+.dp-sous{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--texte-light);margin-bottom:20px}
+.dp-body p{font-size:14px;color:var(--texte-muted);line-height:1.85}
+.dp-vins{display:flex;align-items:center;gap:10px;margin-top:24px;padding-top:20px;border-top:1px solid var(--creme-dark)}
+.dp-vins-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--texte-light)}
+.vin-tag{background:var(--bordeaux);color:var(--creme);font-size:11px;padding:4px 12px;letter-spacing:0.5px}
+
+/* PREVIEW DOUBLE PAGE */
+.dp-preview{max-width:1200px;margin:64px auto 0;text-align:center}
+.dp-preview p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--texte-light);margin-bottom:24px}
+.dp-preview img{width:100%;box-shadow:0 12px 48px rgba(42,26,26,0.15);display:block}
+
+/* OFFRE */
+.offre{padding:110px 80px;max-width:1200px;margin:0 auto}
+.offre-header{text-align:center;margin-bottom:72px}
+.offre h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3vw,48px);font-weight:300;color:var(--bordeaux-deep);margin-bottom:14px}
+.offre-lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--texte-muted);max-width:560px;margin:0 auto}
+.offre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--creme-dark)}
+.offre-item{background:var(--blanc);padding:48px 36px;text-align:center}
+.offre-icon{width:52px;height:52px;background:var(--bordeaux-deep);margin:0 auto 28px;display:flex;align-items:center;justify-content:center}
+.offre-icon svg{width:22px;height:22px;stroke:var(--or);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.offre-item h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--bordeaux-deep);margin-bottom:14px}
+.offre-item p{font-size:13.5px;color:var(--texte-muted);line-height:1.85}
+
+/* REFS */
+.refs{padding:72px 80px;background:var(--creme);text-align:center}
+.refs-label{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;letter-spacing:1px;color:var(--bordeaux-deep);margin-bottom:36px}
+.refs-list{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:center;max-width:820px;margin:0 auto}
+.ref-tag{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--texte-muted);padding:6px 0;border-bottom:1px solid var(--or)}
+
+/* CTA */
+.cta-section{background:var(--bordeaux-deep);padding:100px 80px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,0.1) 0%,transparent 70%);pointer-events:none}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,54px);font-weight:300;color:var(--creme);margin-bottom:14px;position:relative}
+.cta-section h2 em{font-style:italic;color:var(--or-light)}
+.cta-section>p{font-size:15px;color:rgba(247,242,232,0.55);max-width:460px;margin:0 auto 48px;position:relative}
+.cta-group{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;position:relative}
+.cta-secondary{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(201,168,76,0.45);color:var(--or-light);font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:17px 30px;text-decoration:none;transition:all .3s}
+.cta-secondary:hover{border-color:var(--or);background:rgba(201,168,76,0.08)}
+
+/* FOOTER */
+footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15);padding:44px 80px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.footer-brand{font-family:'Cormorant Garamond',serif}
+.footer-brand strong{display:block;font-size:14px;color:var(--or);margin-bottom:4px;font-weight:400;letter-spacing:1px}
+.footer-brand span{font-style:italic;font-size:13px;color:rgba(247,242,232,0.3)}
+.footer-contact a{display:block;font-size:12.5px;color:var(--or-light);text-decoration:none;line-height:2.1;text-align:right;transition:color .2s}
+.footer-contact a:hover{color:var(--or)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow{animation:fadeUp .7s ease both}
+.hero h1{animation:fadeUp .7s .15s ease both}
+.hero-subtitle{animation:fadeUp .7s .3s ease both}
+.cta-primary{animation:fadeUp .7s .45s ease both}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  /* HERO */
+  .hero{grid-template-columns:1fr}
+  .hero-text{padding:56px 24px 40px}
+  .hero-logo{width:180px;margin-bottom:32px}
+  .hero h1{font-size:clamp(36px,10vw,52px)}
+  .hero-subtitle{font-size:15px;margin:16px 0 32px;max-width:100%}
+  .hero-visual{height:260px;order:-1}
+  .hero-visual img{object-position:center 20%}
+  .hero-specs{bottom:16px;right:16px}
+  .hero-spec{font-size:11px;line-height:1.9}
+  
+.hero-specs-inline{
+  display:flex;align-items:center;gap:0;
+  margin-top:36px;
+  flex-wrap:wrap;gap:8px 0;
+}
+.hero-spec-item{
+  display:flex;flex-direction:column;
+  padding:0 20px;
+}
+.hero-spec-item:first-child{padding-left:0}
+.spec-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;
+  color:var(--or-light);line-height:1.1;
+}
+.spec-lab{
+  font-family:'Jost',sans-serif;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(247,242,232,0.4);margin-top:3px;
+}
+.hero-spec-sep{
+  width:1px;height:32px;
+  background:rgba(201,168,76,0.25);
+  flex-shrink:0;
+}
+
+/* TICKER */
+  .presse-quote{font-size:13px}
+  .presse-source{font-size:9px}
+  /* INTRO */
+  .intro{grid-template-columns:1fr;padding:64px 24px;gap:40px}
+  
+  /* DOUBLES */
+  .doubles{padding:64px 16px}
+  .doubles-list{gap:40px}
+  .dp-item{grid-template-columns:1fr}
+  .dp-item:nth-child(even){direction:ltr}
+  .dp-img{min-height:200px;max-height:260px}
+  .dp-body{padding:28px 24px}
+  .dp-name{font-size:26px}
+  /* OFFRE */
+  .offre{padding:64px 24px}
+  .offre-grid{grid-template-columns:1fr}
+  .offre-item{padding:36px 28px}
+  /* REFS */
+  .refs{padding:48px 24px}
+  /* CTA */
+  .cta-section{padding:64px 24px}
+  .cta-group{flex-direction:column;align-items:center}
+  .cta-primary,.cta-secondary{width:100%;max-width:320px;justify-content:center}
+  /* FOOTER */
+  footer{padding:36px 24px;flex-direction:column;text-align:center;gap:20px}
+  .footer-contact a{text-align:center}
+}
+@media(max-width:480px){
+  
+  .hero-logo{width:150px}
+  .hero h1{font-size:clamp(32px,11vw,44px)}
+  .doubles{padding:48px 12px}
+  .dp-body{padding:24px 20px}
+  .offre{padding:48px 16px}
+  .refs-list{gap:8px 14px}
+  .ref-tag{font-size:13px}
+  .cta-section h2{font-size:clamp(26px,8vw,40px)}
+}
+
+
+
+/* AJUSTEMENT SECTION OUVRAGE — 4e de couverture à droite du texte */
+.intro-text-inner{
+  grid-template-columns:minmax(0,1.02fr) minmax(320px,0.98fr);
+  align-items:center;
+}
+.intro-back-cover-visual{
+  margin:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:560px;
+  background:transparent;
+}
+.intro-back-cover-visual img{
+  display:block;
+  width:auto;
+  max-width:min(100%,560px);
+  max-height:min(760px,calc(100vh - 140px));
+  object-fit:contain;
+  object-position:center center;
+  filter:drop-shadow(0 30px 70px rgba(74,14,14,0.22));
+}
+@media(max-width:900px){
+  .intro-text-inner{
+    grid-template-columns:1fr;
+    gap:42px;
+  }
+  .intro-back-cover-visual{
+    min-height:0;
+    justify-content:center;
+  }
+  .intro-back-cover-visual img{
+    max-width:min(92vw,430px);
+    max-height:560px;
+  }
+}
+
+@media(max-width:900px){.hero-visual{min-height:0;height:auto;padding:40px 24px 0}.hero-visual img{height:auto;max-height:62vh;max-width:78vw}}
+</style>
+</head>
+<body>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-text">
+<p class="hero-eyebrow">Les Éditions du Mécène · Édition de Prestige</p>
+<img alt="Les Éditions du Mécène" class="hero-logo" src="assets/lp-vin/logo.svg"/>
+<h1>Histoire<br/>Amoureuse<br/><em>du Vin</em></h1>
+<p class="hero-subtitle">À travers les vins préférés des célébrités — de Bacchus à Brad Pitt. Un cadeau de prestige à l'image de votre entreprise.</p>
+<a class="cta-primary" href="javascript:void(0)" onclick="document.getElementById('contact-modal').style.display='flex'">
+      Demander un devis personnalisé
+      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+</a>
+<div class="hero-specs-inline">
+<div class="hero-spec-item"><span class="spec-val">160</span><span class="spec-lab">pages</span></div>
+<div class="hero-spec-sep"></div>
+<div class="hero-spec-item"><span class="spec-val">32×23,5</span><span class="spec-lab">cm grand format</span></div>
+<div class="hero-spec-sep"></div>
+<div class="hero-spec-item"><span class="spec-val">70</span><span class="spec-lab">personnalités</span></div>
+<div class="hero-spec-sep"></div>
+<div class="hero-spec-item"><span class="spec-val">100</span><span class="spec-lab">ex. minimum</span></div>
+</div>
+</div>
+<div class="hero-visual">
+<img alt="Livre fermé en relief posé directement sur le fond bordeaux" src="assets/lp-vin/livre-relief.webp"/>
+</div>
+</section>
+<!-- TICKER PRESSE -->
+<div class="presse-band">
+<div class="presse-ticker">
+<div class="presse-item"><span class="presse-source">Sud Radio</span><span class="sep">·</span><span class="presse-quote">Un travail de titan… UN RÉGAL À LIRE.</span></div>
+<div class="presse-item"><span class="presse-source">Valeurs Actuelles</span><span class="sep">·</span><span class="presse-quote">Voilà un OUVRAGE REMARQUABLE</span></div>
+<div class="presse-item"><span class="presse-source">La Revue des Vins de France</span><span class="sep">·</span><span class="presse-quote">Les auteurs s'amusent très sérieusement.</span></div>
+<div class="presse-item"><span class="presse-source">Mag. des Cavistes</span><span class="sep">·</span><span class="presse-quote">PASSIONNANT.</span></div>
+<div class="presse-item"><span class="presse-source">Institut de la Gastronomie</span><span class="sep">·</span><span class="presse-quote">NOTÉ VIN SUR VIN</span></div>
+<div class="presse-item"><span class="presse-source">Sud Radio</span><span class="sep">·</span><span class="presse-quote">Un travail de titan… UN RÉGAL À LIRE.</span></div>
+<div class="presse-item"><span class="presse-source">Valeurs Actuelles</span><span class="sep">·</span><span class="presse-quote">Voilà un OUVRAGE REMARQUABLE</span></div>
+<div class="presse-item"><span class="presse-source">La Revue des Vins de France</span><span class="sep">·</span><span class="presse-quote">Les auteurs s'amusent très sérieusement.</span></div>
+<div class="presse-item"><span class="presse-source">Mag. des Cavistes</span><span class="sep">·</span><span class="presse-quote">PASSIONNANT.</span></div>
+<div class="presse-item"><span class="presse-source">Institut de la Gastronomie</span><span class="sep">·</span><span class="presse-quote">NOTÉ VIN SUR VIN</span></div>
+</div>
+</div>
+<!-- INTRO -->
+
+<section class="intro-text-section" id="ouvrage">
+<div class="intro-text-inner">
+<div>
+<p class="intro-label">L'ouvrage</p>
+<h2>Un livre qui traverse <em>les siècles et les passions</em></h2>
+<div class="intro-text">
+<p>Depuis l'Antiquité, le vin accompagne les destins hors du commun. Il est à la fois célébration et confidence, pouvoir et plaisir, rituel et inspiration. À la table des rois, dans l'intimité des artistes, au cœur des grandes décisions comme des instants les plus simples, il révèle une part essentielle de l'humanité.</p>
+<p>De Dionysos à Napoléon, de Louis XIV à Churchill, de Baudelaire à Hemingway, jusqu'aux figures contemporaines, le vin traverse les siècles comme un fil vivant, témoin des passions, des excès et du génie des hommes.</p>
+<p>À travers une galerie exceptionnelle de personnages, cet ouvrage propose une autre lecture de l'Histoire : plus sensible, plus incarnée, où chaque époque se découvre aussi à travers le goût, les usages et les symboles du vin.</p>
+<p>Version Premium du livre paru en 2024 en petit format. Ce nouvel ouvrage grand format constitue un cadeau de prestige d’exception pour vos clients, partenaires et événements institutionnels.</p>
+</div>
+</div>
+<figure class="intro-back-cover-visual"><img alt="4e de couverture du livre Histoire Amoureuse du Vin en relief" loading="lazy" src="assets/lp-vin/quatrieme-relief.webp"/></figure>
 </div></section>
-<section class="lp-sec"><div class="wrap lp-about"><div><div class="eyebrow">Le livre</div><h2>Une autre lecture de l’Histoire, <em>par le vin.</em></h2></div><div><p class="copy">Depuis l’Antiquité, le vin accompagne les destins hors du commun. À la table des rois, dans l’intimité des artistes, au cœur des grandes décisions, il révèle une part essentielle de l’humanité. Chaque personnalité est racontée sur une double page, avec ses vins de prédilection.</p><div class="book-specs lp-specs"><div><b>Auteurs</b><span>Debra Finerman &amp; Patrice de Moncan</span></div><div><b>Format</b><span>32 × 23,5 cm</span></div><div><b>Pages</b><span>160</span></div><div><b>Éditeur</b><span>Les Éditions du Mécène</span></div></div></div></div></section>
-<section class="lp-sec"><div class="wrap"><div class="lp-gallery"><figure><img loading="lazy" decoding="async" src="assets/vin-prestige/double-napoleon.jpg" alt="Double page Napoléon Ier"><figcaption>Napoléon Ier · le Chambertin</figcaption></figure><figure><img loading="lazy" decoding="async" src="assets/vin-prestige/double-colette.jpg" alt="Double page Colette"><figcaption>Colette · tous les crus</figcaption></figure><figure><img loading="lazy" decoding="async" src="assets/vin-prestige/double-montaigne.jpg" alt="Double page Montaigne"><figcaption>Montaigne · le clairet</figcaption></figure><figure><img loading="lazy" decoding="async" src="assets/vin-prestige/double-sting.jpg" alt="Double page Sting et Trudy Styler"><figcaption>Sting &amp; Trudy Styler</figcaption></figure></div></div></section><section class="lp-sec lp-dark"><div class="wrap"><div class="eyebrow">Ils en parlent</div><div class="lp-quotes"><blockquote>« Un travail de titan… un régal à lire. »<cite>Sud Radio</cite></blockquote><blockquote>« Voilà un ouvrage remarquable. »<cite>Valeurs Actuelles</cite></blockquote><blockquote>« Les auteurs s’amusent très sérieusement. »<cite>La Revue des Vins de France</cite></blockquote><blockquote>« Passionnant. »<cite>Le Magazine des Cavistes</cite></blockquote></div></div></section>
-<section class="lp-sec lp-gift"><div class="wrap lp-gift-grid"><div><div class="eyebrow">Pour les entreprises</div><h2>Le cadeau qu’on <em>garde.</em></h2><p class="copy">Offrez Histoire Amoureuse du Vin à vos clients et partenaires, personnalisé à vos couleurs : votre logo en couverture, une préface de votre président, des exemplaires numérotés. À partir de 500 exemplaires.</p></div><ol class="lp-steps"><li>Vous choisissez le nombre d’exemplaires</li><li>Vous nous envoyez votre logo et votre texte</li><li>Vous validez le bon à tirer</li><li>Nous imprimons et livrons</li></ol></div></section>
-<section class="lp-sec lp-order" id="commander"><div class="wrap lp-order-grid"><div><div class="eyebrow">Commander</div><h2>Recevez <em>Histoire Amoureuse du Vin.</em></h2><p class="copy">Laissez-nous vos coordonnées : nous vous répondons sous 48 heures avec le prix, le délai de livraison et, pour les entreprises, une proposition de personnalisation.</p><p class="lp-phone">Ou appelez-nous : <a href="tel:+33681277860">06 81 27 78 60</a></p><div class="lp-cover-sm"><img loading="lazy" src="assets/vin.jpg" alt=""></div></div>
-<form class="form" id="contact-form" novalidate>
-<input type="hidden" name="projet" value="Commander : Histoire Amoureuse du Vin">
-<div class="field full"><label for="f-usage">Pour</label><select id="f-usage"><option>Moi-même ou un proche</option><option>Cadeau d’affaires personnalisé</option><option>Une librairie ou une institution</option></select></div>
-<div class="field"><label for="f-qte">Nombre d’exemplaires</label><select id="f-qte"><option>1 exemplaire</option><option>2 à 5</option><option>6 à 20</option><option>21 à 499</option><option>500 et plus (édition personnalisée)</option></select></div>
-<div class="field"><label for="f-societe">Société <small>(facultatif)</small></label><input id="f-societe" name="societe" type="text" autocomplete="organization"></div>
-<div class="field"><label for="f-nom">Nom &amp; prénom <span class="req" aria-hidden="true">*</span></label><input id="f-nom" name="nom" type="text" required autocomplete="name"><span class="field-error" id="e-nom">Merci d’indiquer votre nom.</span></div>
-<div class="field"><label for="f-tel">Téléphone</label><input id="f-tel" name="telephone" type="tel" autocomplete="tel"></div>
-<div class="field full"><label for="f-email">E-mail <span class="req" aria-hidden="true">*</span></label><input id="f-email" name="email" type="email" required autocomplete="email"><span class="field-error" id="e-email">Adresse e-mail invalide.</span></div>
-<input type="hidden" name="fonction" id="f-fonction" value="">
-<div class="field full"><label for="message">Message <span class="req" aria-hidden="true">*</span></label><textarea id="message" name="message" required>Bonjour, je souhaite commander Histoire Amoureuse du Vin.</textarea><span class="field-error" id="e-message">Merci d’écrire quelques mots.</span></div>
-<div class="hp-field" aria-hidden="true"><label for="company_url">Ne pas remplir ce champ</label><input id="company_url" name="company_url" type="text" tabindex="-1" autocomplete="off"></div>
-<input type="hidden" name="ts" id="f-ts"><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-<button class="button" type="submit">Commander le livre</button>
-<p class="form-note">Vos informations servent uniquement à répondre à votre demande. <a href="politique-confidentialite.html">Politique de confidentialité</a>.</p>
-</form></div></section>
-</main>
-<footer class="lp-foot"><div class="wrap"><span>Les Éditions du Mécène · maison indépendante créée en 1987 · membre du SNE</span><span><a href="index.html">Le site</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="politique-confidentialite.html">Confidentialité</a></span></div></footer>
-<script src="app.js"></script>
-<script>
-(function(){var f=document.getElementById("contact-form");if(!f)return;
-document.querySelectorAll("[data-usage]").forEach(function(a){a.addEventListener("click",function(){var u=document.getElementById("f-usage");if(u)u.value=a.getAttribute("data-usage");});});
-var q=new URLSearchParams(location.search),src=["utm_source","utm_medium","utm_campaign"].map(function(k){return q.get(k)}).filter(Boolean).join(" / ");
-f.addEventListener("submit",function(){var m=f.message;if(m.value.indexOf("Exemplaires :")!==-1)return;if(m.value.trim().length<10)return;
-m.value=m.value.trim()+"\n\nPour : "+document.getElementById("f-usage").value+"\nExemplaires : "+document.getElementById("f-qte").value+(src?"\nCampagne : "+src:"")+"\nPage : lp-histoire-amoureuse-du-vin.html";},true);})();
-</script></body></html>
+<!-- DOUBLES PAGES -->
+<section class="doubles">
+<div class="doubles-header">
+<p class="intro-label">Extraits de l'ouvrage</p>
+<h2>70 personnalités à travers les siècles</h2>
+</div>
+<div class="doubles-list">
+<!-- Montaigne -->
+
+    <!-- Napoléon -->
+    <div class="dp-item">
+      <div class="dp-img">
+        <img src="assets/lp-vin/napoleon.jpg" alt="Double page Napoléon Ier">
+      </div>
+      <div class="dp-body">
+        <p class="dp-era">XVIIIe – XIXe siècle</p>
+        <h3 class="dp-name">Napoléon Ier</h3>
+        <p class="dp-sous">Du Caire à Moscou, son aide de camp chambrait son vin sur sa poitrine</p>
+        <p>Bien avant de devenir empereur, Napoléon découvre le Chambertin à Auxonne en 1788. Ce vin de Bourgogne l'accompagnera toute sa vie, de l'Égypte à la Russie. Le jour de Waterloo, il n'aurait pas bu son verre de Chambertin — ce qui expliquerait en partie la défaite.</p>
+        <div class="dp-vins">
+          <span class="dp-vins-label">Vins préférés</span>
+          <span class="vin-tag">Chambertin</span>
+          <span class="vin-tag">Moët &amp; Chandon</span>
+        </div>
+      </div>
+    </div>
+
+<div class="dp-item">
+<div class="dp-img">
+<img alt="Double page Michel de Montaigne" src="assets/lp-vin/montaigne.jpg"/>
+</div>
+<div class="dp-body">
+<p class="dp-era">XVIe siècle</p>
+<h3 class="dp-name">Michel de Montaigne</h3>
+<p class="dp-sous">Le vin, symbole de sa philosophie de la mesure</p>
+<p>Élevé dans le vignoble de Montravel, Montaigne possédait des vignes et témoignait d'une passion pour le vin. Dans les <em>Essais</em>, il le décrit comme un facilitateur de conversation et un élément de convivialité essentiel à la vie bien vécue.</p>
+<div class="dp-vins">
+<span class="dp-vins-label">Vins préférés</span>
+<span class="vin-tag">Pinot gris</span>
+<span class="vin-tag">Clairet</span>
+</div>
+</div>
+</div>
+<!-- Colette -->
+<div class="dp-item">
+<div class="dp-img">
+<img alt="Double page Colette" src="assets/lp-vin/colette.jpg"/>
+</div>
+<div class="dp-body">
+<p class="dp-era">XIXe – XXe siècle</p>
+<h3 class="dp-name">Colette</h3>
+<p class="dp-sous">Une femme libre dans un monde d'hommes</p>
+<p>Initiée au vin à l'âge de trois ans par son père, Colette traverse toute son œuvre avec une passion indéfectible. Elle fut à l'origine indirecte de la création des appellations bourguignonnes en 1930 — une épopée aussi littéraire que viticole.</p>
+<div class="dp-vins">
+<span class="dp-vins-label">Vins préférés</span>
+<span class="vin-tag">Tous les crus</span>
+</div>
+</div>
+</div>
+<!-- Sting -->
+<div class="dp-item">
+<div class="dp-img">
+<img alt="Double page Sting et Trudy Styler" src="assets/lp-vin/sting.jpg"/>
+</div>
+<div class="dp-body">
+<p class="dp-era">XXe – XXIe siècle</p>
+<h3 class="dp-name">Sting &amp; Trudy Styler (Groupe Police)</h3>
+<p class="dp-sous">Un vin, comme une chanson, doit raconter une histoire</p>
+<p>Propriétaires du domaine Villa Il Palagio en Toscane, Sting et son épouse produisent des vins dont les noms s'inspirent de leurs chansons : <em>Message in a Bottle</em>, <em>Roxanne</em>… Membre de la Jurade de Saint-Émilion depuis 2018.</p>
+<div class="dp-vins">
+<span class="dp-vins-label">Vins produits</span>
+<span class="vin-tag">Sangiovese</span>
+<span class="vin-tag">Vermentino</span>
+</div>
+</div>
+</div>
+</div>
+<div style="text-align:center;margin-top:56px">
+<p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--texte-muted)">Et 66 autres personnalités : Churchill, Louis XIV, Baudelaire, Brad Pitt, Bacchus, Cléopâtre, Marilyn Monroe, Ernest Hemingway, Catherine Deneuve…</p>
+</div>
+</section>
+<!-- OFFRE ENTREPRISE -->
+<section class="offre">
+<div class="offre-header">
+<p class="intro-label">Édition personnalisée à vos couleurs</p>
+<h2>Un cadeau de prestige <em>à votre image</em></h2>
+<p class="offre-lead">À partir de 100 exemplaires, transformez cet ouvrage en ambassadeur de votre marque.</p>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--or);text-align:center;margin-top:12px;">Un livre cadeau prestigieux à votre image.</p>
+</div>
+<div class="offre-grid">
+<div class="offre-item">
+<div class="offre-icon">
+<svg viewbox="0 0 24 24"><rect height="18" rx="1" width="18" x="3" y="3"></rect><path d="M8 12h8M8 8h8M8 16h4"></path></svg>
+</div>
+<h3>Votre logo en couverture</h3>
+<p>Le logo de votre entreprise est intégré directement sur la couverture, renforçant l'identité de marque à chaque consultation.</p>
+</div>
+<div class="offre-item">
+<div class="offre-icon">
+<svg viewbox="0 0 24 24"><path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
+</div>
+<h3>Préface personnalisée par votre Président en ouverture</h3>
+<p>Un texte de votre président ou directeur général ouvre l'ouvrage, créant un lien fort et mémorable avec vos destinataires.</p>
+</div>
+<div class="offre-item">
+<div class="offre-icon">
+<svg viewbox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+</div>
+<h3>Exemplaires numérotés</h3>
+<p>Chaque exemplaire peut être numéroté et nominatif — un objet collector idéal pour vos clients VIP et événements institutionnels.</p>
+</div>
+</div>
+</section>
+<!-- RÉFÉRENCES -->
+<section class="refs">
+<p class="refs-label">Ils nous font confiance depuis 30 ans</p>
+<div class="refs-list">
+<span class="ref-tag">BNP Paribas</span>
+<span class="ref-tag">Yves Saint Laurent</span>
+<span class="ref-tag">Cartier</span>
+<span class="ref-tag">Total</span>
+<span class="ref-tag">SFR</span>
+    <span class="ref-tag">Altarea-Cogedim</span>
+    <span class="ref-tag">Aérospatiale</span>
+    <span class="ref-tag">Tribunal de Commerce de Paris</span>
+<span class="ref-tag">Starbucks</span>
+<span class="ref-tag">Badoit</span>
+<span class="ref-tag">Institut de France</span>
+    <span class="ref-tag">BNF</span>
+    <span class="ref-tag">Ordre des Experts Comptables</span>
+<span class="ref-tag">Légion d'Honneur</span>
+<span class="ref-tag">Musée d'Orsay</span>
+<span class="ref-tag">De Young Museum — San Francisco</span>
+<span class="ref-tag">Teatro Fernan Gomez — Madrid</span>
+<span class="ref-tag">FAAP — São Paulo</span>
+<span class="ref-tag">SACEM</span>
+<span class="ref-tag">Ville de Paris</span>
+</div>
+</section>
+<!-- CTA FINAL -->
+<section class="cta-section" id="contact">
+<h2>Faisons de votre marque<br/>un <em>mécène du goût</em></h2>
+<p>Échangeons sans engagement sur les possibilités de partenariat et de personnalisation de cet ouvrage d'exception.</p>
+<div class="cta-group">
+<a class="cta-primary" href="tel:+33681277860">
+<svg fill="none" height="15" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.13.96.36 1.9.71 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.91.35 1.85.58 2.81.71A2 2 0 0122 16.92z"></path></svg>
+      06 81 27 78 60
+    </a>
+<button class="cta-secondary" onclick="document.getElementById('contact-modal').style.display='flex'">
+      Écrire un message
+      <svg fill="none" height="13" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+</button>
+<a class="cta-secondary" href="https://www.les-editions-du-mecene.fr" target="_blank">
+      Visiter notre site
+      <svg fill="none" height="13" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24" width="13"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"></path></svg>
+</a>
+</div>
+<p style="margin-top:48px;font-size:11px;color:rgba(247,242,232,0.25);letter-spacing:2px">LES ÉDITIONS DU MÉCÈNE · PARIS · DEPUIS 1993</p>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-brand">
+<strong>Les Éditions du Mécène</strong>
+<span>la passion des beaux livres</span>
+</div>
+<div class="footer-contact">
+<a href="tel:+33681277860">+33 6 81 27 78 60</a>
+<a href="#" data-email="1">p&#46;cochydemoncan&#64;gmail&#46;com</a>
+<a href="https://www.les-editions-du-mecene.fr" target="_blank">www.les-editions-du-mecene.fr</a>
+</div>
+</footer>
+
+<!-- MODAL CONTACT -->
+<div id="contact-modal" style="display:none;position:fixed;inset:0;background:rgba(10,4,4,0.85);z-index:9999;align-items:center;justify-content:center;padding:20px;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#301414;border:1px solid rgba(201,168,76,0.3);max-width:480px;width:100%;padding:40px;position:relative;">
+    <button onclick="document.getElementById('contact-modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;color:rgba(247,242,232,0.4);font-size:22px;cursor:pointer;line-height:1;">×</button>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--or);margin-bottom:8px;">Contact</p>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--creme);margin-bottom:16px;">Nous écrire</h3>
+    <div style="margin-bottom:24px;padding:14px 16px;border-left:2px solid rgba(201,168,76,0.4);background:rgba(201,168,76,0.05);">
+      <p style="margin:0 0 4px;font-family:'Jost',sans-serif;font-size:13px;font-weight:500;color:var(--or);">Les Éditions du Mécène</p>
+      <p style="margin:0;font-family:'Jost',sans-serif;font-size:12px;color:rgba(247,242,232,0.5);line-height:1.8;">
+        Patrice Cochy de Moncan<br>
+        <a href="tel:+33681277860" style="color:rgba(247,242,232,0.5);text-decoration:none;">+33 6 81 27 78 60</a><br>
+        <a href="#" data-email="1" style="color:rgba(247,242,232,0.5);text-decoration:none;">p&#46;cochydemoncan&#64;gmail&#46;com</a><br>
+        <a href="https://www.les-editions-du-mecene.fr" target="_blank" style="color:rgba(201,168,76,0.6);text-decoration:none;">www.les-editions-du-mecene.fr</a>
+      </p>
+    </div>
+      <div id="form-error" style="display:none;padding:12px 16px;background:rgba(231,76,60,0.12);border:1px solid rgba(231,76,60,0.2);color:#E74C3C;font-family:'Jost',sans-serif;font-size:12px;margin-bottom:16px;border-radius:2px;"></div>
+      <form id="contact-form"><input type="hidden" name="ouvrage" value="Histoire Amoureuse du Vin"><input type="hidden" name="page" value="lp-histoire-amoureuse-du-vin">
+        <div style="margin-bottom:16px;">
+          <input type="text" name="nom" placeholder="Votre nom *" required
+            style="width:100%;background:#3D1818;border:1px solid rgba(201,168,76,0.5);color:var(--creme);padding:12px 16px;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border .2s;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'">
+        </div>
+        <div style="margin-bottom:16px;">
+          <input type="text" name="entreprise" placeholder="Votre entreprise *" required
+            style="width:100%;background:#3D1818;border:1px solid rgba(201,168,76,0.5);color:var(--creme);padding:12px 16px;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border .2s;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'">
+        </div>
+        <div style="margin-bottom:16px;">
+          <input type="tel" name="telephone" placeholder="Votre téléphone"
+            style="width:100%;background:#3D1818;border:1px solid rgba(201,168,76,0.5);color:var(--creme);padding:12px 16px;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border .2s;box-sizing:border-box;" onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'">
+        </div>
+        <div style="margin-bottom:16px;">
+          <input type="email" name="email" placeholder="Votre email *" required
+            style="width:100%;background:#3D1818;border:1px solid rgba(201,168,76,0.5);color:var(--creme);padding:12px 16px;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border .2s;box-sizing:border-box;"
+            onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'">
+        </div>
+        <div style="margin-bottom:24px;">
+          <textarea name="message" placeholder="Votre message…" rows="4" required
+            style="width:100%;background:#3D1818;border:1px solid rgba(201,168,76,0.5);color:var(--creme);padding:12px 16px;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;resize:vertical;transition:border .2s;box-sizing:border-box;"
+            onfocus="this.style.borderColor='rgba(201,168,76,0.6)'" onblur="this.style.borderColor='rgba(201,168,76,0.2)'"></textarea>
+        </div>
+        <button type="submit" id="form-btn"
+          style="width:100%;background:var(--or);color:var(--bordeaux-deep);border:none;padding:15px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .2s;">
+          Envoyer le message →
+        </button>
+      </form>
+      <script>
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          var btn = document.getElementById('form-btn');
+          var errEl = document.getElementById('form-error');
+          btn.disabled = true;
+          btn.textContent = 'Envoi en cours…';
+          errEl.style.display = 'none';
+          try {
+            var res = await fetch('https://formspree.io/f/xdajbqrb', {
+              method: 'POST',
+              headers: { 'Accept': 'application/json' },
+              body: new FormData(this)
+            });
+            if (res.ok) {
+              document.getElementById('contact-form').innerHTML='<p style="font-family:Cormorant Garamond,serif;font-size:22px;color:#F7F2E8;text-align:center;padding:24px 0">Merci, votre message est bien parti.<br><small style="font-size:14px;opacity:.6">Nous vous répondons sous 48 heures.</small></p>';
+            } else {
+              var data = await res.json();
+              errEl.textContent = (data.errors && data.errors[0] && data.errors[0].message) || 'Une erreur est survenue. Réessayez ou contactez-nous par email.';
+              errEl.style.display = 'block';
+              btn.disabled = false;
+              btn.textContent = 'Envoyer le message →';
+            }
+          } catch(err) {
+            errEl.textContent = 'Impossible d\'envoyer le message. Vérifiez votre connexion et réessayez.';
+            errEl.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Envoyer le message →';
+          }
+        });
+      </script>
+  </div>
+</div>
+
+
+<script>(function(){var e=atob('cC5jb2NoeWRlbW9uY2FuQGdtYWlsLmNvbQ==');document.querySelectorAll('[data-email]').forEach(function(a){a.href='mailto:'+e;a.textContent=e;});}());</script>
+</body>
+</html>
