@@ -3,7 +3,9 @@ LOGO='<img class="brand-logo" src="assets/logo-mecene.svg" width="1730" height="
 def page(p):
     facts=''.join(f'<div><b>{k}</b><span>{v}</span></div>' for k,v in p['facts'])
     gallery=''.join(f'<figure><img loading="lazy" decoding="async" src="{s}" alt="{a}"><figcaption>{c}</figcaption></figure>' for s,a,c in p.get('gallery',[]))
-    gal_html=f'<section class="lp-sec"><div class="wrap"><div class="lp-gallery">{gallery}</div></div></section>' if gallery else ''
+    gh='<div class="eyebrow">Extraits</div><h2>Feuilletez <em>le livre.</em></h2>' if p.get('places') else ''
+    gc=' lp-spreads' if p.get('places') else ''
+    gal_html=f'<section class="lp-sec"><div class="wrap">{gh}<div class="lp-gallery{gc}">{gallery}</div></div></section>' if gallery else ''
     pl=''.join(f'<li><b>{n}</b><span>{pg}</span></li>' for n,pg in p.get('places',[]))
     pl_html=f'<section class="lp-sec lp-dark"><div class="wrap"><div class="eyebrow">Dans le livre</div><h2>Les mêmes lieux, <em>à 170 ans d’écart.</em></h2><p class="copy">Chaque double page confronte un cliché de Marville et la vue d’aujourd’hui, prise au même endroit. Quelques-uns des lieux du livre :</p><ul class="lp-places">{pl}</ul></div></section>' if pl else ''
     ex=p.get('expo'); ex_html=f'<section class="lp-sec"><div class="wrap lp-about"><div><div class="eyebrow">Référence</div><h2>{ex[0]}</h2></div><div><p class="copy">{ex[1]}</p></div></div></section>' if ex else ''
@@ -80,6 +82,10 @@ dict(canon='lp-paris-avant-apres.html',theme='lp-stone',title='Paris avant-aprè
  h2='Paris avant Haussmann, <em>et tel qu’il est devenu.</em>',
  body='<p class="copy"><b>1860</b> — Haussmann charge le photographe Charles Marville de photographier ce qui devait être détruit au cours de la transformation de Paris.</p><p class="copy"><b>2026</b> — Près de 170 ans plus tard, le Studio Traktir photographie pendant deux années les mêmes lieux, de l’endroit exact d’où Marville avait pris ses clichés, précisé dans ses notes conservées à la Bibliothèque historique de la Ville de Paris.</p><p class="copy"><b>Le livre</b> — Les Éditions du Mécène rééditent l’ouvrage de cette comparaison de Paris avant Haussmann et tel qu’il est devenu aujourd’hui. 320 légendes expliquent la transformation de Paris depuis le Second Empire, et son histoire.</p>',
  facts=[('Format','310 × 230 mm'),('Pagination','520 pages'),('Impression','Quadrichromie'),('Couverture','Cartonnée couleur, pelliculage mat'),('Iconographie','640 photographies (320 de Charles Marville vers 1860, 320 d’aujourd’hui) et plus de 100 plans'),('Parution','Décembre 2026')],
+ gallery=[('assets/avant-apres/bastille-boulevard-henri-iv.jpg','Double page 168-169 : le boulevard Henri IV vers la Bastille, photographié par Marville puis aujourd’hui','Boulevard Henri IV · pages 168-169'),
+  ('assets/avant-apres/carrefour-rue-du-bac.jpg','Double page 338-339 : le carrefour de la rue du Bac et du boulevard Saint-Germain, avant et après','Carrefour rue du Bac · pages 338-339'),
+  ('assets/avant-apres/porte-dauphine-avenue-foch.jpg','Double page 428-429 : la Porte Dauphine et l’avenue Foch, avant et après','Porte Dauphine, avenue Foch · pages 428-429'),
+  ('assets/avant-apres/14e-rue-leclerc-rue-du-commandeur.jpg','Double page 416-417 : rue Leclerc et rue du Commandeur dans le 14e, avant et après','14e arrondissement · pages 416-417')],
  places=[('Le Louvre','p. 32-33'),('Rue Réaumur','p. 126-127'),('Bastille','p. 168-169'),('Carrefour du Bac','p. 338-339'),('Rond-point des Champs-Élysées','p. 360-361'),('14e arrondissement','p. 416-417'),('Avenue Foch','p. 428-429'),('Buttes-Chaumont','p. 446-447'),('Colonne Vendôme','p. 458-459')],
  expo=('Une première exposition à l’Académie d’Architecture','En 2011, l’Académie d’Architecture, place des Vosges, a présenté ce face-à-face entre le Paris de Marville et le Paris d’aujourd’hui, avec le soutien de BNP Paribas Real Estate. Commissaire : Patrice de Moncan, historien de Paris, prix Haussmann et prix Charles Garnier de la Société de Géographie.'),
  qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)']),
