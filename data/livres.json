@@ -588,7 +588,7 @@
  {
   "slug": "palais-de-l-elysee",
   "titre": "Le Palais de l’Élysée",
-  "client": "",
+  "client": "République française",
   "src": "assets/realisations/palais-de-l-elysee.png",
   "w": 600,
   "h": 462,
@@ -696,7 +696,7 @@
  {
   "slug": "aux-affiches-citoyens",
   "titre": "Aux affiches citoyens",
-  "client": "KOZ",
+  "client": "KOZ, conseil en lobbying",
   "src": "assets/realisations/aux-affiches-citoyens.jpg",
   "w": 589,
   "h": 800,
@@ -731,7 +731,7 @@
  {
   "slug": "paris-d-haussmann-2019",
   "titre": "Le Paris d’Haussmann · édition 2019",
-  "client": "Patrice de Moncan",
+  "client": "Ségécé",
   "src": "assets/realisations/paris-d-haussmann-2019.jpg",
   "w": 564,
   "h": 800,
@@ -852,7 +852,7 @@
  {
   "slug": "palais-de-l-elysee-visite-guidee",
   "titre": "Le Palais de l’Élysée, visite guidée",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/palais-de-l-elysee-visite-guidee.jpg",
   "w": 574,
   "h": 800,
@@ -961,7 +961,7 @@
  {
   "slug": "la-rue-parisienne",
   "titre": "La Rue parisienne",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/la-rue-parisienne.jpg",
   "w": 562,
   "h": 800,
@@ -977,7 +977,7 @@
  {
   "slug": "ecrire-paris",
   "titre": "Écrire Paris",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/ecrire-paris.jpg",
   "w": 600,
   "h": 865,
@@ -987,7 +987,7 @@
  {
   "slug": "le-lycee-parisien",
   "titre": "Le Lycée parisien, trente « palais » dévoilés",
-  "client": "",
+  "client": "Région Île-de-France",
   "src": "assets/realisations/le-lycee-parisien.jpg",
   "w": 581,
   "h": 800,
@@ -1007,12 +1007,21 @@
  {
   "slug": "la-tour-lopez",
   "titre": "La Tour Lopez",
-  "client": "",
+  "client": "OGIC – BNP Paribas Real Estate",
   "src": "assets/realisations/la-tour-lopez.jpg",
   "w": 571,
   "h": 800,
   "categorie": "catalogue",
-  "liens_client": [],
+  "liens_client": [
+   {
+    "nom": "BNP Paribas Real Estate",
+    "url": "https://www.realestate.bnpparibas.fr"
+   },
+   {
+    "nom": "BNP Paribas",
+    "url": "https://group.bnpparibas"
+   }
+  ],
   "description": "« La Tour Lopez : la renaissance d'une belle endormie » raconte la rénovation de la tour conçue en 1953 par Raymond Lopez, témoin majeur de l'architecture moderne des années 1950. Achevée en 2009 par Arte Charpentier et Dominique Hertenberger, la réhabilitation a conservé la structure métallique et l'organisation spatiale d'origine tout en adaptant l'immeuble pour accueillir le siège de DCNS.",
   "annee": "2010",
   "presse": []
@@ -1020,7 +1029,7 @@
  {
   "slug": "domaine-de-combafort",
   "titre": "Le Domaine de Combafort, Megève",
-  "client": "",
+  "client": "Arbois 27 SAS",
   "src": "assets/realisations/domaine-de-combafort.jpg",
   "w": 900,
   "h": 1200,
@@ -1050,17 +1059,18 @@
  {
   "slug": "triomphe-du-viiie",
   "titre": "Le Triomphe du VIIIe",
-  "client": "Patrice de Moncan",
+  "client": "Jacques de Moncan SA",
   "src": "assets/realisations/triomphe-du-viiie.jpg",
   "w": 1159,
   "h": 1200,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "auteurs": "Patrice de Moncan"
  },
  {
   "slug": "mac-avoy-les-erotiques",
   "titre": "Édouard Mac’Avoy, Les Érotiques",
-  "client": "",
+  "client": "Galerie 93",
   "src": "assets/realisations/mac-avoy-les-erotiques.jpg",
   "w": 600,
   "h": 452,
@@ -1128,17 +1138,26 @@
  {
   "slug": "quartier-claude-bernard",
   "titre": "Quartier Claude Bernard, Paris 19e",
-  "client": "",
+  "client": "BNP Paribas Real Estate",
   "src": "assets/realisations/quartier-claude-bernard.jpg",
   "w": 906,
   "h": 1200,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [
+   {
+    "nom": "BNP Paribas Real Estate",
+    "url": "https://www.realestate.bnpparibas.fr"
+   },
+   {
+    "nom": "BNP Paribas",
+    "url": "https://group.bnpparibas"
+   }
+  ]
  },
  {
   "slug": "carre-concorde",
   "titre": "Carré Concorde",
-  "client": "",
+  "client": "OGIC – Dentressangle",
   "src": "assets/realisations/carre-concorde.jpg",
   "w": 600,
   "h": 798,
@@ -1148,17 +1167,18 @@
  {
   "slug": "grand-calendrier-immobilier",
   "titre": "Le Grand Calendrier de l’immobilier du XXe siècle",
-  "client": "Claude Thibault",
+  "client": "Le Figaro Immobilier",
   "src": "assets/realisations/grand-calendrier-immobilier.jpg",
   "w": 600,
   "h": 974,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "auteurs": "Claude Thibault"
  },
  {
   "slug": "incendie-tunnel-mont-blanc",
   "titre": "L’Incendie du tunnel du Mont-Blanc",
-  "client": "Philippe Fourny",
+  "client": "Association des familles de victimes du tunnel du Mont-Blanc",
   "src": "assets/realisations/incendie-tunnel-mont-blanc.jpg",
   "w": 749,
   "h": 1200,
@@ -1293,14 +1313,15 @@
  {
   "slug": "paris-inonde",
   "titre": "Paris inondé, la grande crue de 1910",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/paris-inonde.jpg",
   "w": 700,
   "h": 1000,
   "categorie": "catalogue",
   "description": "Un livre consacré à la grande crue de la Seine de janvier 1910 : Paris sous les eaux, ses rues parcourues en barque, ses quartiers submergés, à travers les photographies de l’époque. Une nouveauté des Éditions du Mécène.",
   "description_courte": "Pour commander le livre, utilisez le bouton ci-dessous ou appelez-nous au 06 81 27 78 60.",
-  "achat": "Paris inondé"
+  "achat": "Paris inondé",
+  "liens_client": []
  },
  {
   "slug": "miroirs-rue-commercante",
@@ -1377,7 +1398,7 @@
  {
   "slug": "quand-le-commerce-fait-son-cinema",
   "titre": "Quand le commerce fait son cinéma",
-  "client": "",
+  "client": "Ségécé",
   "src": "assets/realisations/quand-le-commerce-fait-son-cinema.jpg",
   "w": 589,
   "h": 800,
@@ -1689,12 +1710,21 @@
  {
   "slug": "villes-haussmanniennes",
   "titre": "Villes haussmanniennes",
-  "client": "",
+  "client": "BNP Paribas Real Estate",
   "src": "assets/realisations/villes-haussmanniennes.jpg",
   "w": 868,
   "h": 1200,
   "categorie": "catalogue",
-  "liens_client": [],
+  "liens_client": [
+   {
+    "nom": "BNP Paribas Real Estate",
+    "url": "https://www.realestate.bnpparibas.fr"
+   },
+   {
+    "nom": "BNP Paribas",
+    "url": "https://group.bnpparibas"
+   }
+  ],
   "description": "Ouvrage collectif dirigé par Patrice de Moncan et Claude Heurteux, consacré à la diffusion du modèle haussmannien hors de Paris, à Bordeaux, Lille, Lyon et Marseille. Il montre comment ces grandes villes de province ont, à leur tour, percé, assaini et embelli leur centre dans l'esprit des travaux du préfet Haussmann.",
   "annee": "2003",
   "pages": "232",
@@ -1710,7 +1740,7 @@
  {
   "slug": "villes-utopiques-villes-revees",
   "titre": "Villes utopiques, villes rêvées",
-  "client": "Patrice de Moncan",
+  "client": "Ségécé",
   "src": "assets/realisations/villes-utopiques-villes-revees.jpg",
   "w": 600,
   "h": 962,
@@ -1737,7 +1767,7 @@
  {
   "slug": "paris-incendie-1871",
   "titre": "Paris incendié pendant la Commune, 1871",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/paris-incendie-1871.jpg",
   "w": 561,
   "h": 800,
@@ -1748,7 +1778,7 @@
  {
   "slug": "paris-lumieres",
   "titre": "Paris Lumières · Lights",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/paris-lumieres.jpg",
   "w": 565,
   "h": 800,
@@ -1758,7 +1788,7 @@
  {
   "slug": "promenades-litteraires-passages",
   "titre": "Promenades littéraires, les passages couverts de Paris",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/promenades-litteraires-passages.jpg",
   "w": 600,
   "h": 882,
@@ -1771,7 +1801,7 @@
  {
   "slug": "passages-couverts-en-europe",
   "titre": "Les Passages couverts en Europe",
-  "client": "",
+  "client": "Ségécé",
   "src": "assets/realisations/passages-couverts-en-europe.jpg",
   "w": 600,
   "h": 817,
@@ -1797,7 +1827,7 @@
  {
   "slug": "puces-de-saint-ouen",
   "titre": "Les Puces de Saint-Ouen",
-  "client": "Annabel Buffet",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/puces-de-saint-ouen.jpg",
   "w": 600,
   "h": 984,
@@ -1827,12 +1857,13 @@
  {
   "slug": "saint-tropez",
   "titre": "Saint-Tropez",
-  "client": "Annabel Buffet · Luc Fournol",
+  "client": "Hôtel Villa Cosy",
   "src": "assets/realisations/saint-tropez.jpg",
   "w": 600,
   "h": 748,
   "categorie": "catalogue",
-  "liens_client": []
+  "liens_client": [],
+  "auteurs": "Annabel Buffet · Luc Fournol"
  },
  {
   "slug": "memoires-d-un-gourmet",
@@ -1847,7 +1878,7 @@
  {
   "slug": "toques-de-terrines",
   "titre": "Toqués de terrines",
-  "client": "",
+  "client": "Bachelier Antiquités – Puces de Saint-Ouen",
   "src": "assets/realisations/toques-de-terrines.jpg",
   "w": 600,
   "h": 902,
@@ -1867,13 +1898,14 @@
  {
   "slug": "rudolf-noureev",
   "titre": "Rudolf Noureev",
-  "client": "Martine Kahane",
+  "client": "CNCS · Centre national du costume de scène",
   "src": "assets/realisations/rudolf-noureev.jpg",
   "w": 600,
   "h": 744,
   "categorie": "catalogue",
   "liens_client": [],
-  "page": "ouvrage-noureev.html"
+  "page": "ouvrage-noureev.html",
+  "auteurs": "Martine Kahane"
  },
  {
   "slug": "rudolf-nureyev-a-life-in-dance",
@@ -1898,7 +1930,7 @@
  {
   "slug": "mort-aux-locataires",
   "titre": "Mort aux locataires !",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/mort-aux-locataires.jpg",
   "w": 583,
   "h": 800,
