@@ -73,7 +73,8 @@ function related(b, all) {
 function renderMain(b, all) {
   const cat = CATEGORIES[b.categorie] || "Catalogue";
   const desc = b.description || fallbackText(b);
-  const intro = b.client ? `Un livre réalisé pour ${b.client}.` : firstSentence(desc);
+  const isColl = /^Coll\./.test(b.client || "");
+  const intro = isColl ? `Un livre de la ${b.client.replace(/^Coll\./, "collection")}.` : b.client ? `Un livre réalisé pour ${b.client}.` : firstSentence(desc);
   const specs = [];
   if (b.client) {
     const links = (b.liens_client || [])
@@ -82,7 +83,7 @@ function renderMain(b, all) {
           `<a class="spec-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.nom)} ↗</a>`
       )
       .join(" ");
-    specs.push(["Commanditaire", `${esc(b.client)}${links ? `<br>${links}` : ""}`]);
+    specs.push([isColl ? "Collection" : "Commanditaire", `${esc(isColl ? b.client.replace(/^Coll\.\s*/, "") : b.client)}${links ? `<br>${links}` : ""}`]);
   }
   if (b.auteurs) specs.push(["Auteurs", esc(b.auteurs)]);
   if (b.annee) specs.push(["Année", esc(b.annee)]);
@@ -118,7 +119,7 @@ function renderMain(b, all) {
 <p class="intro">${esc(intro)}</p>
 </div></section>
 <section class="chapter paper"><div class="wrap book-detail">
-<div class="book-detail-cover reveal"><img decoding="async" width="${b.w}" height="${b.h}" src="${esc(b.src)}" alt="${esc(b.titre)}${b.client ? ` — livre réalisé pour ${esc(b.client)}` : ""}"></div>
+<div class="book-detail-cover reveal"><img decoding="async" width="${b.w}" height="${b.h}" src="${esc(b.src)}" alt="${esc(b.titre)}${b.client && !isColl ? ` — livre réalisé pour ${esc(b.client)}` : ""}"></div>
 <div class="book-detail-copy reveal delay">
 <div class="eyebrow">${esc(b.client || cat)}</div>
 <h2 class="livre-title">${esc(b.titre)}</h2>
