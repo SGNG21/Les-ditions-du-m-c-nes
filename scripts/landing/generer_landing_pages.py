@@ -101,5 +101,6 @@ dict(canon='lp-paris-inonde.html',theme='lp-water',title='Paris inondé, la gran
  qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)'])]
 import os
 for p in P:
+    if p['canon']=='lp-paris-avant-apres.html': continue  # page autonome, modèle les-editions-du-mecene.com
     open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..',p['canon']),'w').write(page(p))
 print('ok')
