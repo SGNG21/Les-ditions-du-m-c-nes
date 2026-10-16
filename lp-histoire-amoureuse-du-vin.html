@@ -334,6 +334,16 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 }
 
 @media(max-width:900px){.hero-visual{min-height:0;height:auto;padding:40px 24px 0}.hero-visual img{height:auto;max-height:62vh;max-width:78vw}}
+
+/* AUTRE LIVRE */
+.autre{background:var(--creme);padding:90px 80px}
+.autre-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:64px;align-items:center}
+.autre-cover img{width:100%;height:auto;display:block;filter:drop-shadow(0 26px 50px rgba(30,20,20,.28))}
+.autre h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.4vw,46px);font-weight:300;line-height:1.15;color:var(--bordeaux-deep);margin-bottom:18px}
+.autre h2 em{font-style:italic;color:var(--bordeaux)}
+.autre p.autre-txt{font-size:15px;color:var(--texte-muted);line-height:1.9;margin-bottom:30px}
+.autre .cta-primary{animation:none}
+@media(max-width:900px){.autre{padding:64px 24px}.autre-inner{grid-template-columns:1fr;gap:36px;text-align:center}.autre-cover img{max-width:240px;margin:0 auto}.autre .cta-primary{margin:0 auto}}
 </style>
 </head>
 <body>
@@ -553,6 +563,12 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 <p style="margin-top:48px;font-size:11px;color:rgba(247,242,232,0.25);letter-spacing:2px">LES ÉDITIONS DU MÉCÈNE · PARIS · DEPUIS 1993</p>
 </section>
 <!-- FOOTER -->
+<!-- AUTRE LANDING -->
+<section class="autre"><div class="autre-inner">
+<a class="autre-cover" href="lp-paris-avant-apres.html"><img src="assets/realisations/paris-avant-apres.jpg" alt="Paris Avant-Après Haussmann" loading="lazy"></a>
+<div><p class="intro-label">Découvrez aussi</p><h2>Paris Avant-Après <em>Haussmann</em></h2><p class="autre-txt">Le Paris photographié par Charles Marville vers 1860, et les mêmes lieux aujourd’hui : 640 photographies, 520 pages. Réédition décembre 2026, personnalisable à vos couleurs.</p>
+<a class="cta-primary" href="lp-paris-avant-apres.html">Découvrir le livre <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+</div></section>
 <footer>
 <div class="footer-brand">
 <strong>Les Éditions du Mécène</strong>
