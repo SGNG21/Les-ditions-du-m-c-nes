@@ -367,6 +367,26 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 .ref-logo b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;color:var(--bordeaux-deep);letter-spacing:.5px;text-align:center;line-height:1.1}
 .ref-logo figcaption{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--texte-muted);text-align:center;line-height:1.25}
 @media(max-width:900px){.refs{padding:64px 20px}.refs-logos{grid-template-columns:repeat(2,1fr);gap:12px}.ref-logo span{height:64px}.ref-logo img{max-height:64px}.ref-logo figcaption{font-size:15px}}
+
+/* CTA : maquette de personnalisation */
+.cta-section{padding:110px 80px}
+.cta-section>p.cta-lead{font-size:18px;color:rgba(247,242,232,.75);max-width:720px;margin:0 auto 18px;line-height:1.75}
+.cta-steps{list-style:none;display:flex;justify-content:center;gap:10px 34px;flex-wrap:wrap;margin:0 auto 54px;position:relative;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--or-light)}
+.cta-steps li::before{content:'✓';margin-right:8px;color:var(--or)}
+.perso{display:flex;justify-content:center;align-items:flex-end;gap:46px;margin:0 auto 60px;position:relative;flex-wrap:wrap}
+.perso figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px}
+.perso figcaption{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(247,242,232,.6)}
+.perso-cover,.perso-page{position:relative;width:260px;aspect-ratio:.72;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.perso-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.perso-page{background:#FBF7EE;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:26px;text-align:center}
+.logo-ici{border:2px dashed var(--or);color:var(--or);background:rgba(20,16,12,.88);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:14px 18px;line-height:1.4}
+.perso-cover .logo-ici{position:absolute;left:50%;bottom:16%;transform:translateX(-50%);white-space:nowrap;backdrop-filter:blur(2px)}
+.perso-page .logo-ici{background:transparent;color:#9b7a2f;border-color:#c9a84c}
+.perso-page h4{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:22px;color:#2a2018;line-height:1.2}
+.perso-page p{font-size:11px;color:#7a6a5a;line-height:1.7}
+.perso-page i{display:block;width:70%;height:6px;background:#e8dfcd;margin:3px auto}
+.cta-section .cta-secondary{background:transparent;cursor:pointer}
+@media(max-width:900px){.cta-section{padding:72px 20px}.perso{gap:14px;flex-wrap:nowrap}.perso-cover,.perso-page{width:min(40vw,200px);height:calc(min(40vw,200px) / .72);flex:0 0 auto}.perso-page{padding:14px;gap:10px}.perso-page h4{font-size:16px}.logo-ici{font-size:9px;padding:9px 10px}.perso-cover .logo-ici{white-space:normal;width:80%;text-align:center}}
 </style>
 </head>
 <body>
@@ -547,14 +567,18 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 <!-- CTA FINAL -->
 <section class="cta-section" id="contact">
 <h2>Faisons de votre marque<br/>un <em>mécène du goût</em></h2>
-<p>Échangeons sans engagement sur les possibilités de partenariat et de personnalisation de cet ouvrage d'exception.</p>
+<p class="cta-lead">Un cadeau d’affaires qui marque : <strong>le livre à vos couleurs</strong>, avec votre logo sur la couverture et un mot de votre Président en ouverture. À partir de 100 exemplaires. Devis gratuit sous 48 heures.</p>
+<ul class="cta-steps"><li>Votre logo en couverture</li><li>Votre préface</li><li>Exemplaires numérotés</li><li>Livraison à vos destinataires</li></ul>
+<div class="perso">
+<figure><div class="perso-cover"><img src="assets/vin.jpg" alt="1re de couverture personnalisée"><span class="logo-ici">Votre logo ici</span></div><figcaption>1re de couverture</figcaption></figure>
+<figure><div class="perso-page"><span class="logo-ici">Votre logo ici</span><h4>Préface de votre Président</h4><i></i><i></i><i></i><p>Un mot personnel à vos clients<br>et partenaires</p></div><figcaption>2e de couverture</figcaption></figure>
+</div>
 <div class="cta-group">
 <a class="cta-primary" href="tel:+33681277860">
 <svg fill="none" height="15" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="15"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.13.96.36 1.9.71 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45c.91.35 1.85.58 2.81.71A2 2 0 0122 16.92z"></path></svg>
       06 81 27 78 60
     </a>
-<button class="cta-secondary" onclick="document.getElementById('contact-modal').style.display='flex'">
-      Écrire un message
+<button class="cta-secondary" onclick="document.getElementById('contact-modal').style.display='flex'">Demander un devis
       <svg fill="none" height="13" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="13"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
 </button>
 <a class="cta-secondary" href="https://www.les-editions-du-mecene.fr" target="_blank">
