@@ -747,3 +747,13 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .filter,.text-link,.spec-link,.biz-proof-figures,.hero-meta,.season-bar,.footer-bottom,.field label,.step .n{font-size:12px!important}
 .button{font-size:11.5px!important}
 @media(max-width:620px){.kicker,.eyebrow,.case-kicker,.cta-eyebrow,.why-label,.logo-wall-label,.now-label{font-size:11.5px!important}.cover-card p,.catalogue-item p,.river-item p,.now-item small{font-size:10.5px!important}}
+/* Landing : lieux du livre */
+.lp-places{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(243,238,228,.16)}
+.lp-places li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 22px 20px 0;border-bottom:1px solid rgba(243,238,228,.16)}
+.lp-places b{font:italic 400 26px/1.15 'Cormorant Garamond',serif;color:var(--ivory)}
+.lp-places span{font:400 11.5px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.lp-sec .lp-about .copy b{color:var(--wine);font-weight:600}
+@media(max-width:1000px){.lp-places{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.lp-places{grid-template-columns:1fr}.lp-places b{font-size:22px}}
+.lp-dark h2{color:var(--ivory)}.lp-dark h2 em{color:var(--gold)!important}
+.lp-dark .copy{color:rgba(243,238,228,.72)}

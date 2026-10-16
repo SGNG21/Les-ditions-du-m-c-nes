@@ -4,6 +4,9 @@ def page(p):
     facts=''.join(f'<div><b>{k}</b><span>{v}</span></div>' for k,v in p['facts'])
     gallery=''.join(f'<figure><img loading="lazy" decoding="async" src="{s}" alt="{a}"><figcaption>{c}</figcaption></figure>' for s,a,c in p.get('gallery',[]))
     gal_html=f'<section class="lp-sec"><div class="wrap"><div class="lp-gallery">{gallery}</div></div></section>' if gallery else ''
+    pl=''.join(f'<li><b>{n}</b><span>{pg}</span></li>' for n,pg in p.get('places',[]))
+    pl_html=f'<section class="lp-sec lp-dark"><div class="wrap"><div class="eyebrow">Dans le livre</div><h2>Les mêmes lieux, <em>à 170 ans d’écart.</em></h2><p class="copy">Chaque double page confronte un cliché de Marville et la vue d’aujourd’hui, prise au même endroit. Quelques-uns des lieux du livre :</p><ul class="lp-places">{pl}</ul></div></section>' if pl else ''
+    ex=p.get('expo'); ex_html=f'<section class="lp-sec"><div class="wrap lp-about"><div><div class="eyebrow">Référence</div><h2>{ex[0]}</h2></div><div><p class="copy">{ex[1]}</p></div></div></section>' if ex else ''
     quotes=''.join(f'<blockquote>« {q} »<cite>{c}</cite></blockquote>' for q,c in p.get('quotes',[]))
     q_html=f'<section class="lp-sec lp-dark"><div class="wrap"><div class="eyebrow">Ils en parlent</div><div class="lp-quotes">{quotes}</div></div></section>' if quotes else ''
     points=''.join(f'<li><b>{a}</b><span>{b}</span></li>' for a,b in p['points'])
@@ -27,7 +30,7 @@ def page(p):
 <div class="lp-hero-visual"><img fetchpriority="high" decoding="async" src="{p['cover']}" alt="Couverture : {html.escape(p['title'])}"></div>
 </div></section>
 <section class="lp-sec"><div class="wrap lp-about"><div><div class="eyebrow">Le livre</div><h2>{p['h2']}</h2></div><div>{p['body']}<div class="book-specs lp-specs">{facts}</div></div></div></section>
-{gal_html}{q_html}
+{pl_html}{gal_html}{ex_html}{q_html}
 <section class="lp-sec lp-gift"><div class="wrap lp-gift-grid"><div><div class="eyebrow">Pour les entreprises</div><h2>Le cadeau qu’on <em>garde.</em></h2><p class="copy">Offrez {p['short']} à vos clients et partenaires, personnalisé à vos couleurs : votre logo en couverture, une préface de votre président, des exemplaires numérotés. À partir de 500 exemplaires.</p></div><ol class="lp-steps"><li>Vous choisissez le nombre d’exemplaires</li><li>Vous nous envoyez votre logo et votre texte</li><li>Vous validez le bon à tirer</li><li>Nous imprimons et livrons</li></ol></div></section>
 <section class="lp-sec lp-order" id="commander"><div class="wrap lp-order-grid"><div><div class="eyebrow">Commander</div><h2>Recevez <em>{p['short']}.</em></h2><p class="copy">Laissez-nous vos coordonnées : nous vous répondons sous 48 heures avec le prix, le délai de livraison et, pour les entreprises, une proposition de personnalisation.</p><p class="lp-phone">Ou appelez-nous : <a href="tel:+33681277860">06 81 27 78 60</a></p><div class="lp-cover-sm"><img loading="lazy" src="{p['cover']}" alt=""></div></div>
 <form class="form" id="contact-form" novalidate>
@@ -69,14 +72,16 @@ dict(canon='lp-histoire-amoureuse-du-vin.html',theme='lp-wine',title='Histoire A
  quotes=[('Un travail de titan… un régal à lire.','Sud Radio'),('Voilà un ouvrage remarquable.','Valeurs Actuelles'),('Les auteurs s’amusent très sérieusement.','La Revue des Vins de France'),('Passionnant.','Le Magazine des Cavistes')],
  qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)']),
 dict(canon='lp-paris-avant-apres.html',theme='lp-stone',title='Paris avant-après Haussmann',cover='assets/realisations/paris-avant-apres.jpg',
- desc='740 photographies : le Paris photographié par Charles Marville pour Haussmann, et les mêmes lieux aujourd’hui. Le livre de Patrice de Moncan, à commander ou à offrir.',
- kicker='Charles Marville · Studio Traktir · Patrice de Moncan',h1='Paris <em>avant-après</em> Haussmann.',
- lead='En 1860, Haussmann charge Charles Marville de photographier le Paris promis à la démolition. 150 ans plus tard, les mêmes points de vue, photographiés à l’identique.',
- points=[('740','photographies : 380 de Marville, 360 d’aujourd’hui'),('40','plans comparatifs'),('452','pages')],
- cta='Commander le livre',short='Paris avant-après Haussmann',short_raw='Paris avant-après Haussmann',
- h2='La ville d’avant Haussmann, <em>face à celle d’aujourd’hui.</em>',
- body='<p class="copy">À la demande de Patrice de Moncan, les photographes du Studio Traktir ont repris, un siècle et demi plus tard, les points de vue exacts de Charles Marville, photographe de la Ville de Paris sous le Second Empire. Rue par rue, le livre confronte les deux villes ; les légendes détaillent tout ce qui a changé.</p>',
- facts=[('Auteur','Patrice de Moncan'),('Photographies','Charles Marville · Studio Traktir'),('Pages','452'),('Parution','2010, Les Éditions du Mécène')],
+ desc='Réédition 2026 : 640 photographies, le Paris de Charles Marville vers 1860 et les mêmes lieux aujourd’hui, photographiés au même endroit par le Studio Traktir. 520 pages, parution décembre 2026.',
+ kicker='Réédition 2026 · Charles Marville · Studio Traktir',h1='Paris <em>avant-après</em> Haussmann.',
+ lead='Un document historique qui fera date. En 1860, Haussmann charge Charles Marville de photographier ce qui va disparaître. Près de 170 ans plus tard, le Studio Traktir a photographié pendant deux ans les mêmes lieux, depuis l’endroit exact où Marville avait posé son appareil.',
+ points=[('640','photographies : 320 de Marville, 320 d’aujourd’hui'),('100+','plans comparatifs'),('520','pages · parution décembre 2026')],
+ cta='Réserver mon exemplaire',short='Paris avant-après Haussmann',short_raw='Paris avant-après Haussmann (réédition 2026)',
+ h2='Paris avant Haussmann, <em>et tel qu’il est devenu.</em>',
+ body='<p class="copy"><b>1860</b> — Haussmann charge le photographe Charles Marville de photographier ce qui devait être détruit au cours de la transformation de Paris.</p><p class="copy"><b>2026</b> — Près de 170 ans plus tard, le Studio Traktir photographie pendant deux années les mêmes lieux, de l’endroit exact d’où Marville avait pris ses clichés, précisé dans ses notes conservées à la Bibliothèque historique de la Ville de Paris.</p><p class="copy"><b>Le livre</b> — Les Éditions du Mécène rééditent l’ouvrage de cette comparaison de Paris avant Haussmann et tel qu’il est devenu aujourd’hui. 320 légendes expliquent la transformation de Paris depuis le Second Empire, et son histoire.</p>',
+ facts=[('Format','310 × 230 mm'),('Pagination','520 pages'),('Impression','Quadrichromie'),('Couverture','Cartonnée couleur, pelliculage mat'),('Iconographie','640 photographies (320 de Charles Marville vers 1860, 320 d’aujourd’hui) et plus de 100 plans'),('Parution','Décembre 2026')],
+ places=[('Le Louvre','p. 32-33'),('Rue Réaumur','p. 126-127'),('Bastille','p. 168-169'),('Carrefour du Bac','p. 338-339'),('Rond-point des Champs-Élysées','p. 360-361'),('14e arrondissement','p. 416-417'),('Avenue Foch','p. 428-429'),('Buttes-Chaumont','p. 446-447'),('Colonne Vendôme','p. 458-459')],
+ expo=('Une première exposition à l’Académie d’Architecture','En 2011, l’Académie d’Architecture, place des Vosges, a présenté ce face-à-face entre le Paris de Marville et le Paris d’aujourd’hui, avec le soutien de BNP Paribas Real Estate. Commissaire : Patrice de Moncan, historien de Paris, prix Haussmann et prix Charles Garnier de la Société de Géographie.'),
  qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)']),
 dict(canon='lp-paris-inonde.html',theme='lp-water',title='Paris inondé, la grande crue de 1910',cover='assets/realisations/paris-inonde.jpg',
  desc='Janvier 1910 : la Seine envahit Paris. Le récit en photographies de la grande crue, un livre des Éditions du Mécène à commander ou à offrir.',
