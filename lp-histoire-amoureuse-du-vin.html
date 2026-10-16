@@ -356,6 +356,17 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 .offre-item h3{font-size:30px;line-height:1.25}
 .offre-item p{font-size:17px;line-height:1.8}
 @media(max-width:900px){.offre h2{font-size:clamp(32px,8vw,44px)}.offre-lead,.offre-header p[style]{font-size:19px!important}.offre-item h3{font-size:25px}.offre-item p{font-size:16px}}
+
+/* RÉFÉRENCES : logos */
+.refs{padding:96px 80px}
+.refs-label{font-size:clamp(30px,3.4vw,44px)!important;font-weight:400!important;margin-bottom:56px!important}
+.refs-logos{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;max-width:1200px;margin:0 auto}
+.ref-logo{margin:0;background:var(--blanc);border:1px solid var(--creme-dark);padding:26px 18px 18px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.ref-logo span{height:84px;width:100%;display:flex;align-items:center;justify-content:center}
+.ref-logo img{max-height:84px;max-width:88%;width:auto;height:auto;object-fit:contain}
+.ref-logo b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:28px;color:var(--bordeaux-deep);letter-spacing:.5px;text-align:center;line-height:1.1}
+.ref-logo figcaption{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--texte-muted);text-align:center;line-height:1.25}
+@media(max-width:900px){.refs{padding:64px 20px}.refs-logos{grid-template-columns:repeat(2,1fr);gap:12px}.ref-logo span{height:64px}.ref-logo img{max-height:64px}.ref-logo figcaption{font-size:15px}}
 </style>
 </head>
 <body>
@@ -531,28 +542,7 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 <!-- RÉFÉRENCES -->
 <section class="refs">
 <p class="refs-label">Ils nous font confiance depuis 30 ans</p>
-<div class="refs-list">
-<span class="ref-tag">BNP Paribas</span>
-<span class="ref-tag">Yves Saint Laurent</span>
-<span class="ref-tag">Cartier</span>
-<span class="ref-tag">Total</span>
-<span class="ref-tag">SFR</span>
-    <span class="ref-tag">Altarea-Cogedim</span>
-    <span class="ref-tag">Aérospatiale</span>
-    <span class="ref-tag">Tribunal de Commerce de Paris</span>
-<span class="ref-tag">Starbucks</span>
-<span class="ref-tag">Badoit</span>
-<span class="ref-tag">Institut de France</span>
-    <span class="ref-tag">BNF</span>
-    <span class="ref-tag">Ordre des Experts Comptables</span>
-<span class="ref-tag">Légion d'Honneur</span>
-<span class="ref-tag">Musée d'Orsay</span>
-<span class="ref-tag">De Young Museum — San Francisco</span>
-<span class="ref-tag">Teatro Fernan Gomez — Madrid</span>
-<span class="ref-tag">FAAP — São Paulo</span>
-<span class="ref-tag">SACEM</span>
-<span class="ref-tag">Ville de Paris</span>
-</div>
+<div class="refs-logos"><figure class="ref-logo"><span><img src="assets/logos/entreprises/bnp-paribas-real-estate.png" alt="BNP Paribas" loading="lazy"></span><figcaption>BNP Paribas</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/yves-saint-laurent.png" alt="Yves Saint Laurent" loading="lazy"></span><figcaption>Yves Saint Laurent</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/cartier-joaillier.png" alt="Cartier" loading="lazy"></span><figcaption>Cartier</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/total.png" alt="Total" loading="lazy"></span><figcaption>Total</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/sfr.png" alt="SFR" loading="lazy"></span><figcaption>SFR</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/altarea-cogedim.png" alt="Altarea-Cogedim" loading="lazy"></span><figcaption>Altarea-Cogedim</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/aerospatial.png" alt="Aérospatiale" loading="lazy"></span><figcaption>Aérospatiale</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/tribunal-de-commerce-de-paris.png" alt="Tribunal de Commerce de Paris" loading="lazy"></span><figcaption>Tribunal de Commerce de Paris</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/starbuck-coffee.png" alt="Starbucks" loading="lazy"></span><figcaption>Starbucks</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/badoit.png" alt="Badoit" loading="lazy"></span><figcaption>Badoit</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/institutions/institut-de-france.svg" alt="Institut de France" loading="lazy"></span><figcaption>Institut de France</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/institutions/bnf.svg" alt="BNF" loading="lazy"></span><figcaption>BNF</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/ordre-des-experts-comptables.png" alt="Ordre des Experts-Comptables" loading="lazy"></span><figcaption>Ordre des Experts-Comptables</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/institutions/chancelle-rie-legion-d-honneur.png" alt="Légion d’honneur" loading="lazy"></span><figcaption>Légion d’honneur</figcaption></figure><figure class="ref-logo"><span><b>Musée d’Orsay</b></span><figcaption>Musée d’Orsay</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/institutions/de-young-museum-logo-transparent.png" alt="De Young Museum — San Francisco" loading="lazy"></span><figcaption>De Young Museum — San Francisco</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/institutions/teatro-fernan-gomez.png" alt="Teatro Fernán Gómez — Madrid" loading="lazy"></span><figcaption>Teatro Fernán Gómez — Madrid</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/faap.png" alt="FAAP — São Paulo" loading="lazy"></span><figcaption>FAAP — São Paulo</figcaption></figure><figure class="ref-logo"><span><b>SACEM</b></span><figcaption>SACEM</figcaption></figure><figure class="ref-logo"><span><img src="assets/logos/entreprises/ville-de-paris.png" alt="Ville de Paris" loading="lazy"></span><figcaption>Ville de Paris</figcaption></figure></div>
 </section>
 <!-- CTA FINAL -->
 <section class="cta-section" id="contact">
