@@ -376,7 +376,7 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 .perso{display:flex;justify-content:center;align-items:flex-end;gap:46px;margin:0 auto 60px;position:relative;flex-wrap:wrap}
 .perso figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:16px}
 .perso figcaption{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(247,242,232,.6)}
-.perso-cover,.perso-page{position:relative;width:260px;aspect-ratio:.72;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+.perso-cover,.perso-page{position:relative;width:320px;aspect-ratio:.72;box-shadow:0 30px 70px rgba(0,0,0,.5)}
 .perso-cover img{width:100%;height:100%;object-fit:cover;display:block}
 .perso-page{background:#FBF7EE;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:26px;text-align:center}
 .logo-ici{border:2px dashed var(--or);color:var(--or);background:rgba(20,16,12,.88);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:14px 18px;line-height:1.4}
@@ -387,6 +387,7 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 .perso-page i{display:block;width:70%;height:6px;background:#e8dfcd;margin:3px auto}
 .cta-section .cta-secondary{background:transparent;cursor:pointer}
 @media(max-width:900px){.cta-section{padding:72px 20px}.perso{gap:14px;flex-wrap:nowrap}.perso-cover,.perso-page{width:min(40vw,200px);height:calc(min(40vw,200px) / .72);flex:0 0 auto}.perso-page{padding:14px;gap:10px}.perso-page h4{font-size:16px}.logo-ici{font-size:9px;padding:9px 10px}.perso-cover .logo-ici{white-space:normal;width:80%;text-align:center}}
+.perso-back{box-shadow:none}.perso-back img{object-fit:contain}
 </style>
 </head>
 <body>
@@ -540,15 +541,15 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 <div class="offre-icon">
 <svg viewbox="0 0 24 24"><rect height="18" rx="1" width="18" x="3" y="3"></rect><path d="M8 12h8M8 8h8M8 16h4"></path></svg>
 </div>
-<h3>Votre logo en couverture</h3>
-<p>Le logo de votre entreprise est intégré directement sur la couverture, renforçant l'identité de marque à chaque consultation.</p>
+<h3>Votre logo en 4e de couverture</h3>
+<p>Le logo de votre entreprise est intégré en 4e de couverture, renforçant l'identité de marque à chaque consultation.</p>
 </div>
 <div class="offre-item">
 <div class="offre-icon">
 <svg viewbox="0 0 24 24"><path d="M3 21l1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"></path></svg>
 </div>
 <h3>Préface personnalisée par votre Président en ouverture</h3>
-<p>Un texte de votre président ou directeur général ouvre l'ouvrage, créant un lien fort et mémorable avec vos destinataires.</p>
+<p>Une préface d’environ 4 pages, signée par votre président ou directeur général, ouvre l'ouvrage, créant un lien fort et mémorable avec vos destinataires.</p>
 </div>
 <div class="offre-item">
 <div class="offre-icon">
@@ -567,11 +568,11 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 <!-- CTA FINAL -->
 <section class="cta-section" id="contact">
 <h2>Faisons de votre marque<br/>un <em>mécène du goût</em></h2>
-<p class="cta-lead">Un cadeau d’affaires qui marque : <strong>le livre à vos couleurs</strong>, avec votre logo sur la couverture et un mot de votre Président en ouverture. À partir de 100 exemplaires. Devis gratuit sous 48 heures.</p>
-<ul class="cta-steps"><li>Votre logo en couverture</li><li>Votre préface</li><li>Exemplaires numérotés</li><li>Livraison à vos destinataires</li></ul>
+<p class="cta-lead">Un cadeau d’affaires qui marque : <strong>le livre à vos couleurs</strong>, avec le logo de votre entreprise en 4e de couverture et une préface d’environ 4 pages signée par votre Président en ouverture. À partir de 100 exemplaires. Devis gratuit sous 48 heures.</p>
+<ul class="cta-steps"><li>Votre logo en 4e de couverture</li><li>Préface de votre Président (≈ 4 pages)</li><li>Exemplaires numérotés</li><li>Livraison à vos destinataires</li></ul>
 <div class="perso">
-<figure><div class="perso-cover"><img src="assets/vin.jpg" alt="1re de couverture personnalisée"><span class="logo-ici">Votre logo ici</span></div><figcaption>1re de couverture</figcaption></figure>
-<figure><div class="perso-page"><span class="logo-ici">Votre logo ici</span><h4>Préface de votre Président</h4><i></i><i></i><i></i><p>Un mot personnel à vos clients<br>et partenaires</p></div><figcaption>2e de couverture</figcaption></figure>
+<figure><div class="perso-cover"><img src="assets/vin.jpg" alt="1re de couverture d’Histoire Amoureuse du Vin"></div><figcaption>1re de couverture</figcaption></figure>
+<figure><div class="perso-cover perso-back"><img src="assets/lp-vin/quatrieme-relief.webp" alt="4e de couverture : le logo de votre entreprise"></div><figcaption>4e de couverture · votre logo</figcaption></figure>
 </div>
 <div class="cta-group">
 <a class="cta-primary" href="tel:+33681277860">
