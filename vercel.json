@@ -5,6 +5,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/merci",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/patrice-de-moncan",
       "destination": "/#interlocuteurs",
       "permanent": false

@@ -103,6 +103,7 @@ export default async function handler(req, res) {
   const fonction = (data.fonction || "").toString().trim();
   const telephone = (data.telephone || "").toString().trim();
   const projet = (data.projet || "").toString().trim();
+  const campagne = (data.campagne || "").toString().trim().slice(0, 200);
 
   const { BREVO_API_KEY, CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL } = process.env;
   const CONTACT_FROM_NAME = process.env.CONTACT_FROM_NAME || "Les Éditions du Mécène";
@@ -127,6 +128,7 @@ export default async function handler(req, res) {
       <tr><td><b>E-mail</b></td><td>${esc(email)}</td></tr>
       <tr><td><b>Téléphone</b></td><td>${esc(telephone) || "—"}</td></tr>
       <tr><td><b>Type de projet</b></td><td>${esc(projet) || "—"}</td></tr>
+      <tr><td><b>Campagne</b></td><td>${esc(campagne) || "—"}</td></tr>
       <tr><td valign="top"><b>Message</b></td><td>${esc(message).replace(/\n/g, "<br>")}</td></tr>
     </table>`;
 

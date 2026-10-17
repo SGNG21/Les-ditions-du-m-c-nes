@@ -160,6 +160,13 @@
     });
   });
 
+  /* ---------- Campagne d'arrivée (utm_*) mémorisée pour le formulaire ---------- */
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var src = ["utm_source", "utm_medium", "utm_campaign"].map(function (k) { return q.get(k); }).filter(Boolean).join(" / ");
+    if (src) { try { sessionStorage.setItem("mecene_campagne", src); } catch (e) {} }
+  })();
+
   /* ---------- Formulaire de contact — envoi réel via /api/contact (Brevo) ---------- */
   var form = document.getElementById("contact-form");
   if (form) {
@@ -209,6 +216,7 @@
         message: form.message.value, company_url: form.company_url.value,
         ts: Number(tsField ? tsField.value : 0)
       };
+      try { payload.campagne = sessionStorage.getItem("mecene_campagne") || ""; } catch (e) {}
 
       fetch("/api/contact", {
         method: "POST",

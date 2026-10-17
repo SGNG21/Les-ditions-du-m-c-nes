@@ -676,11 +676,13 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
           btn.disabled = true;
           btn.textContent = 'Envoi en cours…';
           errEl.style.display = 'none';
+          var q = new URLSearchParams(location.search), src = ['utm_source','utm_medium','utm_campaign'].map(function(k){return q.get(k)}).filter(Boolean).join(' / ');
+          var fd = new FormData(this); if (src) fd.append('campagne', src);
           try {
             var res = await fetch('https://formspree.io/f/xdajbqrb', {
               method: 'POST',
               headers: { 'Accept': 'application/json' },
-              body: new FormData(this)
+              body: fd
             });
             if (res.ok) {
               document.getElementById('contact-form').innerHTML='<p style="font-family:Cormorant Garamond,serif;font-size:22px;color:#F7F2E8;text-align:center;padding:24px 0">Merci, votre message est bien parti.<br><small style="font-size:14px;opacity:.6">Nous vous répondons sous 48 heures.</small></p>';
