@@ -759,3 +759,7 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 .lp-dark .copy{color:rgba(243,238,228,.72)}
 .lp-gallery.lp-spreads{grid-template-columns:1fr;gap:56px;margin-top:44px}
 .lp-spreads img{box-shadow:0 30px 70px rgba(17,17,15,.18)}
+/* Menu : livres en relief */
+.menu-books img{box-shadow:none;filter:drop-shadow(0 26px 40px rgba(0,0,0,.6))}
+.menu-dots .menu-arrow:focus{outline:none}.menu-dots .menu-arrow:focus-visible{outline:1px solid var(--gold);outline-offset:3px}
+.lp .lp-top-in{padding-right:120px}@media(max-width:620px){.lp .lp-top-in{padding-right:96px}}

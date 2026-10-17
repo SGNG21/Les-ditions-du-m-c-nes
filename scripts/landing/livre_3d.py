@@ -14,7 +14,7 @@ def warp(img, dst, size):
     w,h=img.size
     return img.convert('RGBA').transform(size,Image.PERSPECTIVE,coeffs(dst,[(0,0),(w,0),(w,h),(0,h)]),Image.BICUBIC)
 
-def render(src_path,out_path,side='front',thick=0.11,W=1200):
+def render(src_path,out_path,side='front',thick=0.077,W=1200):
     cov=Image.open(src_path).convert('RGB')
     fw=int(W*0.70); fh=int(fw*cov.height/cov.width)
     cov=cov.resize((fw,fh),Image.LANCZOS)       # couleurs d'origine, non retouchées
@@ -25,17 +25,17 @@ def render(src_path,out_path,side='front',thick=0.11,W=1200):
     if side=='front':
         # vue 3/4 gauche : dos à gauche, face de couverture, tranche des pages à droite
         x0=int(W*0.06)+sp; x1=x0+fw
-        face=[(x0,top),(x1,top+k*0.35),(x1,top+fh-k*0.30),(x0,top+fh)]
-        spine=[(x0-sp,top+k),(x0,top),(x0,top+fh),(x0-sp,top+fh-k*0.8)]
+        face=[(x0,top+k*0.35),(x1,top),(x1,top+fh),(x0,top+fh-k*0.30)]
+        spine=[(x0-sp,top+k*0.75),(x0,top+k*0.35),(x0,top+fh-k*0.30),(x0-sp,top+fh-k*0.62)]
         pg=int(sp*0.30)
-        pages=[(x1,top+k*0.35+3),(x1+pg,top+k*0.55+3),(x1+pg,top+fh-k*0.48-3),(x1,top+fh-k*0.30-3)]
+        pages=[(x1,top+3),(x1+pg,top+k*0.25+3),(x1+pg,top+fh-k*0.2-3),(x1,top+fh-3)]
         strip=cov.crop((0,0,max(2,int(fw*0.02)),fh))   # couleur du dos = bord gauche de la couverture
     else:
         x1=W-int(W*0.06)-sp; x0=x1-fw
-        face=[(x0,top+k*0.35),(x1,top),(x1,top+fh),(x0,top+fh-k*0.30)]
-        spine=[(x1,top),(x1+sp,top+k),(x1+sp,top+fh-k*0.8),(x1,top+fh)]
+        face=[(x0,top),(x1,top+k*0.35),(x1,top+fh-k*0.30),(x0,top+fh)]
+        spine=[(x1,top+k*0.35),(x1+sp,top+k*0.75),(x1+sp,top+fh-k*0.62),(x1,top+fh-k*0.30)]
         pg=int(sp*0.30)
-        pages=[(x0,top+k*0.35+3),(x0-pg,top+k*0.55+3),(x0-pg,top+fh-k*0.48-3),(x0,top+fh-k*0.30-3)]
+        pages=[(x0,top+3),(x0-pg,top+k*0.25+3),(x0-pg,top+fh-k*0.2-3),(x0,top+fh-3)]
         strip=cov.crop((fw-max(2,int(fw*0.02)),0,fw,fh))
     # dos : bande de couleur prolongée, légèrement ombrée pour le volume
     s=np.array(strip.resize((sp,fh))).astype(float)
@@ -60,4 +60,4 @@ def render(src_path,out_path,side='front',thick=0.11,W=1200):
     canvas.save(out_path,quality=90,method=6); print(out_path,canvas.size)
 
 if __name__=='__main__':
-    render(sys.argv[1],sys.argv[2],sys.argv[3],float(sys.argv[4]) if len(sys.argv)>4 else 0.11)
+    render(sys.argv[1],sys.argv[2],sys.argv[3],float(sys.argv[4]) if len(sys.argv)>4 else 0.077)

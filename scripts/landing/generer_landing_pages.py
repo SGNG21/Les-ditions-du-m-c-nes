@@ -37,7 +37,7 @@ def page(p):
 <section class="lp-sec lp-order" id="commander"><div class="wrap lp-order-grid"><div><div class="eyebrow">Commander</div><h2>Recevez <em>{p['short']}.</em></h2><p class="copy">Laissez-nous vos coordonnées : nous vous répondons sous 48 heures avec le prix, le délai de livraison et, pour les entreprises, une proposition de personnalisation.</p><p class="lp-phone">Ou appelez-nous : <a href="tel:+33681277860">06 81 27 78 60</a></p><div class="lp-cover-sm"><img loading="lazy" src="{p['cover']}" alt=""></div></div>
 <form class="form" id="contact-form" novalidate>
 <input type="hidden" name="projet" value="Commander : {p['short_raw']}">
-<div class="field full"><label for="f-usage">Pour</label><select id="f-usage"><option>Moi-même ou un proche</option><option>Cadeau d’affaires personnalisé</option><option>Une librairie ou une institution</option></select></div>
+<div class="field full"><label for="f-usage">Pour</label><select id="f-usage"><option>Cadeau d’affaires personnalisé</option><option>Une institution ou une collectivité</option><option>Un événement d’entreprise</option></select></div>
 <div class="field"><label for="f-qte">Nombre d’exemplaires</label><select id="f-qte">{qty}</select></div>
 <div class="field"><label for="f-societe">Société <small>(facultatif)</small></label><input id="f-societe" name="societe" type="text" autocomplete="organization"></div>
 <div class="field"><label for="f-nom">Nom &amp; prénom <span class="req" aria-hidden="true">*</span></label><input id="f-nom" name="nom" type="text" required autocomplete="name"><span class="field-error" id="e-nom">Merci d’indiquer votre nom.</span></div>
@@ -72,7 +72,7 @@ dict(canon='lp-histoire-amoureuse-du-vin.html',theme='lp-wine',title='Histoire A
  facts=[('Auteurs','Debra Finerman &amp; Patrice de Moncan'),('Format','32 × 23,5 cm'),('Pages','160'),('Éditeur','Les Éditions du Mécène')],
  gallery=[('assets/vin-prestige/double-napoleon.jpg','Double page Napoléon Ier','Napoléon Ier · le Chambertin'),('assets/vin-prestige/double-colette.jpg','Double page Colette','Colette · tous les crus'),('assets/vin-prestige/double-montaigne.jpg','Double page Montaigne','Montaigne · le clairet'),('assets/vin-prestige/double-sting.jpg','Double page Sting et Trudy Styler','Sting &amp; Trudy Styler')],
  quotes=[('Un travail de titan… un régal à lire.','Sud Radio'),('Voilà un ouvrage remarquable.','Valeurs Actuelles'),('Les auteurs s’amusent très sérieusement.','La Revue des Vins de France'),('Passionnant.','Le Magazine des Cavistes')],
- qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)']),
+ qty=['500 à 1 000 exemplaires','1 000 à 3 000 exemplaires','Plus de 3 000 exemplaires']),
 dict(canon='lp-paris-avant-apres.html',theme='lp-stone',title='Paris avant-après Haussmann',cover='assets/realisations/paris-avant-apres.jpg',
  desc='Réédition 2026 : 640 photographies, le Paris de Charles Marville vers 1860 et les mêmes lieux aujourd’hui, photographiés au même endroit par le Studio Traktir. 520 pages, parution décembre 2026.',
  kicker='Réédition 2026 · Charles Marville · Studio Traktir',h1='Paris <em>avant-après</em> Haussmann.',
@@ -88,7 +88,7 @@ dict(canon='lp-paris-avant-apres.html',theme='lp-stone',title='Paris avant-aprè
   ('assets/avant-apres/14e-rue-leclerc-rue-du-commandeur.jpg','Double page 416-417 : rue Leclerc et rue du Commandeur dans le 14e, avant et après','14e arrondissement · pages 416-417')],
  places=[('Le Louvre','p. 32-33'),('Rue Réaumur','p. 126-127'),('Bastille','p. 168-169'),('Carrefour du Bac','p. 338-339'),('Rond-point des Champs-Élysées','p. 360-361'),('14e arrondissement','p. 416-417'),('Avenue Foch','p. 428-429'),('Buttes-Chaumont','p. 446-447'),('Colonne Vendôme','p. 458-459')],
  expo=('Une première exposition à l’Académie d’Architecture','En 2011, l’Académie d’Architecture, place des Vosges, a présenté ce face-à-face entre le Paris de Marville et le Paris d’aujourd’hui, avec le soutien de BNP Paribas Real Estate. Commissaire : Patrice de Moncan, historien de Paris, prix Haussmann et prix Charles Garnier de la Société de Géographie.'),
- qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)']),
+ qty=['500 à 1 000 exemplaires','1 000 à 3 000 exemplaires','Plus de 3 000 exemplaires']),
 dict(canon='lp-paris-inonde.html',theme='lp-water',title='Paris inondé, la grande crue de 1910',cover='assets/realisations/paris-inonde.jpg',
  desc='Janvier 1910 : la Seine envahit Paris. Le récit en photographies de la grande crue, un livre des Éditions du Mécène à commander ou à offrir.',
  kicker='Nouveauté · Les Éditions du Mécène',h1='Paris <em>inondé.</em>',
@@ -98,9 +98,12 @@ dict(canon='lp-paris-inonde.html',theme='lp-water',title='Paris inondé, la gran
  h2='Quand la Seine <em>envahit Paris.</em>',
  body='<p class="copy">En janvier 1910, la crue de la Seine paralyse la capitale pendant des semaines. Ce livre réunit les images de ce Paris méconnaissable, où l’on circule en barque devant les immeubles haussmanniens.</p>',
  facts=[('Sujet','La grande crue de la Seine, janvier 1910'),('Illustrations','Photographies d’époque'),('Éditeur','Les Éditions du Mécène')],
- qty=['1 exemplaire','2 à 5','6 à 20','21 à 499','500 et plus (édition personnalisée)'])]
+ qty=['500 à 1 000 exemplaires','1 000 à 3 000 exemplaires','Plus de 3 000 exemplaires'])]
 import os
 for p in P:
     if p['canon'] in ('lp-paris-avant-apres.html','lp-histoire-amoureuse-du-vin.html'): continue  # page autonome, modèle les-editions-du-mecene.com
     open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..',p['canon']),'w').write(page(p))
 print('ok')
+# menu du site sur les landing pages
+import runpy
+runpy.run_path(os.path.join(os.path.dirname(os.path.abspath(__file__)),'menu_landing.py'))
