@@ -885,7 +885,7 @@
  {
   "slug": "livre-des-passages-de-paris",
   "titre": "Le Livre des passages de Paris",
-  "client": "",
+  "client": "Total",
   "src": "assets/realisations/livre-des-passages-de-paris.jpg",
   "w": 564,
   "h": 800,
@@ -997,7 +997,7 @@
  {
   "slug": "gendarme-des-barrieres",
   "titre": "Le Gendarme des barrières",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/gendarme-des-barrieres.jpg",
   "w": 600,
   "h": 1002,
@@ -1049,7 +1049,7 @@
  {
   "slug": "la-mouffe",
   "titre": "La Mouffe",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/la-mouffe.jpg",
   "w": 711,
   "h": 1200,
@@ -1847,7 +1847,7 @@
  {
   "slug": "puces-de-paris-saint-ouen",
   "titre": "Les Puces de Paris Saint-Ouen",
-  "client": "",
+  "client": "Coll. Paris d’Hier et d’Aujourd’hui",
   "src": "assets/realisations/puces-de-paris-saint-ouen.jpg",
   "w": 913,
   "h": 1200,
@@ -1920,7 +1920,7 @@
  {
   "slug": "vladimir-german",
   "titre": "Vladimir German, itinéraire artistique",
-  "client": "",
+  "client": "Édition personnelle",
   "src": "assets/realisations/vladimir-german.jpg",
   "w": 600,
   "h": 775,
