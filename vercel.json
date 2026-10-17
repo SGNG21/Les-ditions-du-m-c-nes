@@ -5,6 +5,226 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/",
+      "permanent": true
+    },
+    {
+      "source": "/editeur-livre",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/entreprises",
+      "permanent": true
+    },
+    {
+      "source": "/entreprise",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/entreprises",
+      "permanent": true
+    },
+    {
+      "source": "/livres",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/entreprises",
+      "permanent": true
+    },
+    {
+      "source": "/collaboration",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/entreprises",
+      "permanent": true
+    },
+    {
+      "source": "/livre-cadeau",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/cadeau-fin-annee",
+      "permanent": true
+    },
+    {
+      "source": "/auteurs",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/english-version",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/international",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/",
+      "permanent": true
+    },
+    {
+      "source": "/editeur-livre",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/entreprises",
+      "permanent": true
+    },
+    {
+      "source": "/entreprise",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/entreprises",
+      "permanent": true
+    },
+    {
+      "source": "/livres",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/entreprises",
+      "permanent": true
+    },
+    {
+      "source": "/collaboration",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/entreprises",
+      "permanent": true
+    },
+    {
+      "source": "/livre-cadeau",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/cadeau-fin-annee",
+      "permanent": true
+    },
+    {
+      "source": "/auteurs",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/english-version",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/international",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.les-editions-du-mecene.fr"
+        }
+      ],
+      "destination": "https://les-editions-du-mecene.com/",
+      "permanent": true
+    },
+    {
       "source": "/merci",
       "destination": "/",
       "permanent": true

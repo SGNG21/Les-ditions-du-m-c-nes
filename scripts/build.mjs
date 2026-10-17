@@ -28,6 +28,7 @@ const EXCLUDE = new Set([
   "api",
   "site.config.js",
   "data",
+  "docs",
   "package.json",
   "package-lock.json",
   "pnpm-lock.yaml",
