@@ -420,12 +420,22 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 .dp-body:before{content:'';position:absolute;top:44px;bottom:44px;left:0;width:3px;background:var(--or);opacity:.85}
 .dp-item:nth-child(even) .dp-body:before{left:auto;right:0}
 @media(max-width:900px){.dp-item{gap:18px}.dp-body:before{top:0;bottom:auto;left:24px;width:60px;height:3px}.dp-item:nth-child(even) .dp-body:before{right:auto;left:24px}}
+
+/* Livre recentré et descendu, sceau « Réédition » */
+.hero-visual{padding:12vh 0 4vh}
+.hero-book{position:relative;transform:translateX(-4%)}
+.hero-visual .hero-book img{height:78vh;max-height:78vh}
+.hero-seal{position:absolute;top:-3%;left:-6%;z-index:2;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ecd28a,#c9a84c 55%,#9b7a2f);color:#24170f;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(0,0,0,.45),inset 0 0 0 5px rgba(255,255,255,.25),inset 0 0 0 7px rgba(36,23,15,.35);transform:rotate(-12deg);animation:fadeUp .7s .5s ease both}
+.hero-seal small{font-family:'Marcellus',serif;font-size:13px;letter-spacing:3px;text-transform:uppercase}
+.hero-seal b{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600;line-height:1}
+.hero-eyebrow b{display:inline-block;margin-left:6px;padding:5px 12px;border:1px solid var(--or);color:var(--creme);font-weight:400}
+@media(max-width:900px){.hero-visual{padding:40px 24px 0}.hero-book{transform:none}.hero-visual .hero-book img{height:auto;max-height:62vh}.hero-seal{width:96px;height:96px;left:-6%}.hero-seal small{font-size:9px;letter-spacing:2px}.hero-seal b{font-size:30px}}
 </style>
 </head>
 <body>
 <section class="hero">
 <div class="hero-text">
-<p class="hero-eyebrow">Les Éditions du Mécène · Réédition 2026</p>
+<p class="hero-eyebrow">Les Éditions du Mécène <b>Réédition 2026</b></p>
 <img alt="Les Éditions du Mécène" class="hero-logo" src="assets/lp-vin/logo.svg"/>
 <h1>Paris<br/>Avant-Après<br/><em>Haussmann</em></h1>
 <p class="hero-subtitle">Un document historique qui fera date. Le Paris photographié par Charles Marville vers 1860, et les mêmes lieux aujourd’hui. Un cadeau de prestige à l’image de votre entreprise.</p>
@@ -444,7 +454,7 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
 </div>
 </div>
 <div class="hero-visual">
-<img alt="Livre Paris Avant-Après Haussmann en relief" src="assets/avant-apres/livre-relief.webp"/>
+<div class="hero-book"><img alt="Livre Paris Avant-Après Haussmann en relief" src="assets/avant-apres/livre-relief.webp"/><span class="hero-seal"><small>Réédition</small><b>2026</b></span></div>
 </div>
 </section>
 <div class="presse-band"><div class="presse-ticker"><div class="presse-item"><span class="presse-source">Europe 1</span><span class="sep">·</span><span class="presse-quote">Envoûtant</span></div><div class="presse-item"><span class="presse-source">Le Monde</span><span class="sep">·</span><span class="presse-quote">Surprenant</span></div><div class="presse-item"><span class="presse-source">Les Échos</span><span class="sep">·</span><span class="presse-quote">Somptueux !</span></div><div class="presse-item"><span class="presse-source">La Tribune</span><span class="sep">·</span><span class="presse-quote">Passionnant</span></div><div class="presse-item"><span class="presse-source">Paris-Match</span><span class="sep">·</span><span class="presse-quote">Écrit par le meilleur historien de Paris</span></div><div class="presse-item"><span class="presse-source">Pariscope</span><span class="sep">·</span><span class="presse-quote">Par un érudit et amoureux du vieux Paris</span></div><div class="presse-item"><span class="presse-source">Chaîne Histoire</span><span class="sep">·</span><span class="presse-quote">Fascinant portrait d’une ville en mutation</span></div><div class="presse-item"><span class="presse-source">memoire-des-arts.com</span><span class="sep">·</span><span class="presse-quote">Ce livre est véritablement extraordinaire</span></div><div class="presse-item"><span class="presse-source">Europe 1</span><span class="sep">·</span><span class="presse-quote">Envoûtant</span></div><div class="presse-item"><span class="presse-source">Le Monde</span><span class="sep">·</span><span class="presse-quote">Surprenant</span></div><div class="presse-item"><span class="presse-source">Les Échos</span><span class="sep">·</span><span class="presse-quote">Somptueux !</span></div><div class="presse-item"><span class="presse-source">La Tribune</span><span class="sep">·</span><span class="presse-quote">Passionnant</span></div><div class="presse-item"><span class="presse-source">Paris-Match</span><span class="sep">·</span><span class="presse-quote">Écrit par le meilleur historien de Paris</span></div><div class="presse-item"><span class="presse-source">Pariscope</span><span class="sep">·</span><span class="presse-quote">Par un érudit et amoureux du vieux Paris</span></div><div class="presse-item"><span class="presse-source">Chaîne Histoire</span><span class="sep">·</span><span class="presse-quote">Fascinant portrait d’une ville en mutation</span></div><div class="presse-item"><span class="presse-source">memoire-des-arts.com</span><span class="sep">·</span><span class="presse-quote">Ce livre est véritablement extraordinaire</span></div></div></div>
