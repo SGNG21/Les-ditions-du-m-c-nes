@@ -10,7 +10,7 @@
 
 import { readFileSync } from "node:fs";
 
-export const PRODUCTION_URL = "https://les-editions-du-mecene.com";
+export const PRODUCTION_URL = "https://www.les-editions-du-mecene.com";
 
 export const SITE = {
   name: "Les Éditions du Mécène",

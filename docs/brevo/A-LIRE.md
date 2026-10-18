@@ -12,5 +12,5 @@ Trois e-mails prêts à importer dans Brevo : **Campagnes → Créer une campagn
 - **Expéditeur** : Patrice de Moncan — adresse en @les-editions-du-mecene.com (domaine à authentifier dans Brevo : SPF, DKIM, DMARC dans la zone DNS OVH).
 - **Personnalisation** : `{{ contact.PRENOM }}` (attribut PRENOM des contacts) ; sans prénom, « Madame, Monsieur ».
 - **Obligatoire** : `{{ unsubscribe }}` (désinscription) et `{{ mirror }}` (version navigateur) sont déjà en place.
-- **Images** : servies depuis https://les-editions-du-mecene.com/assets/… — elles s’affichent une fois le .com branché sur le nouveau site.
+- **Images** : servies depuis https://www.les-editions-du-mecene.com/assets/… — elles s’affichent une fois le .com branché sur le nouveau site.
 - Pour modifier un texte : `scripts/emails/generer_emails.py`, puis `python3 scripts/emails/generer_emails.py`.

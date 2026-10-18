@@ -1,6 +1,6 @@
 # Redirections de les-editions-du-mecene.fr vers les-editions-du-mecene.com
 
-Le site officiel des Éditions du Mécène est désormais **https://les-editions-du-mecene.com**.
+Le site officiel des Éditions du Mécène est désormais **https://www.les-editions-du-mecene.com**.
 L'ancien site en .fr doit renvoyer chaque visiteur (et Google) vers la page équivalente du .com,
 avec des **redirections permanentes 301**, page par page.
 
@@ -8,16 +8,16 @@ avec des **redirections permanentes 301**, page par page.
 
 | Ancienne adresse (.fr)                                   | Nouvelle adresse (.com)                                      |
 |----------------------------------------------------------|--------------------------------------------------------------|
-| https://www.les-editions-du-mecene.fr/                   | https://les-editions-du-mecene.com/                          |
-| https://www.les-editions-du-mecene.fr/editeur-livre      | https://les-editions-du-mecene.com/entreprises               |
-| https://www.les-editions-du-mecene.fr/entreprise         | https://les-editions-du-mecene.com/entreprises               |
-| https://www.les-editions-du-mecene.fr/livres             | https://les-editions-du-mecene.com/entreprises               |
-| https://www.les-editions-du-mecene.fr/collaboration      | https://les-editions-du-mecene.com/entreprises               |
-| https://www.les-editions-du-mecene.fr/livre-cadeau       | https://les-editions-du-mecene.com/cadeau-fin-annee          |
-| https://www.les-editions-du-mecene.fr/auteurs            | https://les-editions-du-mecene.com/                          |
-| https://www.les-editions-du-mecene.fr/contact            | https://les-editions-du-mecene.com/contact                   |
-| https://www.les-editions-du-mecene.fr/english-version    | https://les-editions-du-mecene.com/international             |
-| **Toute autre page** du .fr                              | https://les-editions-du-mecene.com/                          |
+| https://www.les-editions-du-mecene.fr/                   | https://www.les-editions-du-mecene.com/                          |
+| https://www.les-editions-du-mecene.fr/editeur-livre      | https://www.les-editions-du-mecene.com/entreprises               |
+| https://www.les-editions-du-mecene.fr/entreprise         | https://www.les-editions-du-mecene.com/entreprises               |
+| https://www.les-editions-du-mecene.fr/livres             | https://www.les-editions-du-mecene.com/entreprises               |
+| https://www.les-editions-du-mecene.fr/collaboration      | https://www.les-editions-du-mecene.com/entreprises               |
+| https://www.les-editions-du-mecene.fr/livre-cadeau       | https://www.les-editions-du-mecene.com/cadeau-fin-annee          |
+| https://www.les-editions-du-mecene.fr/auteurs            | https://www.les-editions-du-mecene.com/                          |
+| https://www.les-editions-du-mecene.fr/contact            | https://www.les-editions-du-mecene.com/contact                   |
+| https://www.les-editions-du-mecene.fr/english-version    | https://www.les-editions-du-mecene.com/international             |
+| **Toute autre page** du .fr                              | https://www.les-editions-du-mecene.com/                          |
 
 Les mêmes règles valent pour l'adresse sans « www » (https://les-editions-du-mecene.fr/...).
 

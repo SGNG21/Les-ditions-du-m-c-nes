@@ -156,9 +156,9 @@ Ces liens indiquent dans chaque demande de contact reçue qu'elle vient de Linke
 
 | Usage | Lien |
 |---|---|
-| Paris Avant-Après | https://les-editions-du-mecene.com/lp-paris-avant-apres?utm_source=linkedin&utm_medium=social&utm_campaign=paris-avant-apres |
-| Histoire Amoureuse du Vin | https://les-editions-du-mecene.com/lp-histoire-amoureuse-du-vin?utm_source=linkedin&utm_medium=social&utm_campaign=histoire-vin |
-| Site | https://les-editions-du-mecene.com/?utm_source=linkedin&utm_medium=social&utm_campaign=site |
+| Paris Avant-Après | https://www.les-editions-du-mecene.com/lp-paris-avant-apres?utm_source=linkedin&utm_medium=social&utm_campaign=paris-avant-apres |
+| Histoire Amoureuse du Vin | https://www.les-editions-du-mecene.com/lp-histoire-amoureuse-du-vin?utm_source=linkedin&utm_medium=social&utm_campaign=histoire-vin |
+| Site | https://www.les-editions-du-mecene.com/?utm_source=linkedin&utm_medium=social&utm_campaign=site |
 
 ---
 

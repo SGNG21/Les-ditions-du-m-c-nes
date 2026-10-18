@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "docs" / "brevo"
-SITE = "https://les-editions-du-mecene.com"
+SITE = "https://www.les-editions-du-mecene.com"
 INK, IVORY, WINE, GOLD, MUTED = "#1E1B17", "#F7F2E8", "#651C27", "#B79A5D", "#6F655B"
 SERIF = "Georgia,'Times New Roman',serif"
 SANS = "Helvetica,Arial,sans-serif"
