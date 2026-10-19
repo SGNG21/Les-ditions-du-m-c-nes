@@ -50,8 +50,16 @@ function shouldExclude(name) {
   return false;
 }
 
+/** URL propre (cleanUrls) : https://…/page.html → https://…/page, index.html → / */
+function cleanUrl(url) {
+  return url.replace(/\/index\.html$/, "/").replace(/\.html(?=$|[#?])/, "");
+}
+
 function transformHtml(content, rel = "") {
   let out = content.split("{{SITE_URL}}").join(siteUrl);
+  // Adresses absolues (canonical, og:url, JSON-LD) sans « .html », comme les sert Vercel.
+  const abs = new RegExp(siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "/[A-Za-z0-9_./-]*\\.html", "g");
+  out = out.replace(abs, cleanUrl);
   // Mesure d'audience Vercel Web Analytics (sans cookie), sauf fichiers sous assets/ (e-mails).
   if (!rel.startsWith("assets/") && !out.includes("/_vercel/insights/script.js")) {
     out = out.replace(/<\/head>/i, '<script defer src="/_vercel/insights/script.js"></script></head>');
@@ -95,7 +103,7 @@ async function copyDir(srcDir, destDir) {
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const urls = SITEMAP_PAGES.map((p) => {
-    const loc = `${siteUrl}${p.path}`;
+    const loc = cleanUrl(`${siteUrl}${p.path}`);
     return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`;
   }).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
