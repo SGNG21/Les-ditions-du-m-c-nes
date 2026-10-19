@@ -16,6 +16,8 @@
  * Aucun faux succès n'est jamais renvoyé.
  */
 
+import { addLead } from "./_lead.js";
+
 const RATE_LIMIT = { windowMs: 10 * 60 * 1000, max: 5 };
 const rateStore = new Map(); // clé: IP -> [timestamps] (best-effort, mémoire d'instance)
 const MAX_BODY = 20 * 1024; // 20 Ko
@@ -148,6 +150,9 @@ export default async function handler(req, res) {
     }
     return r.json().catch(() => ({}));
   }
+
+  // 0) Range le prospect dans la liste Brevo des demandes entrantes (non bloquant).
+  await addLead({ email, nom, societe, fonction, telephone, message, source: campagne || "site — formulaire de contact" });
 
   try {
     // 1) Notification interne à la maison.

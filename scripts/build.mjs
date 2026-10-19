@@ -50,8 +50,12 @@ function shouldExclude(name) {
   return false;
 }
 
-function transformHtml(content) {
+function transformHtml(content, rel = "") {
   let out = content.split("{{SITE_URL}}").join(siteUrl);
+  // Mesure d'audience Vercel Web Analytics (sans cookie), sauf fichiers sous assets/ (e-mails).
+  if (!rel.startsWith("assets/") && !out.includes("/_vercel/insights/script.js")) {
+    out = out.replace(/<\/head>/i, '<script defer src="/_vercel/insights/script.js"></script></head>');
+  }
   if (noindex) {
     // Injecte le noindex juste après le charset (présent sur toutes les pages).
     out = out.replace(
@@ -77,7 +81,7 @@ async function copyDir(srcDir, destDir) {
       const ext = path.extname(entry.name).toLowerCase();
       if (ext === ".html") {
         const content = await fs.readFile(srcPath, "utf8");
-        await fs.writeFile(destPath, transformHtml(content));
+        await fs.writeFile(destPath, transformHtml(content, rel));
       } else if (TEXT_EXT.has(ext)) {
         const content = await fs.readFile(srcPath, "utf8");
         await fs.writeFile(destPath, content.split("{{SITE_URL}}").join(siteUrl));

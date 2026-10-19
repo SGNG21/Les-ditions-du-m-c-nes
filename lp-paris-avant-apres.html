@@ -567,7 +567,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   e.preventDefault();
   var f=this, btn=document.getElementById('form-btn'), err=document.getElementById('form-error');
   var q=new URLSearchParams(location.search), src=['utm_source','utm_medium','utm_campaign'].map(function(k){return q.get(k)}).filter(Boolean).join(' / ');
-  var fd=new FormData(f); if(src) fd.append('campagne',src);
+  var fd=new FormData(f); if(src) fd.append('campagne',src); try{var lo={};fd.forEach(function(v,k){lo[k]=v});fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lo),keepalive:true}).catch(function(){})}catch(e){}
   btn.disabled=true; btn.textContent='Envoi en cours…'; err.style.display='none';
   try {
     var res=await fetch('https://formspree.io/f/xdajbqrb',{method:'POST',headers:{'Accept':'application/json'},body:fd});

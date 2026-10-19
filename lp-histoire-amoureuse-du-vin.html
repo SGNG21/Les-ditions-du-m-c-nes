@@ -677,7 +677,7 @@ footer{background:var(--bordeaux-deep);border-top:1px solid rgba(201,168,76,0.15
           btn.textContent = 'Envoi en cours…';
           errEl.style.display = 'none';
           var q = new URLSearchParams(location.search), src = ['utm_source','utm_medium','utm_campaign'].map(function(k){return q.get(k)}).filter(Boolean).join(' / ');
-          var fd = new FormData(this); if (src) fd.append('campagne', src);
+          var fd = new FormData(this); if (src) fd.append('campagne', src); try{var lo={};fd.forEach(function(v,k){lo[k]=v});fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(lo),keepalive:true}).catch(function(){})}catch(e){}
           try {
             var res = await fetch('https://formspree.io/f/xdajbqrb', {
               method: 'POST',
