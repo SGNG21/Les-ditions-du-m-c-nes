@@ -79,7 +79,7 @@ def email(title, preheader, hero_img, hero_alt, hero_bg, body, campaign):
 </td></tr>
 <tr><td bgcolor="{INK}" style="background:{INK};padding:22px 40px;font-family:{SANS};font-size:11px;line-height:1.7;color:#A39684;">
 <a href="{utm('/', campaign)}" style="color:{GOLD};text-decoration:none;">les-editions-du-mecene.com</a><br>
-Les Éditions du Mécène · SAS Orsières Conseils · 1 rue du Docteur Thoral, 89390 Ravières<br>
+Les Éditions du Mécène · <a href="mailto:contact@les-editions-du-mecene.com" style="color:#D9CCB3;">contact@les-editions-du-mecene.com</a> · <a href="tel:+33681277860" style="color:#D9CCB3;">06 81 27 78 60</a><br>
 Vous recevez ce message en raison de vos fonctions professionnelles. <a href="{{{{ unsubscribe }}}}" style="color:#D9CCB3;">Se désinscrire</a>
 </td></tr>
 </table></td></tr></table>
