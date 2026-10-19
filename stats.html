@@ -131,7 +131,7 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
         <div class="kpis">
           <div class="kpi"><small>Délivrés</small><b id="cd-delivered">—</b></div>
           <div class="kpi"><small>Ouvertures</small><b id="cd-opens">—</b></div>
-          <div class="kpi"><small>Clics</small><b id="cd-clicks">—</b></div>
+          <div class="kpi"><small>Personnes qui ont cliqué</small><b id="cd-clicks">—</b></div>
           <div class="kpi"><small>Taux de clic</small><b id="cd-ctr">—</b></div>
           <div class="kpi"><small>Rejets</small><b id="cd-bounces">—</b></div>
           <div class="kpi"><small>Désinscriptions</small><b id="cd-unsub">—</b></div>
@@ -198,7 +198,20 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
 
   var clk = [], clkFilter = "all", clkCampaign = null;
 
+  var cdDelivered = 0;
+  function norm(t) { return String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); }
+  // Vrai si l'adresse contient le nom de famille du contact (ou une adresse générique sans nom).
+  function nameMatches(name, email) {
+    var local = norm(email.split("@")[0]).replace(/[^a-z]/g, "");
+    var words = norm(name).replace(/["']/g, "").trim().split(/\s+/);
+    var parts = (words.length > 1 ? words.slice(1) : words).join("-").split("-").filter(function (w) { return w.length >= 3; });
+    if (!parts.length) return true;
+    return parts.some(function (w) { return local.indexOf(w.replace(/[^a-z]/g, "")) > -1; });
+  }
   function clkCount() {
+    // Taux de clic calculé sur la liste réelle des cliqueurs : le total global de Brevo est parfois faux.
+    $("cd-clicks").textContent = clk.length ? nf.format(clk.length) : "—";
+    $("cd-ctr").textContent = clk.length && cdDelivered ? (clk.length / cdDelivered * 100).toLocaleString("fr-FR", { maximumFractionDigits: 1 }) + " %" : "—";
     var done = clk.filter(function (x) { return x.called; }).length;
     $("clk-count").textContent = clk.length ? "(" + clk.length + " · " + done + " appelée" + (done > 1 ? "s" : "") + ")" : "";
   }
@@ -218,6 +231,12 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
       if (x.called) tr.className = "done";
       var who = document.createElement("td"); who.className = "who";
       var b = document.createElement("b"); b.textContent = x.name || "—"; who.appendChild(b);
+      if (x.name && !nameMatches(x.name, x.email)) {
+        var warn = document.createElement("small");
+        warn.textContent = "⚠ nom à vérifier : l’adresse ne correspond pas à ce nom";
+        warn.style.cssText = "display:block;color:var(--wine)";
+        who.appendChild(warn);
+      }
       if (x.job) { var j = document.createElement("small"); j.textContent = x.job; who.appendChild(j); who.appendChild(document.createElement("br")); }
       var m = document.createElement("a"); m.href = "mailto:" + x.email; m.textContent = x.email; who.appendChild(m);
       var co = document.createElement("td"); co.textContent = x.company;
@@ -285,8 +304,8 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
       $("cd-sub").textContent = (c.subject ? "Objet : " + c.subject + " · " : "") + "envoyée le " + fmtDate(c.sentDate, true) + " à " + nf.format(c.sent) + " contacts";
       $("cd-delivered").textContent = nf.format(c.delivered);
       $("cd-opens").textContent = nf.format(c.opens);
-      $("cd-clicks").textContent = nf.format(c.clicks);
-      $("cd-ctr").textContent = c.delivered ? (c.clicks / c.delivered * 100).toLocaleString("fr-FR", { maximumFractionDigits: 1 }) + " %" : "—";
+      cdDelivered = c.delivered;
+      clkCount();
       $("cd-bounces").textContent = nf.format(c.hardBounces + c.softBounces);
       $("cd-unsub").textContent = nf.format(c.unsubscriptions);
       fill("cd-links", c.links, function (x) {
@@ -337,7 +356,7 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
     fill("t-devices", s.devices, site, none, 2);
     fill("t-countries", s.countries, site, none, 2);
     fill("t-camps", c.list, function (x) {
-      return [x.name, fmtDate(x.sentDate, true), x.sent, x.delivered, x.opens, x.clicks, x.bounces, x.unsubscriptions];
+      return [x.name, fmtDate(x.sentDate, true), x.sent, x.delivered, x.opens, x.clicks > x.delivered ? "voir détail" : x.clicks, x.bounces, x.unsubscriptions];
     }, c.error ? errText(c.error) : "Aucune campagne envoyée.", 8);
     var sel = $("camp-select"), cur = sel.value;
     sel.length = 1;
