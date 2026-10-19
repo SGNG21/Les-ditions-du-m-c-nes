@@ -60,10 +60,6 @@ function transformHtml(content, rel = "") {
   // Adresses absolues (canonical, og:url, JSON-LD) sans « .html », comme les sert Vercel.
   const abs = new RegExp(siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "/[A-Za-z0-9_./-]*\\.html", "g");
   out = out.replace(abs, cleanUrl);
-  // Mesure d'audience Vercel Web Analytics (sans cookie), sauf fichiers sous assets/ (e-mails).
-  if (!rel.startsWith("assets/") && !out.includes("/_vercel/insights/script.js")) {
-    out = out.replace(/<\/head>/i, '<script defer src="/_vercel/insights/script.js"></script></head>');
-  }
   if (noindex) {
     // Injecte le noindex juste après le charset (présent sur toutes les pages).
     out = out.replace(
