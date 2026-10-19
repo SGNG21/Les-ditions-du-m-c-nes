@@ -13,9 +13,10 @@ SERIF = "Georgia,'Times New Roman',serif"
 SANS = "Helvetica,Arial,sans-serif"
 
 
-def utm(path, campaign):
+def utm(path, campaign, content=""):
     sep = "&" if "?" in path else "?"
-    return f"{SITE}{path}{sep}utm_source=brevo&utm_medium=email&utm_campaign={campaign}"
+    tag = f"&utm_content={content}" if content else ""
+    return f"{SITE}{path}{sep}utm_source=brevo&utm_medium=email&utm_campaign={campaign}{tag}"
 
 
 def p(text, size=16, color="#2A2018", italic=False, margin="0 0 16px"):
@@ -53,7 +54,7 @@ def quotes(text):
     return p(text, size=15, color=WINE, italic=True, margin="0 0 22px")
 
 
-def email(title, preheader, hero_img, hero_alt, hero_bg, body, campaign):
+def email(title, preheader, hero_img, hero_alt, hero_bg, body, campaign, logo_path):
     return f"""<!doctype html>
 <html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title}</title></head>
@@ -64,9 +65,9 @@ def email(title, preheader, hero_img, hero_alt, hero_bg, body, campaign):
 <tr><td align="center" style="padding:10px;font-family:{SANS};font-size:11px;color:{MUTED};background:#EFE7D8;">
 <a href="{{{{ mirror }}}}" style="color:{MUTED};">Voir cet e-mail dans votre navigateur</a></td></tr>
 <tr><td align="center" bgcolor="{INK}" style="background:{INK};padding:28px 20px 22px;">
-<a href="{utm('/', campaign)}"><img src="{SITE}/assets/logo-mecene-clair.png" width="210" alt="Les Éditions du Mécène" style="display:block;width:210px;height:auto;border:0;"></a>
+<a href="{utm(logo_path, campaign, 'logo')}"><img src="{SITE}/assets/logo-mecene-clair.png" width="210" alt="Les Éditions du Mécène" style="display:block;width:210px;height:auto;border:0;"></a>
 <p style="margin:10px 0 0;font-family:{SERIF};font-style:italic;font-size:14px;color:#D9CCB3;">la passion des beaux livres</p></td></tr>
-<tr><td bgcolor="{hero_bg}" style="background:{hero_bg};"><a href="{hero_img[1]}"><img src="{SITE}/{hero_img[0]}" width="600" alt="{hero_alt}" style="display:block;width:100%;max-width:600px;height:auto;border:0;"></a></td></tr>
+<tr><td bgcolor="{hero_bg}" style="background:{hero_bg};"><a href="{utm(hero_img[1], campaign, 'image')}"><img src="{SITE}/{hero_img[0]}" width="600" alt="{hero_alt}" style="display:block;width:100%;max-width:600px;height:auto;border:0;"></a></td></tr>
 <tr><td style="padding:34px 40px 10px;">
 {body}
 <p style="margin:26px 0 4px;font-family:{SERIF};font-size:16px;color:#2A2018;">Bien cordialement,</p>
@@ -78,7 +79,7 @@ def email(title, preheader, hero_img, hero_alt, hero_bg, body, campaign):
 </tr></table>
 </td></tr>
 <tr><td bgcolor="{INK}" style="background:{INK};padding:22px 40px;font-family:{SANS};font-size:11px;line-height:1.7;color:#A39684;">
-<a href="{utm('/', campaign)}" style="color:{GOLD};text-decoration:none;">les-editions-du-mecene.com</a><br>
+<a href="{utm('/', campaign, 'pied')}" style="color:{GOLD};text-decoration:none;">les-editions-du-mecene.com</a><br>
 Les Éditions du Mécène · <a href="mailto:contact@les-editions-du-mecene.com" style="color:#D9CCB3;">contact@les-editions-du-mecene.com</a> · <a href="tel:+33681277860" style="color:#D9CCB3;">06 81 27 78 60</a><br>
 Vous recevez ce message en raison de vos fonctions professionnelles. <a href="{{{{ unsubscribe }}}}" style="color:#D9CCB3;">Se désinscrire</a>
 </td></tr>
@@ -109,7 +110,7 @@ CAMPAGNES = [
         + bullets(PERSO)
         + specs("520 pages · 31 × 23 cm · 640 photographies · dès 500 exemplaires, livrés pour décembre 2026")
         + quotes("« Somptueux ! » Les Échos &nbsp;·&nbsp; « Envoûtant » Europe 1")
-        + button("Découvrir le livre", utm("/lp-paris-avant-apres", c))
+        + button("Découvrir le livre", utm("/lp-paris-avant-apres", c, "bouton"))
         + p("Devis gratuit sous 48 heures. Je serais heureux d’en parler avec vous."),
     },
     {
@@ -126,7 +127,7 @@ CAMPAGNES = [
         + bullets(PERSO)
         + specs("160 pages · 32 × 23,5 cm · grand format · dès 500 exemplaires")
         + quotes("« Un travail de titan… un régal à lire. » Sud Radio")
-        + button("Découvrir le livre", utm("/lp-histoire-amoureuse-du-vin", c))
+        + button("Découvrir le livre", utm("/lp-histoire-amoureuse-du-vin", c, "bouton"))
         + p("Devis gratuit sous 48 heures. Je serais heureux d’en parler avec vous."),
     },
     {
@@ -147,8 +148,8 @@ CAMPAGNES = [
             "<b>La personnalisation</b> : mécéner un livre à paraître chez nous, aux couleurs de votre entreprise, avec votre logo en couverture et la préface de votre président.",
         ])
         + quotes("Plus de vingt années de collaboration avec Ségécé et BNP Paribas Real Estate, 16 livres pour la FNAIM, 20 catalogues pour Le Louvre des Antiquaires.")
-        + button("Présenter votre projet", utm("/contact", c))
-        + p(f'Ou découvrez <a href="{utm("/entreprises", c)}" style="color:{WINE};">quelques-unes de nos réalisations</a>.'),
+        + button("Présenter votre projet", utm("/contact", c, "bouton"))
+        + p(f'Ou découvrez <a href="{utm("/entreprises", c, "texte")}" style="color:{WINE};">quelques-unes de nos réalisations</a>.'),
     },
 ]
 
@@ -156,8 +157,9 @@ CAMPAGNES = [
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     for c in CAMPAGNES:
-        html = email(c["objet"], c["preheader"], c["hero"], c["hero_alt"], c["hero_bg"], c["body"](c["campaign"]), c["campaign"])
-        html = html.replace(f'href="{c["hero"][1]}"', f'href="{utm(c["hero"][1], c["campaign"])}"')
+        # Le logo mène à la landing de la campagne (page d'accueil pour la campagne « site »).
+        logo_path = c["hero"][1] if c["campaign"] != "site" else "/"
+        html = email(c["objet"], c["preheader"], c["hero"], c["hero_alt"], c["hero_bg"], c["body"](c["campaign"]), c["campaign"], logo_path)
         (OUT / c["fichier"]).write_text(html, encoding="utf-8")
         print(OUT / c["fichier"])
 
