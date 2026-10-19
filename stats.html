@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Statistiques — Les Éditions du Mécène</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Manrope:wght@400;600;700&display=swap">
+<style>
+:root{--ink:#11110f;--ivory:#f3eee4;--paper:#e9e0d1;--wine:#651c27;--gold:#b79a5d;--muted:#70685e;--line:rgba(17,17,15,.14);--card:#fbf8f2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ivory);color:var(--ink);font:15px/1.5 Manrope,Arial,sans-serif}
+h1,h2{font-family:'Cormorant Garamond',serif;font-weight:500;margin:0}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.1}
+h1 em{color:var(--wine)}
+h2{font-size:26px;margin-bottom:14px}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:28px}
+header img{height:44px;width:auto}
+button,.btn{font:600 13px Manrope,Arial,sans-serif;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:9px 16px;border-radius:999px;cursor:pointer}
+button.on,button.primary{background:var(--ink);color:var(--ivory)}
+.login{max-width:380px;margin:12vh auto;text-align:center}
+.login form{display:flex;flex-direction:column;gap:12px;margin-top:24px}
+input{font:15px Manrope,Arial,sans-serif;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.err{color:var(--wine);min-height:22px;font-size:14px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.periods{display:flex;gap:8px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:28px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.kpi small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.kpi b{display:block;font:500 36px/1.1 'Cormorant Garamond',serif;margin-top:6px;font-variant-numeric:tabular-nums}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.grid2 section{margin-bottom:0}
+.chart{display:flex;align-items:flex-end;gap:3px;height:150px;border-bottom:1px solid var(--line)}
+.chart i{flex:1;background:var(--wine);border-radius:3px 3px 0 0;min-height:2px;opacity:.85}
+.chart i:hover{opacity:1}
+.axis{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:6px}
+.table{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{min-width:150px}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.note{color:var(--muted);font-size:13px;margin:10px 0 0}
+.empty{color:var(--muted);font-size:14px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="login" id="login" hidden>
+    <img src="/assets/logo-mecene.svg" width="1730" height="626" alt="Les Éditions du Mécène" style="height:56px;width:auto">
+    <h1 style="margin-top:28px">Espace <em>statistiques</em></h1>
+    <form id="login-form">
+      <input type="password" id="password" placeholder="Mot de passe" autocomplete="current-password" required>
+      <button class="primary" type="submit">Se connecter</button>
+      <div class="err" id="login-err"></div>
+    </form>
+  </div>
+
+  <div id="dash" hidden>
+    <header>
+      <img src="/assets/logo-mecene.svg" width="1730" height="626" alt="Les Éditions du Mécène">
+      <button id="logout">Se déconnecter</button>
+    </header>
+    <div class="bar">
+      <h1>Statistiques <em>du site</em></h1>
+      <div class="periods">
+        <button data-days="7">7 jours</button>
+        <button data-days="30">30 jours</button>
+        <button data-days="90">90 jours</button>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><small>Visites</small><b id="k-visits">—</b></div>
+      <div class="kpi"><small>Pages vues</small><b id="k-views">—</b></div>
+      <div class="kpi"><small>Demandes reçues</small><b id="k-leads">—</b></div>
+      <div class="kpi"><small>Campagnes envoyées</small><b id="k-camps">—</b></div>
+    </div>
+
+    <section>
+      <h2>Pages vues par jour</h2>
+      <div class="chart" id="chart"></div>
+      <div class="axis"><span id="ax-start"></span><span id="ax-end"></span></div>
+      <p class="note" id="site-note"></p>
+    </section>
+
+    <div class="grid2" style="margin-bottom:20px">
+      <section><h2>Pages les plus vues</h2><div class="table"><table><thead><tr><th>Page</th><th class="n">Vues</th></tr></thead><tbody id="t-pages"></tbody></table></div></section>
+      <section><h2>Provenance des visites</h2><div class="table"><table><thead><tr><th>Site d’origine</th><th class="n">Vues</th></tr></thead><tbody id="t-sources"></tbody></table></div></section>
+      <section><h2>Appareils</h2><div class="table"><table><thead><tr><th>Type</th><th class="n">Vues</th></tr></thead><tbody id="t-devices"></tbody></table></div></section>
+      <section><h2>Pays</h2><div class="table"><table><thead><tr><th>Pays</th><th class="n">Vues</th></tr></thead><tbody id="t-countries"></tbody></table></div></section>
+    </div>
+
+    <section>
+      <h2>Campagnes e-mail</h2>
+      <div class="table"><table><thead><tr><th>Campagne</th><th>Envoyée le</th><th class="n">Envoyés</th><th class="n">Délivrés</th><th class="n">Ouvertures</th><th class="n">Clics</th><th class="n">Rejets</th><th class="n">Désinscr.</th></tr></thead><tbody id="t-camps"></tbody></table></div>
+      <p class="note">Les ouvertures comptent aussi les ouvertures automatiques des antivirus de messagerie : les clics sont l’indicateur fiable.</p>
+    </section>
+
+    <section>
+      <h2>Dernières demandes reçues</h2>
+      <div class="table"><table><thead><tr><th>Date</th><th>Nom</th><th>Entreprise</th><th>E-mail</th><th>Téléphone</th><th>Provenance</th></tr></thead><tbody id="t-leads"></tbody></table></div>
+    </section>
+  </div>
+</div>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var nf = new Intl.NumberFormat("fr-FR");
+  var days = 30;
+  try { days = Number(localStorage.getItem("mecene_stats_days")) || 30; } catch (e) {}
+
+  function fmtDate(v, withTime) {
+    if (!v) return "";
+    var d = new Date(v);
+    if (isNaN(d)) return v;
+    return d.toLocaleDateString("fr-FR", withTime ? { timeZone: "Europe/Paris", day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" } : { timeZone: "Europe/Paris", day: "2-digit", month: "2-digit", year: "numeric" });
+  }
+  function row(cells) {
+    var tr = document.createElement("tr");
+    cells.forEach(function (c) {
+      var td = document.createElement("td");
+      if (typeof c === "number") { td.className = "n"; td.textContent = nf.format(c); }
+      else td.textContent = c == null ? "" : c;
+      tr.appendChild(td);
+    });
+    return tr;
+  }
+  function fill(id, items, toCells, emptyText, cols) {
+    var tb = $(id);
+    tb.textContent = "";
+    if (!items || !items.length) {
+      var tr = document.createElement("tr"), td = document.createElement("td");
+      td.colSpan = cols; td.className = "empty"; td.textContent = emptyText;
+      tr.appendChild(td); tb.appendChild(tr); return;
+    }
+    items.forEach(function (it) { tb.appendChild(row(toCells(it))); });
+  }
+  var MSG = { not_configured: "Pas encore configuré.", unauthorized: "Accès refusé." };
+  function errText(e) { return MSG[e] || "Données indisponibles pour le moment (" + e + ")."; }
+
+  function render(d) {
+    var s = d.site || {}, c = d.campaigns || {}, l = d.leads || {};
+    $("k-visits").textContent = s.error ? "—" : nf.format(s.visits);
+    $("k-views").textContent = s.error ? "—" : nf.format(s.views);
+    $("k-leads").textContent = l.error ? "—" : nf.format(l.total);
+    $("k-camps").textContent = c.error ? "—" : nf.format((c.list || []).length);
+
+    var chart = $("chart");
+    chart.textContent = "";
+    var series = s.days || [];
+    var max = Math.max.apply(null, series.map(function (x) { return x.views; }).concat([1]));
+    series.forEach(function (x) {
+      var i = document.createElement("i");
+      i.style.height = (x.views / max * 100) + "%";
+      i.title = fmtDate(x.label) + " : " + nf.format(x.views) + " pages vues, " + nf.format(x.visits) + " visites";
+      chart.appendChild(i);
+    });
+    $("ax-start").textContent = series.length ? fmtDate(series[0].label) : "";
+    $("ax-end").textContent = series.length ? fmtDate(series[series.length - 1].label) : "";
+    $("site-note").textContent = s.error ? "Fréquentation : " + errText(s.error) : (series.length ? "" : "Aucune visite enregistrée sur la période.");
+
+    var site = function (it) { return [it.label, it.views]; };
+    var none = s.error ? errText(s.error) : "Aucune donnée.";
+    fill("t-pages", s.pages, site, none, 2);
+    fill("t-sources", (s.sources || []).map(function (x) { return { label: x.label || "Accès direct, e-mail ou favori", views: x.views }; }), site, none, 2);
+    fill("t-devices", s.devices, site, none, 2);
+    fill("t-countries", s.countries, site, none, 2);
+    fill("t-camps", c.list, function (x) {
+      return [x.name, fmtDate(x.sentDate, true), x.sent, x.delivered, x.opens, x.clicks, x.bounces, x.unsubscriptions];
+    }, c.error ? errText(c.error) : "Aucune campagne envoyée.", 8);
+    fill("t-leads", l.list, function (x) {
+      return [fmtDate(x.date), x.name, x.company, x.email, x.phone, x.source];
+    }, l.error ? errText(l.error) : "Aucune demande pour l’instant.", 6);
+  }
+
+  function setPeriod(n) {
+    days = n;
+    try { localStorage.setItem("mecene_stats_days", String(n)); } catch (e) {}
+    document.querySelectorAll("[data-days]").forEach(function (b) { b.classList.toggle("on", Number(b.dataset.days) === n); });
+  }
+
+  function load() {
+    setPeriod(days);
+    return fetch("/api/stats?days=" + days, { credentials: "same-origin" }).then(function (r) {
+      if (r.status === 401) { $("dash").hidden = true; $("login").hidden = false; return; }
+      return r.json().then(function (d) { $("login").hidden = true; $("dash").hidden = false; render(d); });
+    }).catch(function () { $("login").hidden = false; $("login-err").textContent = "Connexion impossible. Réessayez."; });
+  }
+
+  $("login-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    $("login-err").textContent = "";
+    fetch("/api/stats-login", { method: "POST", headers: { "content-type": "application/json" }, credentials: "same-origin", body: JSON.stringify({ password: $("password").value }) })
+      .then(function (r) {
+        if (r.ok) { $("password").value = ""; return load(); }
+        $("login-err").textContent = r.status === 429 ? "Trop d’essais, réessayez dans 15 minutes." : r.status === 503 ? "Mot de passe pas encore configuré." : "Mot de passe incorrect.";
+      });
+  });
+  $("logout").addEventListener("click", function () {
+    fetch("/api/stats-login", { method: "DELETE", credentials: "same-origin" }).then(function () { $("dash").hidden = true; $("login").hidden = false; });
+  });
+  document.querySelectorAll("[data-days]").forEach(function (b) {
+    b.addEventListener("click", function () { setPeriod(Number(b.dataset.days)); load(); });
+  });
+  load();
+})();
+</script>
+</body>
+</html>

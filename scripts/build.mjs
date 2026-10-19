@@ -60,8 +60,8 @@ function transformHtml(content, rel = "") {
   // Adresses absolues (canonical, og:url, JSON-LD) sans « .html », comme les sert Vercel.
   const abs = new RegExp(siteUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "/[A-Za-z0-9_./-]*\\.html", "g");
   out = out.replace(abs, cleanUrl);
-  // Mesure d'audience Cloudflare Web Analytics (sans cookie), sauf fichiers sous assets/ (e-mails).
-  if (!rel.startsWith("assets/") && !out.includes("cloudflareinsights.com")) {
+  // Mesure d'audience Cloudflare Web Analytics (sans cookie), sauf e-mails (assets/) et espace statistiques.
+  if (!rel.startsWith("assets/") && rel !== "stats.html" && !out.includes("cloudflareinsights.com")) {
     out = out.replace(/<\/head>/i, `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "eb8227dfc72848e3b61179a9887bd3c4"}'></script></head>`);
   }
   if (noindex) {
