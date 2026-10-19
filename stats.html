@@ -57,6 +57,17 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
 .detail .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
 .detail .kpis{margin-bottom:18px}
 .detail .kpi b{font-size:24px}
+.clk input[type=text],.clk input[type=tel]{font:14px Manrope,Arial,sans-serif;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:#fff;width:100%;min-width:140px}
+.clk input[type=tel]{max-width:170px}
+.clk input[type=text]{min-width:220px}
+.clk input[type=checkbox]{width:18px;height:18px;accent-color:var(--wine);cursor:pointer}
+.clk td{vertical-align:middle}
+.clk tr.done td{background:#eef1ea}
+.clk .who b{display:block}
+.clk .who small,.clk .who a{color:var(--muted);font-size:12px}
+.clk .saved{color:var(--muted);font-size:11px;white-space:nowrap}
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 8px}
+.filters button{padding:6px 12px;font-size:12px}
 .detail h4{font:600 12px Manrope,Arial,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 6px}
 [hidden]{display:none!important}
 </style>
@@ -127,6 +138,14 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
         </div>
         <h4>Clics par lien</h4>
         <div class="table"><table><thead><tr><th>Emplacement dans l’e-mail</th><th>Page ouverte</th><th class="n">Clics</th></tr></thead><tbody id="cd-links"></tbody></table></div>
+        <h4>Personnes qui ont cliqué <span id="clk-count"></span></h4>
+        <div class="filters" id="clk-filters">
+          <button data-f="all" class="on">Toutes</button>
+          <button data-f="todo">À appeler</button>
+          <button data-f="done">Appelées</button>
+        </div>
+        <div class="table clk"><table><thead><tr><th>Contact</th><th>Entreprise</th><th>Téléphone</th><th>Appelé</th><th>Commentaire</th><th></th></tr></thead><tbody id="cd-clickers"></tbody></table></div>
+        <p class="note">Le suivi est enregistré sur la fiche du contact dans Brevo (attributs SUIVI_APPELE, SUIVI_COMMENTAIRE, SUIVI_DATE). Parmi les clics, certains viennent des antivirus de messagerie : une adresse générique (contact@, info@…) qui clique dès réception en fait souvent partie.</p>
         <h4>Demandes reçues grâce à cette campagne</h4>
         <div class="table"><table><thead><tr><th>Date</th><th>Nom</th><th>Entreprise</th><th>E-mail</th><th>Téléphone</th></tr></thead><tbody id="cd-leads"></tbody></table></div>
       </div>
@@ -177,11 +196,86 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
   var last = null;
   var PLACES = { logo: "Logo", image: "Image du livre", bouton: "Bouton", pied: "Pied de page", texte: "Lien dans le texte" };
 
+  var clk = [], clkFilter = "all", clkCampaign = null;
+
+  function clkCount() {
+    var done = clk.filter(function (x) { return x.called; }).length;
+    $("clk-count").textContent = clk.length ? "(" + clk.length + " · " + done + " appelée" + (done > 1 ? "s" : "") + ")" : "";
+  }
+
+  function renderClickers() {
+    var tb = $("cd-clickers");
+    tb.textContent = "";
+    clkCount();
+    var rows = clk.filter(function (x) { return clkFilter === "all" || (clkFilter === "done") === x.called; });
+    if (!rows.length) {
+      var tr0 = document.createElement("tr"), td0 = document.createElement("td");
+      td0.colSpan = 6; td0.className = "empty"; td0.textContent = clk.length ? "Personne dans ce filtre." : "Aucun clic pour l’instant.";
+      tr0.appendChild(td0); tb.appendChild(tr0); return;
+    }
+    rows.forEach(function (x) {
+      var tr = document.createElement("tr");
+      if (x.called) tr.className = "done";
+      var who = document.createElement("td"); who.className = "who";
+      var b = document.createElement("b"); b.textContent = x.name || "—"; who.appendChild(b);
+      if (x.job) { var j = document.createElement("small"); j.textContent = x.job; who.appendChild(j); who.appendChild(document.createElement("br")); }
+      var m = document.createElement("a"); m.href = "mailto:" + x.email; m.textContent = x.email; who.appendChild(m);
+      var co = document.createElement("td"); co.textContent = x.company;
+      var ph = document.createElement("td");
+      var pin = document.createElement("input"); pin.type = "tel"; pin.value = x.phone; pin.placeholder = "Ajouter un numéro";
+      ph.appendChild(pin);
+      if (x.phone) { var call = document.createElement("a"); call.href = "tel:" + x.phone.replace(/\s/g, ""); call.textContent = "Appeler"; call.style.cssText = "display:inline-block;margin-top:4px;font-size:12px;color:var(--wine)"; ph.appendChild(call); }
+      var ck = document.createElement("td");
+      var cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = x.called; cb.setAttribute("aria-label", "Appelé");
+      ck.appendChild(cb);
+      var cm = document.createElement("td");
+      var cin = document.createElement("input"); cin.type = "text"; cin.value = x.comment; cin.placeholder = "Commentaire";
+      cm.appendChild(cin);
+      var st = document.createElement("td"); st.className = "saved"; st.textContent = x.date ? "Suivi du " + fmtDate(x.date) : "";
+      var queue = Promise.resolve();
+      function save() { queue = queue.then(send, send); }
+      function send() {
+        st.textContent = "Enregistrement…";
+        return fetch("/api/stats-suivi", { method: "POST", credentials: "same-origin", headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email: x.email, appele: cb.checked, commentaire: cin.value, telephone: pin.value }) })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (!d.ok) { st.textContent = "Erreur, réessayez"; return; }
+            x.called = cb.checked; x.comment = cin.value; x.phone = pin.value; x.date = d.date;
+            tr.className = x.called ? "done" : "";
+            st.textContent = "Enregistré ✓";
+            clkCount();
+          })
+          .catch(function () { st.textContent = "Erreur, réessayez"; });
+      }
+      cb.addEventListener("change", save);
+      cin.addEventListener("change", save);
+      pin.addEventListener("change", save);
+      [who, co, ph, ck, cm, st].forEach(function (td) { tr.appendChild(td); });
+      tb.appendChild(tr);
+    });
+  }
+
+  function loadClickers(id, pid) {
+    clkCampaign = id;
+    if (!pid) { clk = []; $("cd-clickers").innerHTML = '<tr><td colspan="6" class="empty">Chargement de la liste (quelques secondes)…</td></tr>'; $("clk-count").textContent = ""; }
+    fetch("/api/stats-suivi?campaign=" + id + (pid ? "&process=" + pid : ""), { credentials: "same-origin" })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (clkCampaign !== id) return;
+        if (d.pending) return setTimeout(function () { loadClickers(id, d.process); }, 2000);
+        if (!d.ok) { $("cd-clickers").innerHTML = '<tr><td colspan="6" class="empty"></td></tr>'; $("cd-clickers").querySelector("td").textContent = errText(d.error); return; }
+        clk = d.list || [];
+        renderClickers();
+      });
+  }
+
   function showCampaign(id) {
     $("camp-select").value = id ? String(id) : "";
     document.querySelectorAll("#t-camps tr").forEach(function (tr) { tr.classList.toggle("sel", tr.dataset.id === String(id)); });
     if (!id) { $("camp-detail").hidden = true; return; }
     $("camp-detail").hidden = false;
+    loadClickers(String(id));
     $("cd-name").textContent = "Chargement…";
     $("cd-sub").textContent = "";
     fetch("/api/stats?campaign=" + id, { credentials: "same-origin" }).then(function (r) { return r.json(); }).then(function (d) {
@@ -288,6 +382,13 @@ select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid 
     b.addEventListener("click", function () { setPeriod(Number(b.dataset.days)); load(); });
   });
   $("camp-select").addEventListener("change", function () { showCampaign(this.value); });
+  document.querySelectorAll("#clk-filters button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      clkFilter = b.dataset.f;
+      document.querySelectorAll("#clk-filters button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      renderClickers();
+    });
+  });
   load();
 })();
 </script>
