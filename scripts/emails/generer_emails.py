@@ -71,7 +71,11 @@ def email(title, preheader, hero_img, hero_alt, hero_bg, body, campaign):
 {body}
 <p style="margin:26px 0 4px;font-family:{SERIF};font-size:16px;color:#2A2018;">Bien cordialement,</p>
 <p style="margin:0;font-family:{SERIF};font-size:17px;color:{INK};"><b>Patrice de Moncan</b></p>
-<p style="margin:0 0 30px;font-family:{SANS};font-size:13px;color:{MUTED};">Président, Les Éditions du Mécène · <a href="tel:+33681277860" style="color:{MUTED};">06 81 27 78 60</a></p>
+<p style="margin:0 0 14px;font-family:{SANS};font-size:13px;color:{MUTED};">Président, Les Éditions du Mécène · <a href="tel:+33681277860" style="color:{MUTED};">06 81 27 78 60</a></p>
+<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 30px;"><tr>
+<td valign="middle" style="padding-right:12px;"><img src="{SITE}/assets/logos/distinctions/whos-who-in-france.png" width="56" alt="Who’s Who in France" style="display:block;width:56px;height:auto;border:0;"></td>
+<td valign="middle" style="font-family:{SANS};font-size:12px;letter-spacing:1px;text-transform:uppercase;color:{WINE};">Membre du Who’s Who in France</td>
+</tr></table>
 </td></tr>
 <tr><td bgcolor="{INK}" style="background:{INK};padding:22px 40px;font-family:{SANS};font-size:11px;line-height:1.7;color:#A39684;">
 <a href="{utm('/', campaign)}" style="color:{GOLD};text-decoration:none;">les-editions-du-mecene.com</a><br>
