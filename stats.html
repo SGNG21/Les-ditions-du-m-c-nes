@@ -30,7 +30,7 @@ input{font:15px Manrope,Arial,sans-serif;padding:12px 14px;border:1px solid var(
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:28px}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
 .kpi small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
-.kpi b{display:block;font:500 36px/1.1 'Cormorant Garamond',serif;margin-top:6px;font-variant-numeric:tabular-nums}
+.kpi b{display:block;font:600 30px/1.2 Manrope,Arial,sans-serif;margin-top:6px;font-variant-numeric:lining-nums tabular-nums}
 section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:20px}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
 .grid2 section{margin-bottom:0}
@@ -47,6 +47,17 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 tr:last-child td{border-bottom:0}
 .note{color:var(--muted);font-size:13px;margin:10px 0 0}
 .empty{color:var(--muted);font-size:14px}
+.sechead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sechead h2{margin:0}
+select{font:600 13px Manrope,Arial,sans-serif;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);max-width:100%}
+#t-camps tr{cursor:pointer}
+#t-camps tr:hover td,#t-camps tr.sel td{background:var(--paper)}
+.detail{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.detail h3{font:500 22px 'Cormorant Garamond',serif;margin:0 0 4px}
+.detail .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+.detail .kpis{margin-bottom:18px}
+.detail .kpi b{font-size:24px}
+.detail h4{font:600 12px Manrope,Arial,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:18px 0 6px}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -97,9 +108,28 @@ tr:last-child td{border-bottom:0}
     </div>
 
     <section>
-      <h2>Campagnes e-mail</h2>
+      <div class="sechead">
+        <h2>Campagnes e-mail</h2>
+        <select id="camp-select" aria-label="Choisir une campagne"><option value="">Choisir une campagne…</option></select>
+      </div>
       <div class="table"><table><thead><tr><th>Campagne</th><th>Envoyée le</th><th class="n">Envoyés</th><th class="n">Délivrés</th><th class="n">Ouvertures</th><th class="n">Clics</th><th class="n">Rejets</th><th class="n">Désinscr.</th></tr></thead><tbody id="t-camps"></tbody></table></div>
-      <p class="note">Les ouvertures comptent aussi les ouvertures automatiques des antivirus de messagerie : les clics sont l’indicateur fiable.</p>
+      <p class="note">Les ouvertures comptent aussi les ouvertures automatiques des antivirus de messagerie : les clics sont l’indicateur fiable. Cliquez sur une campagne pour voir son détail.</p>
+      <div class="detail" id="camp-detail" hidden>
+        <h3 id="cd-name"></h3>
+        <p class="sub" id="cd-sub"></p>
+        <div class="kpis">
+          <div class="kpi"><small>Délivrés</small><b id="cd-delivered">—</b></div>
+          <div class="kpi"><small>Ouvertures</small><b id="cd-opens">—</b></div>
+          <div class="kpi"><small>Clics</small><b id="cd-clicks">—</b></div>
+          <div class="kpi"><small>Taux de clic</small><b id="cd-ctr">—</b></div>
+          <div class="kpi"><small>Rejets</small><b id="cd-bounces">—</b></div>
+          <div class="kpi"><small>Désinscriptions</small><b id="cd-unsub">—</b></div>
+        </div>
+        <h4>Clics par lien</h4>
+        <div class="table"><table><thead><tr><th>Emplacement dans l’e-mail</th><th>Page ouverte</th><th class="n">Clics</th></tr></thead><tbody id="cd-links"></tbody></table></div>
+        <h4>Demandes reçues grâce à cette campagne</h4>
+        <div class="table"><table><thead><tr><th>Date</th><th>Nom</th><th>Entreprise</th><th>E-mail</th><th>Téléphone</th></tr></thead><tbody id="cd-leads"></tbody></table></div>
+      </div>
     </section>
 
     <section>
@@ -144,7 +174,39 @@ tr:last-child td{border-bottom:0}
   var MSG = { not_configured: "Pas encore configuré.", unauthorized: "Accès refusé." };
   function errText(e) { return MSG[e] || "Données indisponibles pour le moment (" + e + ")."; }
 
+  var last = null;
+  var PLACES = { logo: "Logo", image: "Image du livre", bouton: "Bouton", pied: "Pied de page", texte: "Lien dans le texte" };
+
+  function showCampaign(id) {
+    $("camp-select").value = id ? String(id) : "";
+    document.querySelectorAll("#t-camps tr").forEach(function (tr) { tr.classList.toggle("sel", tr.dataset.id === String(id)); });
+    if (!id) { $("camp-detail").hidden = true; return; }
+    $("camp-detail").hidden = false;
+    $("cd-name").textContent = "Chargement…";
+    $("cd-sub").textContent = "";
+    fetch("/api/stats?campaign=" + id, { credentials: "same-origin" }).then(function (r) { return r.json(); }).then(function (d) {
+      var c = d.campaign || {};
+      if (c.error) { $("cd-name").textContent = errText(c.error); return; }
+      $("cd-name").textContent = c.name;
+      $("cd-sub").textContent = (c.subject ? "Objet : " + c.subject + " · " : "") + "envoyée le " + fmtDate(c.sentDate, true) + " à " + nf.format(c.sent) + " contacts";
+      $("cd-delivered").textContent = nf.format(c.delivered);
+      $("cd-opens").textContent = nf.format(c.opens);
+      $("cd-clicks").textContent = nf.format(c.clicks);
+      $("cd-ctr").textContent = c.delivered ? (c.clicks / c.delivered * 100).toLocaleString("fr-FR", { maximumFractionDigits: 1 }) + " %" : "—";
+      $("cd-bounces").textContent = nf.format(c.hardBounces + c.softBounces);
+      $("cd-unsub").textContent = nf.format(c.unsubscriptions);
+      fill("cd-links", c.links, function (x) {
+        return [PLACES[x.content] || (x.content ? x.content : (x.path === "/" ? "Logo et pied de page (non distingués)" : "Image et bouton (non distingués)")), x.path, x.clicks];
+      }, "Aucun clic pour l’instant.", 3);
+      var leads = ((last && last.leads && last.leads.list) || []).filter(function (x) {
+        return c.utmCampaign && x.source.indexOf(c.utmCampaign) > -1;
+      });
+      fill("cd-leads", leads, function (x) { return [fmtDate(x.date), x.name, x.company, x.email, x.phone]; }, "Aucune demande liée à cette campagne pour l’instant.", 5);
+    });
+  }
+
   function render(d) {
+    last = d;
     var s = d.site || {}, c = d.campaigns || {}, l = d.leads || {};
     $("k-visits").textContent = s.error ? "—" : nf.format(s.visits);
     $("k-views").textContent = s.error ? "—" : nf.format(s.views);
@@ -153,7 +215,16 @@ tr:last-child td{border-bottom:0}
 
     var chart = $("chart");
     chart.textContent = "";
-    var series = s.days || [];
+    // Une barre par jour de la période, y compris les jours sans visite.
+    var byDay = {};
+    (s.days || []).forEach(function (x) { byDay[x.label] = x; });
+    var series = [];
+    if (!s.error) {
+      for (var k = d.days - 1; k >= 0; k--) {
+        var key = new Date(Date.now() - k * 86400000).toISOString().slice(0, 10);
+        series.push(byDay[key] || { label: key, views: 0, visits: 0 });
+      }
+    }
     var max = Math.max.apply(null, series.map(function (x) { return x.views; }).concat([1]));
     series.forEach(function (x) {
       var i = document.createElement("i");
@@ -163,17 +234,25 @@ tr:last-child td{border-bottom:0}
     });
     $("ax-start").textContent = series.length ? fmtDate(series[0].label) : "";
     $("ax-end").textContent = series.length ? fmtDate(series[series.length - 1].label) : "";
-    $("site-note").textContent = s.error ? "Fréquentation : " + errText(s.error) : (series.length ? "" : "Aucune visite enregistrée sur la période.");
+    $("site-note").textContent = s.error ? "Fréquentation : " + errText(s.error) : ((s.days || []).length ? "" : "Aucune visite enregistrée sur la période.");
 
     var site = function (it) { return [it.label, it.views]; };
     var none = s.error ? errText(s.error) : "Aucune donnée.";
     fill("t-pages", s.pages, site, none, 2);
-    fill("t-sources", (s.sources || []).map(function (x) { return { label: x.label || "Accès direct, e-mail ou favori", views: x.views }; }), site, none, 2);
+    fill("t-sources", (s.sources || []).map(function (x) { return { label: !x.label ? "Accès direct, e-mail ou favori" : /sendib|brevo/i.test(x.label) ? "E-mail Brevo (" + x.label + ")" : x.label, views: x.views }; }), site, none, 2);
     fill("t-devices", s.devices, site, none, 2);
     fill("t-countries", s.countries, site, none, 2);
     fill("t-camps", c.list, function (x) {
       return [x.name, fmtDate(x.sentDate, true), x.sent, x.delivered, x.opens, x.clicks, x.bounces, x.unsubscriptions];
     }, c.error ? errText(c.error) : "Aucune campagne envoyée.", 8);
+    var sel = $("camp-select"), cur = sel.value;
+    sel.length = 1;
+    (c.list || []).forEach(function (x, i) {
+      sel.add(new Option(x.name + " — " + fmtDate(x.sentDate), String(x.id)));
+      var tr = $("t-camps").rows[i];
+      if (tr) { tr.dataset.id = String(x.id); tr.addEventListener("click", function () { showCampaign(x.id); }); }
+    });
+    if (cur && (c.list || []).some(function (x) { return String(x.id) === cur; })) showCampaign(cur);
     fill("t-leads", l.list, function (x) {
       return [fmtDate(x.date), x.name, x.company, x.email, x.phone, x.source];
     }, l.error ? errText(l.error) : "Aucune demande pour l’instant.", 6);
@@ -208,6 +287,7 @@ tr:last-child td{border-bottom:0}
   document.querySelectorAll("[data-days]").forEach(function (b) {
     b.addEventListener("click", function () { setPeriod(Number(b.dataset.days)); load(); });
   });
+  $("camp-select").addEventListener("change", function () { showCampaign(this.value); });
   load();
 })();
 </script>

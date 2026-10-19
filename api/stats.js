@@ -2,6 +2,7 @@
  * Serverless Function Vercel — données de l'espace statistiques (accès réservé).
  *
  *   GET /api/stats?days=7|30|90
+ *   GET /api/stats?campaign=<id>   → détail d'une campagne (clics par lien)
  *
  * Réunit :
  *   - la fréquentation du site (Cloudflare Web Analytics, API GraphQL) ;
@@ -67,6 +68,16 @@ async function cloudflare(days) {
   }
 }
 
+// Brevo met à jour les chiffres par liste (campaignStats) avant les totaux globaux : on les additionne.
+function campaignTotals(c) {
+  const lists = c.campaignStats || [];
+  if (!lists.length) return c.statistics?.globalStats || {};
+  return lists.reduce((t, x) => {
+    for (const k of ["sent", "delivered", "uniqueViews", "uniqueClicks", "hardBounces", "softBounces", "unsubscriptions"]) t[k] = (t[k] || 0) + (x[k] || 0);
+    return t;
+  }, {});
+}
+
 async function brevo(path) {
   const r = await fetch(`https://api.brevo.com/v3${path}`, {
     headers: { "api-key": process.env.BREVO_API_KEY, accept: "application/json" },
@@ -81,7 +92,7 @@ async function campaigns() {
     const data = await brevo("/emailCampaigns?status=sent&statistics=globalStats&excludeHtmlContent=true&limit=20&sort=desc");
     return {
       list: (data.campaigns || []).map((c) => {
-        const s = c.statistics?.globalStats || {};
+        const s = campaignTotals(c);
         return {
           id: c.id,
           name: c.name,
@@ -97,6 +108,43 @@ async function campaigns() {
     };
   } catch (err) {
     console.warn("[stats] Brevo campagnes:", err.message);
+    return { error: err.message };
+  }
+}
+
+async function campaignDetail(id) {
+  if (!process.env.BREVO_API_KEY) return { error: "not_configured" };
+  try {
+    const base = `/emailCampaigns/${id}?excludeHtmlContent=true&statistics=`;
+    const [g, l] = await Promise.all([brevo(base + "globalStats"), brevo(base + "linksStats")]);
+    const s = campaignTotals(g);
+    const links = Object.entries(l.statistics?.linksStats || {}).map(([url, clicks]) => {
+      let path = url, content = "", campaign = "";
+      try {
+        const u = new URL(url);
+        path = u.pathname;
+        content = u.searchParams.get("utm_content") || "";
+        campaign = u.searchParams.get("utm_campaign") || "";
+      } catch {}
+      return { url, path, content, campaign, clicks };
+    });
+    return {
+      id: g.id,
+      name: g.name,
+      subject: g.subject,
+      sentDate: g.sentDate || "",
+      sent: s.sent || 0,
+      delivered: s.delivered || 0,
+      opens: s.uniqueViews || 0,
+      clicks: s.uniqueClicks || 0,
+      hardBounces: s.hardBounces || 0,
+      softBounces: s.softBounces || 0,
+      unsubscriptions: s.unsubscriptions || 0,
+      utmCampaign: links.map((x) => x.campaign).find(Boolean) || "",
+      links: links.sort((a, b) => b.clicks - a.clicks),
+    };
+  } catch (err) {
+    console.warn("[stats] Brevo campagne:", err.message);
     return { error: err.message };
   }
 }
@@ -134,6 +182,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ ok: false, error: "method_not_allowed" });
   }
   if (!isAuthed(req)) return res.status(401).json({ ok: false, error: "unauthorized" });
+  const id = Number(req.query?.campaign);
+  if (id > 0) return res.status(200).json({ ok: true, campaign: await campaignDetail(id) });
   const days = [7, 30, 90].includes(Number(req.query?.days)) ? Number(req.query.days) : 30;
   const [site, mail, demandes] = await Promise.all([cloudflare(days), campaigns(), leads()]);
   return res.status(200).json({ ok: true, days, site, campaigns: mail, leads: demandes });
