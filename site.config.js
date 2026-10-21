@@ -72,6 +72,10 @@ export const SITEMAP_PAGES = [
   { path: "/ouvrage-strasbourg.html", priority: "0.6", changefreq: "yearly" },
   { path: "/ouvrage-vin.html", priority: "0.6", changefreq: "yearly" },
   { path: "/cadeau-fin-annee.html", priority: "0.8", changefreq: "monthly" },
+  { path: "/lp-paris-avant-apres.html", priority: "0.8", changefreq: "monthly" },
+  { path: "/lp-histoire-amoureuse-du-vin.html", priority: "0.8", changefreq: "monthly" },
+  { path: "/mentions-legales.html", priority: "0.2", changefreq: "yearly" },
+  { path: "/politique-confidentialite.html", priority: "0.2", changefreq: "yearly" },
 ];
 
 // Pages livres générées au build (scripts/livres.mjs) depuis data/livres.json.
@@ -79,8 +83,7 @@ const LIVRES = JSON.parse(
   readFileSync(new URL("./data/livres.json", import.meta.url), "utf8")
 );
 for (const b of LIVRES) {
-  // Les fiches sans description sourcée (noindex) restent hors sitemap.
-  if (!b.page && b.description) {
+  if (!b.page) {
     SITEMAP_PAGES.push({ path: `/livre-${b.slug}.html`, priority: "0.5", changefreq: "yearly" });
   }
 }
