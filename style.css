@@ -767,3 +767,4 @@ body.lp-water{--lp-accent:#3e4c57;--lp-hero:linear-gradient(160deg,#f1efea 0%,#d
 /* Corrections client : couleurs d’accent explicites */
 .c-wine{color:var(--wine)!important}
 .c-gold{color:var(--gold)!important}
+.pagehero .intro.intro-long{font-size:clamp(19px,1.7vw,25px);line-height:1.4;max-width:860px}
